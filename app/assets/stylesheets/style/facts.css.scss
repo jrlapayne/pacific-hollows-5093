@@ -1,0 +1,191 @@
+.fact {
+	.vote {
+		
+		&.container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			min-height: 80px;
+			height: 100%;
+			width: 10%;
+			background: #eee;
+			border-right: 1px solid #ddd;
+		}
+		
+		&.up {
+			position: absolute;
+			top: 10px;
+			left: 23%;
+			width: 54%;
+		}
+		
+		&.down {
+			position: absolute;
+			top: 60px;
+			left: 23%;
+			width: 54%;
+		}
+		
+		&.count {
+			position: absolute;
+			top: 35px;
+			left: 10%;
+			width: 80%;
+			text-align: center;
+			font-weight: bold;
+			color: #888;
+		}
+	}
+	
+	.title {
+		
+		&.container {
+			margin: 2% 0 0 12%;
+		}
+	}
+	
+	.sources {
+		
+		&.container {
+			margin: 2% 0 60px 12%;
+		}
+	}
+		
+	.stats {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 50px;
+		width: 100%;
+		background: #888;
+		border-top: 1px solid #777;
+		
+		.picture {
+			position: absolute;
+			top: 10%;
+			left: 2%;
+			height: 80%;
+			width: 7.5%;
+			overflow: hidden;
+			@include border-radius($radius);
+		}
+	
+		.text {
+			position: absolute;
+			top: 25%;
+			left: 12%;
+			width: 20%;
+			height: 50%;
+			font-size: 0.75em;
+		
+			.name {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 50%;
+			}
+		
+			.rank {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 50%;
+			}
+		}
+		
+		.share {
+			position: absolute;
+			bottom: 0;
+			right: 44.5%;
+			width: 3em;
+			height: 3em;
+		}
+		
+		.edit {
+			position: absolute;
+			bottom: 9.4%;
+			right: 23.5%;
+			width: 2.625em;
+			height: 2.625em;
+		}
+		
+		.comments {
+			position: absolute;
+			bottom: 15%;
+			right: 1.5%;
+			width: 3em;
+			height: 2em;
+			
+			&.count {
+				font-weight: bold;
+				text-align: center;
+				color: #fff;
+				position: absolute;
+				top: 25%;
+				left: 0;
+				width: 100%;
+				height: 50%;
+			}
+		}
+	}
+	
+	label {
+		color: darken(#55B9D5, 20%);
+		font-weight: bold;
+		font-size: 1em;
+		margin: 1em 0 0 2.5%;
+	}
+	
+	textarea {
+		color: $black;
+		width: 94%;
+		font-size: 0.875em;
+		line-height: 1.286em;
+		margin: 0 0 0 2.5%;
+		@include border-radius($radius);
+	}
+	
+	input[type = text] {
+		color: $black;
+		width: 94%;
+		font-size: 0.875em;
+		line-height: 1.286em;
+		margin: 0 0 0 2.5%;
+		@include border-radius($radius);
+	}
+	
+	input[type = submit] {
+		font-weight: bold;
+		cursor: pointer;
+		color: #fff;
+		margin: 0 0 1em 2.5%;
+		width: 25%;
+		height: 3em;
+		border: 1px solid darken(#55B9D5, 30%);
+		background: darken(#55B9D5, 20%);
+		@include border-radius($radius);
+		@include gradient(darken(#55B9D5, 20%));
+		@include single-box-shadow(inset, rgba(#000, 0.5), 0, 0, 5px, 5px);
+		&:hover {
+			border: 1px solid darken(#55B9D5, 20%); 
+			background: darken(#55B9D5, 10%);
+			@include gradient(darken(#55B9D5, 10%));
+		}
+		
+		&:active {
+			border: 1px solid darken(#55B9D5, 40%); 
+			background: darken(#55B9D5, 30%);
+			@include reverse-gradient(darken(#55B9D5, 30%));
+		}
+	}
+}
+
+.fact-header {
+	font-weight: bold;
+}
+
+.fact-add {
+	font-weight: bold;
+}

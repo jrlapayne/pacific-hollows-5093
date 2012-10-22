@@ -1,0 +1,69 @@
+.panel {
+	width: 100%;
+	position: relative;
+	cursor: pointer;
+	
+	&.issue {
+		cursor: default;
+		width: 100%;
+		height: 20.125em;
+		background: #fff;
+		@include border-radius($radius);
+		position: relative;
+		border: 1px solid #9ca5bf;
+		
+		&.preview {
+			width: 16.25em;
+			height: 16.25em;
+			margin: 1.25em 0 0.625em 1.875em;
+			position: relative;
+			float: left;
+		}
+	}
+	
+	&.question {
+		width: 100%;
+		position: relative;
+		cursor: default;
+		
+		&.preview {
+			cursor: pointer;
+			height: 10.063em;
+			background: #fff;
+			border-left: 1px solid #9ca5bf;
+			border-right: 1px solid #9ca5bf;
+			border-bottom: 1px solid #dfdfdf;
+
+			&:hover {
+				background: mix(#fff, #57BBD6, 95%);
+			}
+
+			&.top {
+				@include border-top-radius(5px);
+				border-top: 1px solid #9ca5bf;
+			}
+
+			&.bottom {
+				@include border-bottom-radius(5px);
+				border-bottom: 1px solid #9ca5bf;
+			}
+		}
+		
+		&.active {
+			background: #fff;
+			border: 1px solid #9ca5bf;
+			@include border-radius($radius);
+		}
+	}
+	
+	&.fact {
+		width: 100%;
+		background: #fff;
+		margin: 0;
+		border: 1px solid #9ca5bf;
+		position: relative;
+		cursor: default;
+		min-height: 150px;	
+		height: auto;
+	}
+}

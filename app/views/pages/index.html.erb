@@ -1,0 +1,35 @@
+<div class = "header container" id = "header"></div>
+<div id = "popup_container" class = "popup"></div>
+<div class = "page"></div>
+
+<script type = 'text/json' id = 'json'>
+	{
+		"current_user": <%= current_user.to_json %>,
+		"issues" : <%= Issue.all.to_json %>,
+		"questions" : <%= Question.all.to_json %>,
+		"quedits" : <%= Quedit.all.to_json %>,
+		"answers" : <%= Answer.all.to_json %>,
+		"facts" : <%= Fact.all.to_json %>,
+		"fedits" : <%= Fedit.all.to_json %>,
+		"sources" : <%= Source.all.to_json %>,
+		"comments" : <%= Comment.all.to_json %>,
+		"tasks" : <%= Task.all.to_json %>,
+		"votes" : <%= Vote.all.to_json %>,
+		"reputations" : <%= Reputation.all.to_json %>,
+		"privileges" : <%= Privilege.all.to_json %>,
+		"achievements" : <%= Achievement.all.to_json %>
+	}
+</script>
+
+<%= content_for :javascript do -%>
+	<script type = 'text/javascript'>
+		$(function() {
+			var div, data;
+			div = $('<div></div>');
+			div.html($('#json').text());
+			data = JSON.parse(div.text());
+		
+			Gangnam.init(data);
+		});
+	</script>
+<% end %>

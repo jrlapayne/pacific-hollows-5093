@@ -1,0 +1,15 @@
+<form id = "fact_edit" class = "fedit">
+	<label>Title:</label></br>
+	<textarea id = "title"><%= fact.get('title') %></textarea></br>
+	<label>Description:</label></br>
+	<textarea rows = "4" id = "description"><%= fact.get('description') %></textarea></br>
+	<% for (i = 0; i < sources.length; i++) { %>
+		<label>Source <%= i + 1 %>:</label>
+		<input type = "text" id = "<%= sources[i].get('id') %>" class = "editsource" value = "<%= sources[i].get('url') %>"></br>
+	<% } %>
+	<label>New Source:</label>
+	<input type = "text" class = "editsource" /></br>
+	<input type = "submit" id = "submit" value = "Update Fact" />
+</form>
+<button id = "history" class = "fedit button history">History</button>
+<button id = "cancel" class = "fedit button cancel">Cancel</button>

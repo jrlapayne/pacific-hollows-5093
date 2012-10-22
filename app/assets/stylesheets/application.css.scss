@@ -1,0 +1,250 @@
+@import "compass";
+@import "style/vars";
+@import "style/mixins";
+@import "style/layout";
+@import "style/header";
+@import "style/panels";
+@import "style/issues";
+@import "style/questions";
+@import "style/tooltips";
+@import "style/facts";
+@import "style/fedits";
+@import "style/quedits";
+
+.question-box {
+	width: 100%;
+	height: 150px;
+	border: 1px solid;
+}
+
+.fact-box {
+	width: 100%;
+	height: auto;
+	border: 1px solid;
+}
+
+.highlight {
+	background: #ff0;
+}
+
+#nav a { 
+	border: 1px solid darken(#303030, 10%); 
+	background: #303030; 
+	text-decoration: none; 
+	margin: 0 5px; 
+	padding: 0 5px 0 5px;
+	color: rgba(#000, 0);
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	@include reverse-gradient(#303030);
+}
+
+#nav a.activeSlide { 
+	background: #fff;
+	color: rgba(#fff, 0);
+	@include gradient(darken(#fff, 15%));
+}
+#nav a:focus { outline: none; }
+
+.hide {
+	display: none;
+}
+
+.show-desc {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(#fff, 0.5);
+	@include border-radius(5px);
+	opacity: 0;
+	
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.border { 
+	border: 1px solid;
+}
+
+.commentpanel {
+	margin-left: 15px;
+}
+
+.popup {
+	z-index: 1000;
+	position: absolute;
+	top: -100px;
+	left: 40%;
+	width: 20%;
+	height: 100px;
+	background: #800;
+}
+
+.tab {
+	position: absolute; 
+	bottom: -16px; 
+	@include border-bottom-radius($radius); 
+	border: 0.063em solid $panelouterbordercolor;
+	border-top: none; 
+	height: 15px;
+	width: 40%;
+	
+	&.active {
+		background: #fff; 
+		z-index: 1;
+	}
+	
+	&.inactive {
+		background: #ccc; 
+		z-index: 0;
+	}
+	
+	&.left {
+		left: -1px; 
+	}	
+	
+	&.middle {
+		left: 30%;
+	}
+	
+	&.right {
+		right: -1px;	
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #57BBD6;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+	&:visited {
+		color: mix(#57BBD6, #333333, 60%);
+	}
+}
+
+.autocom-result {
+	height: 18px; 
+	line-height: 18px; 
+	font-size: 14px; 
+	width: 400px; 
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	white-space: nowrap;
+	cursor: pointer;
+	
+	&.hovered {
+		background: #88f;	
+	}
+}
+
+.triangle-border:before {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:55px; /* controls horizontal position */
+    border-width:20px 20px 0px 0px;
+	border-style:solid;
+    border-color:#55B9D5 transparent transparent transparent; /* #55B9D5 */
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+.triangle-border:after {
+	content:"";
+	position:absolute;
+	bottom:-10px; /* value = - border-top-width - border-bottom-width */
+	left:59px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+	border-width:10px 10px 0px 0px;
+	border-style:solid;
+	border-color:#fff transparent transparent transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+.inactive-button {
+	cursor: default;
+	font-size: 1em;
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+	border: 1px solid darken(#ccc, 10%);
+	@include border-radius($radius);
+	@include reverse-gradient(#ccc);
+	@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px, inset);
+	
+	&:hover {
+	}
+	
+	&:active{
+	}
+}
+
+.arrow {
+	cursor: pointer;
+	content: "";
+	display: block; 
+	border-width: 0px 19px 25px 19px;
+	border-style: solid;
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#888, 1) rgba(#fff, 0);
+	width: 0;
+	height: 0;
+}
+
+.darrow {
+	cursor: pointer;
+	content: "";
+	display: block; 
+	border-width: 25px 19px 0px 19px;
+	border-style: solid;
+	border-color: rgba(#888, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	width: 0;
+	height: 0;
+}
+
+.small-arrow {
+	cursor: pointer;
+	content: "";
+	display: block; 
+	border-width: 0px 15px 20px 15px;
+	border-style: solid;
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#888, 1) rgba(#fff, 0);
+	width: 0;
+	height: 0;
+}
+
+.small-darrow {
+	cursor: pointer;
+	content: "";
+	display: block; 
+	border-width: 20px 15px 0px 15px;
+	border-style: solid;
+	border-color: rgba(#888, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	width: 0;
+	height: 0;
+}
+
+.source {
+	
+	&.container {
+		height: 27px;
+		overflow: hidden;
+		font-size: 11px;
+	}
+	
+	&.label {
+		font-weight: bold;
+		color: #999999;
+	}
+}
+
+textarea {
+    resize: none;
+}

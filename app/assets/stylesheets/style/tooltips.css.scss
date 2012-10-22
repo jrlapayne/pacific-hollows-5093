@@ -1,0 +1,52 @@
+.tooltip {
+	cursor: pointer;
+	
+	.share-tip {
+		background: darken(#55B9D5, 30%);
+		border: 1px solid darken(darken(#55B9D5, 30%), 10%);
+		color: #fff;
+	}
+	
+	.edit-tip {
+		background: darken(#55B9D5, 30%);
+		border: 1px solid darken(darken(#55B9D5, 30%), 10%);
+		color: #fff;
+	}
+	
+	.comment-tip {
+		background: darken(#55B9D5, 30%);
+		border: 1px solid darken(darken(#55B9D5, 30%), 10%);
+		color: #fff;
+	}
+}
+
+.tooltip span {
+	position: absolute;
+	left: 25%;
+	top: 80%;
+	z-index: -99;
+	opacity: 0;
+	margin-left: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	@include border-radius($radius);
+	transition: opacity 1s;
+	-moz-transition: opacity 1s; /* Firefox 4 */
+	-webkit-transition: opacity 1s; /* Safari and Chrome */
+	-o-transition: opacity 1s; /* Opera */
+
+}
+
+.tooltip:hover span {
+	position: absolute;
+	left: 25%;
+	top: 80%;
+	opacity: 1;
+	z-index: 99;
+	margin: 0;
+	padding: 0;
+	width: 80px;
+	height: 20px;
+	@include border-radius($radius);
+}

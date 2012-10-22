@@ -1,0 +1,127 @@
+.quedit {
+	padding: 1em 0;
+	
+	label {
+		color: darken(#55B9D5, 20%);
+		font-weight: bold;
+		font-size: 1em;
+		margin: 1em 0 0 2.5%;
+	}
+	
+	span {
+		color: darken(#55B9D5, 20%);
+		font-weight: bold;
+		font-size: 1em;
+	}
+	
+	input[type = radio] {
+		cursor: pointer;
+	}
+	
+	input#intro {
+		margin: 0 0 0 2.5%;
+	}
+	
+	input#pro {
+		margin: 0 0 0 2.5%;
+	}
+	
+	input#con {
+		margin: 0 0 0 2.5%;
+	}
+	
+	textarea {
+		color: $black;
+		width: 94%;
+		font-size: 0.875em;
+		line-height: 1.286em;
+		margin: 0 0 0 2.5%;
+		@include border-radius($radius);
+	}
+	
+	input[type = text] {
+		color: $black;
+		width: 94%;
+		font-size: 0.875em;
+		line-height: 1.286em;
+		margin: 0 0 0 2.5%;
+		@include border-radius($radius);
+	}
+	
+	input[type = submit] {
+		font-weight: bold;
+		cursor: pointer;
+		color: #fff;
+		margin: 1em 0 0 2.5%;
+		width: 25%;
+		height: 3em;
+		border: 1px solid darken(#55B9D5, 30%);
+		background: darken(#55B9D5, 20%);
+		@include border-radius($radius);
+		@include gradient(darken(#55B9D5, 20%));
+		@include single-box-shadow(inset, rgba(#000, 0.5), 0, 0, 5px, 5px);
+		&:hover {
+			border: 1px solid darken(#55B9D5, 20%); 
+			background: darken(#55B9D5, 10%);
+			@include gradient(darken(#55B9D5, 10%));
+		}
+		
+		&:active {
+			border: 1px solid darken(#55B9D5, 40%); 
+			background: darken(#55B9D5, 30%);
+			@include reverse-gradient(darken(#55B9D5, 30%));
+		}
+	}
+	
+	&.button {
+		cursor: pointer;
+		font-weight: bold;
+		padding: 0;
+		position: absolute; 
+		bottom: 1.5em;  
+		width: 25%; 
+		height: 3em; 
+		color: #fff;
+		@include border-radius($radius);
+		@include single-box-shadow(inset, rgba(#000, 0.5), 0, 0, 5px, 5px);
+		
+		&.history {
+			left: 37.5%;
+			border: 1px solid darken(#55B9D5, 10%); 
+			background: #55B9D5;
+			@include gradient(#55B9D5);
+			
+			&:hover {
+				border: 1px solid #55B9D5; 
+				background: lighten(#55B9D5, 10%);
+				@include gradient(lighten(#55B9D5, 10%));
+			}
+			
+			&:active {
+				border: 1px solid darken(#55B9D5, 20%); 
+				background: darken(#55B9D5, 10%);
+				@include reverse-gradient(darken(#55B9D5, 10%));
+			}
+		}
+		
+		&.cancel {
+			color: $black;
+			right: 2.5%;
+			border: 1px solid darken(#ccc, 10%);
+			background: #ccc;
+			@include gradient(#ccc);
+			
+			&:hover {
+				border: 1px solid #ccc; 
+				background: lighten(#ccc, 10%);
+				@include gradient(lighten(#ccc, 10%));
+			}
+			
+			&:active {
+				border: 1px solid darken(#ccc, 20%); 
+				background: darken(#ccc, 10%);
+				@include reverse-gradient(darken(#ccc, 10%));
+			}
+		}
+	}
+}

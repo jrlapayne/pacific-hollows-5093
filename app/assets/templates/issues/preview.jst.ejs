@@ -1,0 +1,26 @@
+<div class = "title container">	
+	<div class = "title"><%= issue.get('title') %></div>
+</div>
+<div class = "thumbnail">
+	<img src = "assets/fusegap.png" width = "100%" />
+</div>
+<div class = "browse"><button class = "active">Browse</button></div>
+<div class = "quiz"><button class = "active">Quiz</button></div>
+<div class = "rank container">
+	<div class = "rank picture">
+		<img src = "assets/fusegap.png" height = "100%" />
+	</div>
+	<div class = "rank text">Your Rank: <b><%= rank.rank %></b> of <%= rank.users %></div>
+</div>
+<div class = "hover-container">
+	<div style = "position: absolute; top: 5%; left: 5%; width: 90%; height: 90%">
+		<div class = "spacer" style = "width: 0; height: 20%; display:block; float:right; clear:right"></div>
+		<div class = "spacer" style = "width: 50%; height: 55%; display:block; float:right; clear:right"></div>
+		<div class = "spacer" style = "width: 0; height: 25%; display:block; float:right; clear:right"></div>
+		<p style = "display:inline; color:#FFF">
+			<%= issue.get('description') %>
+		</p>
+	</div>
+	<div class = "browse"><button class = "active">Browse</button></div>
+	<div class = "quiz"><button class = " active">Quiz</button></div>
+</div>

@@ -1,0 +1,31 @@
+@mixin fonts {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+@mixin linear-gradient($from, $to) {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image:    -moz-linear-gradient(top, $from, $to);
+  background-image:     -ms-linear-gradient(top, $from, $to);
+  background-image:      -o-linear-gradient(top, $from, $to);
+}
+
+@mixin gradient($color) {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( lighten($color, 10%) /*{start}*/), to( darken($color, 10%) /*{end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( lighten($color, 10%) /*{start}*/, darken($color, 10%) /*{end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( lighten($color, 10%) /*{start}*/, darken($color, 10%) /*{end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( lighten($color, 10%) /*{start}*/, darken($color, 10%) /*{end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( lighten($color, 10%) /*{start}*/, darken($color, 10%) /*{end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( lighten($color, 10%) /*{start}*/, darken($color, 10%) /*{end}*/);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=lighten($color, 10%), endColorstr=darken($color, 10%));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=lighten($color, 10%), endColorstr=darken($color, 10%))";
+}
+
+@mixin reverse-gradient($color) {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( darken($color, 10%) /*{start}*/), to( lighten($color, 10%) /*{end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/);
+}

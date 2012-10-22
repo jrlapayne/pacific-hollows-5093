@@ -1,0 +1,7 @@
+<% if (fact.get('edit_id') === fedit.get('id')) { %>
+	<div>&#x2713;</div>
+<% } else { %>
+	<% if (is_active) { %>
+		<button id = "revertedit">Revert</button>
+	<% } %>
+<% } %>

@@ -1,0 +1,170 @@
+.issue {
+		
+	.title {
+		position: relative;
+		text-align: center;
+		font-size: 1.125em;
+		line-height: 2.25em;
+		font-weight: bold;
+		width: 100%;
+		height: 100%;
+		
+		&.container {
+			background: #eee;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 20%;
+			@include border-top-radius(4px);
+			border-bottom: 1px solid #ddd;
+		}
+	}
+
+	.thumbnail {	
+		width: 40%;
+		height: 40%;
+		position: absolute;
+		top: 30%;
+		left: 5%;
+	}
+	
+	.rank {
+		position: absolute;
+		
+		&.picture {
+			top: 10%;
+			left: 5%;
+			height: 80%;
+			width: 16%;
+			@include border-radius(5px);
+			overflow: hidden;
+		}
+			
+		&.container {
+			border: none;
+			background: #eee;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 20%;
+			@include border-bottom-radius(4px);
+			border-top: 1px solid #ddd;
+		}
+		
+		&.text {
+			top: 30%;
+			left: 30%;
+		}
+	}
+	
+	.browse {
+		position: absolute;
+		top: 30%;
+		right: 5%;
+		height: 15%;
+		width: 40%;
+		
+		button {
+			font-size: 1em;
+			width: 100%;
+			height: 100%;
+			@include border-radius($radius);
+			@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px, inset);
+			&.active {
+				color: #fff;
+				background: $textblue;
+				border: 1px solid darken(#55B9D5, 10%);
+				cursor: pointer;
+				@include gradient(#55B9D5);
+				
+				&:hover {
+					background: lighten(#55B9D5, 10%);
+					@include gradient(lighten(#55B9D5, 10%));
+				}
+
+				&:active{
+					background: darken(#55B9D5, 10%);
+					@include reverse-gradient(darken(#55B9D5, 10%));
+				}
+			}
+			
+			&.inactive {
+				color: lighten($black, 20%);
+				background: #ccc;
+				border: 1px solid darken(#ccc, 10%);
+				cursor: default;
+				@include reverse-gradient(#ccc);
+			}
+		}
+	}
+	
+	.quiz {
+		position: absolute;
+		bottom: 30%;
+		right: 5%;
+		height: 15%;
+		width: 40%;
+		
+		button {
+			font-size: 1em;
+			width: 100%;
+			height: 100%;
+			@include border-radius($radius);
+			@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px, inset);
+			&.active {
+				color: #fff;
+				background: $textblue;
+				border: 1px solid darken(#55B9D5, 40%);
+				cursor: pointer;
+				@include gradient(darken(#55B9D5, 30%));
+				
+				&:hover {
+					background: darken(#55B9D5, 20%);
+					@include gradient(darken(#55B9D5, 20%));
+				}
+
+				&:active{
+					background: darken(#55B9D5, 40%);
+					@include reverse-gradient(darken(#55B9D5, 40%));
+				}
+			}
+			
+			&.inactive {
+				color: lighten($black, 20%);
+				background: #ccc;
+				border: 1px solid darken(#ccc, 10%);
+				cursor: default;
+				@include reverse-gradient(#ccc);
+			}
+		}
+	}
+	
+	.hover-container {
+		color: #fff;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.7);
+		z-index: 1;
+		opacity: 0;
+		@include border-radius(4px);
+	
+		transition: opacity 1s;
+		-moz-transition: opacity 1s; /* Firefox 4 */
+		-webkit-transition: opacity 1s; /* Safari and Chrome */
+		-o-transition: opacity 1s; /* Opera */
+	
+		&:hover {
+			opacity: 1;
+		}	
+		.description {
+			background: none;
+			position: relative;
+			display:inline;
+			color:#FFF;
+		}
+	}
+}

@@ -1,0 +1,69 @@
+html {
+	height: 100%;
+	@include fonts;
+	color: #333333;
+	font-size: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: $backgroundcolor;
+	font-size: 1em;
+}
+
+.page {
+	width: 56.25em;  /* default 900px */
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+	background: rgba(#fff, 0.5);
+}
+
+.static {
+	width: 100%;
+	position: absolute;
+	top: 6.875em;
+	left: 0;
+}
+
+.column {
+	position: absolute;
+	top: 6.875em;
+	margin: 0;
+	padding: 0;
+	
+	&.left {
+		width: 20.125em;  /* default 322px */
+		left: 0.625em;
+		
+		&.side {
+			top: 0;
+			left: 0;
+			position: relative;
+			margin: 0 auto;
+			padding: 0;
+			
+			&.top {
+				height: 17.5em;
+				margin-bottom: 0.625em;
+			}
+
+			&.bottom {
+				
+			}
+		}
+	}
+	
+	&.right {
+		width: 33.375em;  /* default 534px */
+		right: 0.625em;
+	}
+
+	&.container {
+		position: fixed;
+		width: 20.125em;
+		height: 100%;		
+	}
+}

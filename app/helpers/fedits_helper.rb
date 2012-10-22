@@ -1,0 +1,2 @@
+module FeditsHelper
+end
