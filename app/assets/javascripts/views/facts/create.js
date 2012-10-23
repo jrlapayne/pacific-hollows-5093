@@ -35,7 +35,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 				}, {
 					success: function(source, response2) {
 						self.attr.facts.trigger('blah');
-						$('loading').children().remove();
+						$('#loading').children().remove();
 					}
 				});
 				self.attr.fedits.create({
