@@ -8,7 +8,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 		'blur #auto' 			: 'removeResults',
 		'hover .autocom-result' : 'setHovered',
 		'click .autocom-result' : 'goToResult',
-		'click #add' 			: 'addFact'
+		'click #add' 			: 'addQuestion'
 	},
 	
 	initialize: function(options) {
@@ -186,12 +186,18 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 		Backbone.history.navigate('question' + $(element).attr('id'), true);
 	},
 	
-	addFact: function() {
+	addQuestion: function() {
+		this.loading();
 		this.attr.questions.ask(
 			$('#auto').val(), 
 			this.issue, 
 			this.attr.users.where({id: this.attr.current_user.get('id')})[0], 
 			this.attr.quedits
 		);
+	},
+	
+	loading: function() {
+		var view = new Gangnam.Views.PagesLoading();
+		$('#loading').html(view.render().el);
 	}
 });

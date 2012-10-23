@@ -248,3 +248,79 @@ a {
 textarea {
     resize: none;
 }
+
+.loading_container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.animation-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	z-index: 100;
+	background: rgba(#000, 0.5);
+	@include border-radius(50px);
+	
+	.logo-wrapper {
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		width: 40px;
+		height: 40px;
+	}
+	
+	.ball {
+		position: absolute;
+		background: #fff;
+		width: 10px;
+		height: 10px;
+		border: 1px solid darken(#fff, 10%);
+		@include border-radius(5px);
+		@include gradient(#fff);
+		
+		&.one {
+			top: 10px;
+			right: 45px;
+			@include opacity(0);
+		}
+		&.two {
+			top: 20px;
+			right: 20px;
+			@include opacity(0);
+		}
+		&.three {
+			top: 45px;
+			right: 10px;
+			@include opacity(0);
+		}
+		&.four {
+			top: 70px;
+			right: 20px;
+			@include opacity(0);
+		}
+		&.five {
+			bottom: 10px;
+			left: 45px;
+			@include opacity(0);
+		}
+		&.six {
+			bottom: 20px;
+			left: 20px;
+			@include opacity(0);
+		}
+		&.seven {
+			bottom: 45px;
+			left: 10px;
+			@include opacity(0);
+		}
+		&.eight {
+			bottom: 70px;
+			left: 20px;
+			@include opacity(0);
+		}
+	}
+}

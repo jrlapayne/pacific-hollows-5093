@@ -27,6 +27,7 @@ Gangnam.Collections.Questions = Backbone.Collection.extend({
 						question.set({edit_id: quedit.get('id')});
 						question.save();
 						self.trigger('auto');
+						$('loading').children().remove();
 						Backbone.history.navigate('question' + question.get('id'), true);
 					}
 				});
