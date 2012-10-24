@@ -43,7 +43,8 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	appendFact: function(fact) {
 		var view = new Gangnam.Views.FactsShow({
 			attr: this.attr,
-			fact: fact
+			fact: fact,
+			facts: this.facts
 		});
 		$('#facts').append(view.render().el);
 		this.renderActiveFact($('#facts').find('#' + fact.get('id')));

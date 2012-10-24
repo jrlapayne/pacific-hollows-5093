@@ -108,7 +108,9 @@ $.fn.autocomplete = function(input, options) {
 			">",
 			"/",
 			"b",
-			""
+			"",
+			"(",
+			")"
 		];
 		
 		for (k = 0; k < words.length; k++) {

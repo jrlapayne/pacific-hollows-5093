@@ -1,4 +1,24 @@
+.fact.top {
+	.vote {
+		&.container {
+			@include border-corner-radius(top, left, $innerRadius);
+		}
+	}
+}
+
+.fact.bottom {
+	.stats {
+		@include border-bottom-radius($innerRadius);
+	}
+	.vote {
+		&.container {
+			@include border-corner-radius(bottom, left, $innerRadius);
+		}
+	}
+}
+
 .fact {
+	
 	.vote {
 		
 		&.container {
@@ -15,21 +35,21 @@
 		&.up {
 			position: absolute;
 			top: 10px;
-			left: 23%;
+			left: 22.5%;
 			width: 54%;
 		}
 		
 		&.down {
 			position: absolute;
 			top: 60px;
-			left: 23%;
+			left: 22.5%;
 			width: 54%;
 		}
 		
 		&.count {
 			position: absolute;
 			top: 35px;
-			left: 10%;
+			left: 11%;
 			width: 80%;
 			text-align: center;
 			font-weight: bold;
@@ -38,6 +58,15 @@
 	}
 	
 	.title {
+		
+		&.container {
+			margin: 2% 0 0 12%;
+		}
+	}
+	
+	.description {
+		font-size: 0.875em;
+		line-height: 1.286em;
 		
 		&.container {
 			margin: 2% 0 0 12%;
@@ -140,11 +169,19 @@
 	
 	textarea {
 		color: $black;
+		border: 1px solid #ddd;
+		border-style: inset;
+		border-width: 2px;
 		width: 94%;
 		font-size: 0.875em;
 		line-height: 1.286em;
 		margin: 0 0 0 2.5%;
 		@include border-radius($radius);
+		
+		&:focus{
+			outline: none;
+			@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px);
+		}
 	}
 	
 	input[type = text] {
@@ -154,6 +191,11 @@
 		line-height: 1.286em;
 		margin: 0 0 0 2.5%;
 		@include border-radius($radius);
+		
+		&:focus{
+			outline: none;
+			@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px);
+		}
 	}
 	
 	input[type = submit] {

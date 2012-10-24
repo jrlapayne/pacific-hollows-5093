@@ -16,13 +16,23 @@ Gangnam.Views.IssuesPreview = Backbone.View.extend({
 	},
 	
 	render: function() {
+		var self = this;
 		$(this.el).attr('id', this.issue.get('id'));
 		$(this.el).addClass('panel issue preview');
 		$(this.el).html(this.template({
-			issue: this.issue,
-			current_user: this.current_user,
-			rank: this.attr.users.getIssueRank(this.current_user, this.issue, this.attr.reputations)
+			issue: this.issue
 		}));
+		setTimeout(function() {
+			self.renderRank();
+		}, 0);
 		return this;
+	},
+	
+	renderRank: function() {
+		var view = new Gangnam.Views.ReputationsIssue({
+			attr: this.attr,
+			issue: this.issue
+		});
+		$(this.el).find('#rank').html(view.render().el);
 	}
 });

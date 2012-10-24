@@ -90,6 +90,10 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		};
 	},
 	
+	signedInUser: function(user) {
+		return !user.get('is_temp_user');
+	},
+	
 	pagesHeader: function() {
 		var view = new Gangnam.Views.PagesHeader({
 			attr: this.attr
@@ -106,10 +110,14 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 	},
 	
 	pagesHome: function() {
-		var view = new Gangnam.Views.PagesHome({
-			attr: this.attr
-		});
-		$('.page').html(view.render().el);
+		if (this.signedInUser(this.current_user)) {
+			Backbone.history.navigate('issues', true);
+		} else {
+			var view = new Gangnam.Views.PagesHome({
+				attr: this.attr
+			});
+			$('.page').html(view.render().el);
+		}
 	},
 	
 	issuesIndex: function() {

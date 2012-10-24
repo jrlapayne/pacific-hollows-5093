@@ -13,7 +13,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 	},
 	
 	render: function() {
-		$(this.el).addClass('panel fact');
+		$(this.el).addClass('panel fact create');
 		$(this.el).html(this.template());
 		return this;
 	},

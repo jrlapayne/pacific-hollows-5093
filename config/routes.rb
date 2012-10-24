@@ -1,10 +1,5 @@
 Gangnam::Application.routes.draw do
   
-  root to: 'pages#index'
-
-  match '/auth/:provider/callback' => 'sessions#create'
-  match '/signout' => 'sessions#destroy'
-  
   resources :privileges
   resources :achievements
   resources :tasks
@@ -19,6 +14,11 @@ Gangnam::Application.routes.draw do
   resources :facts
   resources :questions
   resources :issues
+  
+  root to: 'pages#index'
+
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/signout' => 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

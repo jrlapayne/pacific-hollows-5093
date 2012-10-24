@@ -11,6 +11,7 @@
 		@include border-radius($radius);
 		position: relative;
 		border: 1px solid #9ca5bf;
+		@include single-box-shadow(rgba(#000, 0.25), 0, 0, 3px, 3px);
 		
 		&.preview {
 			width: 16.25em;
@@ -60,10 +61,22 @@
 		width: 100%;
 		background: #fff;
 		margin: 0;
-		border: 1px solid #9ca5bf;
 		position: relative;
 		cursor: default;
-		min-height: 150px;	
-		height: auto;
+		min-height: 150px;
+		border: 1px solid #777;
+		
+		&.top {
+			@include border-top-radius($radius);
+		}
+		
+		&.bottom {
+			@include border-bottom-radius($radius);
+		}
+		
+		&.create {
+			@include border-radius($radius);
+			margin-bottom: 0.625em;
+		}
 	}
 }

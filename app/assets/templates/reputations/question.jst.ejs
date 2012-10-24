@@ -1,0 +1,23 @@
+<div class = "picture">
+	<% if (user.get('is_temp_user')) { %>
+		<img src = "https://graph.facebook.com/100003671661574/picture" height = "100%" />
+	<% } else { %>
+		<% if (user.get('provider') === 'facebook') { %>
+			<img src = "https://graph.facebook.com/<%= user.get('uid') %>/picture" height = "100%" />
+		<% } else if (user.get('provider') === 'google') { %>
+			<img src = "assets/fusegap.png" height = "100%" />
+		<% } else { %>
+			<img src = "http://api.twitter.com/1/users/profile_image/<%= user.get('uid') %>?size=bigger" height = "100%" />
+		<% } %>
+	<% } %>
+</div>
+<div class = "text">
+	<div class = "name">
+		<% if (user.get('is_temp_user')) { %>
+			Anon
+		<% } else { %>
+			<%= user.get('name') %>
+		<% } %>
+	</div>
+	<div class = "rank">Rank: <b><%= rank.rank %></b> of <%= rank.users %></div>
+</div>

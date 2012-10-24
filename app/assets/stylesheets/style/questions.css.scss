@@ -35,10 +35,10 @@
 		
 		.picture {
 			position: absolute;
-			top: 10%;
+			top: 0;
 			left: 2%;
-			height: 80%;
-			width: 9.6%;
+			height: 90%;
+			width: 9%;
 			overflow: hidden;
 			@include border-radius($radius);
 		}
@@ -68,25 +68,67 @@
 			}
 		}
 		
-		.votes {
+		.comments {
 			
 			&.container {
 				position: absolute;
 				bottom: 0;
-				right: 32%;
+				right: 24.6%;
 				width: 12%;
 				height: 100%;
 			}
 			
 			&.label {
+				font-size: 10px;
 				position: absolute;
-				top: -20%;
+				top: -15%;
 				left: 0;
 				width: 100%;
 				text-align: center;
 			}
 			
 			&.box {
+				cursor: default;
+				position: absolute;
+				bottom: 10%;
+				left: 10%;
+				width: 80%;
+				height: 80%;
+				background: #aaa;
+				@include border-radius($radius);
+			}
+			
+			&.number {
+				width: 100%;
+				margin: 0.285em 0 0 0;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				font-size: 1.75em;
+			}
+		}
+		
+		.votes {
+			
+			&.container {
+				position: absolute;
+				bottom: 0;
+				right: 12.3%;
+				width: 12%;
+				height: 100%;
+			}
+			
+			&.label {
+				font-size: 10px;
+				position: absolute;
+				top: -15%;
+				left: 0;
+				width: 100%;
+				text-align: center;
+			}
+			
+			&.box {
+				cursor: default;
 				position: absolute;
 				bottom: 10%;
 				left: 10%;
@@ -111,26 +153,28 @@
 			&.container {
 				position: absolute;
 				bottom: 0;
-				right: 10%;
+				right: 0.3%;
 				width: 12%;
 				height: 100%;
 			}
 			
 			&.label {
+				font-size: 10px;
 				position: absolute;
-				top: -20%;
+				top: -15%;
 				left: 0;
 				width: 100%;
 				text-align: center;
 			}
 			
 			&.box {
+				cursor: default;
 				position: absolute;
 				bottom: 10%;
 				left: 10%;
 				width: 80%;
 				height: 80%;
-				background: darken(#55B9D5, 30%);
+				background: $black;
 				@include border-radius($radius);
 			}
 			
