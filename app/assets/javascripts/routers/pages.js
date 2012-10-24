@@ -3,6 +3,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 	routes: {
 		'' : 'pagesHome',
 		'issues' : 'issuesIndex',
+		'issue:id' : 'issuesCategories',
 		'issue:id/basics' : 'questionsBasics',
 		'issue:id/pros' : 'questionsPros',
 		'issue:id/cons' : 'questionsCons',
@@ -146,9 +147,18 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			issue: issue,
 			category: category
 		});
-		$('.page').html(JST['pages/columns']);
 		$('#right').html(view.render().el);
 		this.autocomplete(issue);
+	},
+	
+	issuesCategories: function(id) {
+		var view = new Gangnam.Views.IssuesCategories({
+			attr: this.attr,
+			issue: this.issues.where({id: parseInt(id)})[0]
+		});
+		$('.page').html(JST['pages/columns']);
+		$('#left_bottom').html(view.render().el);
+		Backbone.history.navigate('issue' + id + '/basics', true);
 	},
 	
 	factsIndex: function(id) {

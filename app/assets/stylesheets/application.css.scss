@@ -10,6 +10,7 @@
 @import "style/facts";
 @import "style/fedits";
 @import "style/quedits";
+@import "style/categories";
 
 .question-box {
 	width: 100%;
@@ -191,44 +192,60 @@ a {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 0px 19px 25px 19px;
+	border-width: 0px 12px 15px 12px;
 	border-style: solid;
-	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#888, 1) rgba(#fff, 0);
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($black, 1) rgba(#fff, 0);
 	width: 0;
 	height: 0;
+	
+	&:hover {
+		border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#55B9D5, 1) rgba(#fff, 0);
+	}
 }
 
 .darrow {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 25px 19px 0px 19px;
+	border-width: 15px 12px 0px 12px;
 	border-style: solid;
-	border-color: rgba(#888, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	border-color: rgba($black, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	width: 0;
 	height: 0;
+	
+	&:hover {
+		border-color: rgba(#55B9D5, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	}
 }
 
 .small-arrow {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 0px 15px 20px 15px;
+	border-width: 0px 9px 11px 9px;
 	border-style: solid;
-	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#888, 1) rgba(#fff, 0);
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($black, 1) rgba(#fff, 0);
 	width: 0;
 	height: 0;
+	
+	&:hover {
+		border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#55B9D5, 1) rgba(#fff, 0);
+	}
 }
 
 .small-darrow {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 20px 15px 0px 15px;
+	border-width: 11px 9px 0px 9px;
 	border-style: solid;
-	border-color: rgba(#888, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	border-color: rgba($black, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	width: 0;
 	height: 0;
+	
+	&:hover {
+		border-color: rgba(#55B9D5, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	}
 }
 
 .source {

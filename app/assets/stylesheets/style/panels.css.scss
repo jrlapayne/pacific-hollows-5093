@@ -11,7 +11,7 @@
 		@include border-radius($radius);
 		position: relative;
 		border: 1px solid #9ca5bf;
-		@include single-box-shadow(rgba(#000, 0.25), 0, 0, 3px, 3px);
+		@include box-shadow(rgba(#000, 0.15) 3px 0 3px, rgba(#000, 0.15) -3px 0 3px, rgba(#000, 0.15)  0 5px 5px);
 		
 		&.preview {
 			width: 16.25em;
@@ -37,6 +37,9 @@
 
 			&:hover {
 				background: mix(#fff, #57BBD6, 95%);
+				.triangle-border:after {
+					border-color:rgb(246, 251, 252) transparent transparent transparent;
+				}
 			}
 
 			&.top {
@@ -47,6 +50,7 @@
 			&.bottom {
 				@include border-bottom-radius(5px);
 				border-bottom: 1px solid #9ca5bf;
+				margin-bottom: 15px;
 			}
 		}
 		

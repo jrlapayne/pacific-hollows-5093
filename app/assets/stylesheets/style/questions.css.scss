@@ -73,7 +73,7 @@
 			&.container {
 				position: absolute;
 				bottom: 0;
-				right: 24.6%;
+				right: 0.3%;
 				width: 12%;
 				height: 100%;
 			}
@@ -113,6 +113,46 @@
 			&.container {
 				position: absolute;
 				bottom: 0;
+				right: 24.6%;
+				width: 12%;
+				height: 100%;
+			}
+			
+			&.label {
+				font-size: 10px;
+				position: absolute;
+				top: -15%;
+				left: 0;
+				width: 100%;
+				text-align: center;
+			}
+			
+			&.box {
+				cursor: default;
+				position: absolute;
+				bottom: 10%;
+				left: 10%;
+				width: 80%;
+				height: 80%;
+				background: $black;
+				@include border-radius($radius);
+			}
+			
+			&.number {
+				width: 100%;
+				margin: 0.285em 0 0 0;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				font-size: 1.75em;
+			}
+		}
+		
+		.facts {
+			
+			&.container {
+				position: absolute;
+				bottom: 0;
 				right: 12.3%;
 				width: 12%;
 				height: 100%;
@@ -147,46 +187,6 @@
 				font-size: 1.75em;
 			}
 		}
-		
-		.facts {
-			
-			&.container {
-				position: absolute;
-				bottom: 0;
-				right: 0.3%;
-				width: 12%;
-				height: 100%;
-			}
-			
-			&.label {
-				font-size: 10px;
-				position: absolute;
-				top: -15%;
-				left: 0;
-				width: 100%;
-				text-align: center;
-			}
-			
-			&.box {
-				cursor: default;
-				position: absolute;
-				bottom: 10%;
-				left: 10%;
-				width: 80%;
-				height: 80%;
-				background: $black;
-				@include border-radius($radius);
-			}
-			
-			&.number {
-				width: 100%;
-				margin: 0.285em 0 0 0;
-				text-align: center;
-				font-weight: bold;
-				color: #fff;
-				font-size: 1.75em;
-			}
-		}
 	}
 }
 
@@ -207,31 +207,30 @@
 		
 			&.up {
 				position: absolute;
-				top: 15%;
-				left: 16%;
-				width: 68%;
-				height: 20%;
+				top: 16px;
+				left: 27.5%;
+				width: 45%;
+				height: 15px;
 			}
 		
 			&.down {
 				position: absolute;
-				bottom: 10%;
-				left: 16%;
-				width: 68%;
-				height: 20%;
+				top: 78px;
+				left: 27.5%;
+				width: 45%;
+				height: 15px;
 			}
 		
 			&.count {
 				position: absolute;
 				text-align: center;
-				font-size: 1.5em;
-				line-height: 1.5em;
-				font-weight: bold;
-				color: #888;
-				top: 40%;
+				font-size: 29px;
+				line-height: 26px;
+				color: $black;
+				top: 41px;
 				left: 10%;
 				width: 80%;
-				height: 20%;
+				height: 26px;
 			}
 		}
 	

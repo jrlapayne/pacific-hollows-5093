@@ -59,7 +59,7 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 			margin: '0 0 0 0.625em'
 		}, 500);
 		setTimeout(function() {
-			Backbone.history.navigate('issue' + $(element).attr('id') + '/basics', true);	
+			Backbone.history.navigate('issue' + $(element).attr('id'), true);	
 		}, 500);
 	},
 	

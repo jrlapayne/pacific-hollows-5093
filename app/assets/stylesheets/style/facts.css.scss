@@ -34,26 +34,31 @@
 		
 		&.up {
 			position: absolute;
-			top: 10px;
-			left: 22.5%;
-			width: 54%;
+			top: 12px;
+			left: 33%;
+			width: 34%;
+			height: 11px;
 		}
 		
 		&.down {
 			position: absolute;
-			top: 60px;
-			left: 22.5%;
-			width: 54%;
+			top: 50px;
+			left: 33%;
+			width: 34%;
+			width: 18px;
+			height: 11px;
 		}
 		
 		&.count {
 			position: absolute;
-			top: 35px;
+			top: 28px;
 			left: 11%;
 			width: 80%;
+			font-size: 16px;
+			line-height: 18px;
+			height: 18px;
 			text-align: center;
-			font-weight: bold;
-			color: #888;
+			color: $black;
 		}
 	}
 	

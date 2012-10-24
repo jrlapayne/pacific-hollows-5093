@@ -1,34 +1,36 @@
-<div class = "header logo" id = "top_logo">
-	<img src = 'assets/fusegap_white.png' />
-	<span class = 'logo-text'>fuseGap</span>
-</div>
-<div class = "login container">
-	<% if (current_user.get('is_temp_user')) { %>
-		<div class = "login signin">
-			Sign In:
-		</div>
-		<div id = "facebook" class = "login facebook">
-			<img src = "assets/facebook64.png"  height = "100%" />
-		</div>
-		<div id = "google" class = "login google">
-			<img src = "assets/google64.png" height = "100%" />
-		</div>
-		<div id = "twitter" class = "login twitter">
-			<img src = "assets/twitter64.png" height = "100%" />
-		</div>
-	<% } else { %>
-		<div class = "login picture">
-			<% if (current_user.get('provider') === 'facebook') { %>
-				<img src = "https://graph.facebook.com/<%= current_user.get('uid') %>/picture" width = "100%" />
-			<% } else if (current_user.get('provider') === 'google') { %>
-				<img src = "assets/fusegap.png" height = "100%" style = "background: #fff" />
-			<% } else { %>
-				<img src = "http://api.twitter.com/1/users/profile_image/<%= current_user.get('uid') %>?size=bigger" width = "100%" />
-			<% } %>
-		</div>
-		<div class = "login name">
-			<%= current_user.get('name') %>
-		</div>
-	<% } %>
+<div class = "wrapper">
+	<div class = "header logo" id = "top_logo">
+		<img src = 'assets/fusegap_white.png' height = "100%" />
+		<span class = 'logo-text'>fuseGap</span>
+	</div>
+	<div class = "login container">
+		<% if (current_user.get('is_temp_user')) { %>
+			<div class = "login signin">
+				Sign In:
+			</div>
+			<div id = "facebook" class = "login facebook">
+				<img src = "assets/facebook64.png"  height = "100%" />
+			</div>
+			<div id = "google" class = "login google">
+				<img src = "assets/google64.png" height = "100%" />
+			</div>
+			<div id = "twitter" class = "login twitter">
+				<img src = "assets/twitter64.png" height = "100%" />
+			</div>
+		<% } else { %>
+			<div class = "login picture">
+				<% if (current_user.get('provider') === 'facebook') { %>
+					<img src = "https://graph.facebook.com/<%= current_user.get('uid') %>/picture" width = "100%" />
+				<% } else if (current_user.get('provider') === 'google') { %>
+					<img src = "assets/fusegap.png" height = "100%" style = "background: #fff" />
+				<% } else { %>
+					<img src = "http://api.twitter.com/1/users/profile_image/<%= current_user.get('uid') %>?size=bigger" width = "100%" />
+				<% } %>
+			</div>
+			<div class = "login name">
+				<%= current_user.get('name') %>
+			</div>
+		<% } %>
+	</div>
 </div>
 <div id = "navbar" class = "header navbar"></div>
