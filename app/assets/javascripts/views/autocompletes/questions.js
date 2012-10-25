@@ -29,7 +29,18 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	},
 	
 	getArray: function() {
-		this.questions = this.attr.questions.where({issue_id: this.issue.get('id')});
+		var self = this;
+		if (this.issue !== null) {
+			this.questions = this.attr.questions.where({issue_id: this.issue.get('id')});
+		} else {
+			this.questions = [];
+			this.attr.questions.each(function(q) {
+				if (!self.attr.facts.where({question_id: q.get('id')})[0]) {
+					self.questions.push(q);
+				}
+			});
+		}
+		
 		for (i = 0; i < this.questions.length; i++) {
 			this.array.push({
 				id: this.questions[i].get('id'),

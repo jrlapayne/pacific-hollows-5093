@@ -1,0 +1,105 @@
+.navigation {
+	width: 900px;
+	margin: 0 auto;
+	position: relative;
+	height: 40px;
+	
+	.issues {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 120px;
+		height: 100%;
+		border-left: 1px solid $black;
+		
+		&:hover {
+			background: rgba(#fff, 0.1);
+			
+			.label {
+				color: #55B9D5;
+			}
+		}
+	}
+	
+	.factory {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 120px;
+		width: 120px;
+		height: 100%;
+		border-left: 1px solid $black;
+		border-right: 1px solid $black;
+		
+		&:hover {
+			background: rgba(#fff, 0.1);
+			
+			.label {
+				color: #55B9D5;
+			}
+		}
+	}
+	
+	.about {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 240px;
+		width: 120px;
+		height: 100%;
+		border-left: 1px solid $black;
+		border-right: 1px solid $black;
+		
+		&:hover {
+			background: rgba(#fff, 0.1);
+			
+			.label {
+				color: #55B9D5;
+			}
+		}
+	}
+	
+	.profile {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 360px;
+		width: 120px;
+		height: 100%;
+		border-right: 1px solid $black;
+		
+		&:hover {
+			background: rgba(#fff, 0.1);
+			
+			.label {
+				color: #55B9D5;
+			}
+		}
+	}
+	
+	.label {
+		position: absolute;
+		top: 11px;
+		left: 0;
+		height: 18px;
+		width: 100%;
+		color: #fff;
+		text-align: center;
+	}
+	
+	.autocomplete {
+		input {
+			width: 400px; 
+			margin: 10px 0 0 495px; 
+			@include border-radius(5px);
+		}
+		
+		.results {
+			width: 404px; 
+			margin: 0 0 0 495px; 
+			background: #fff;
+			@include border-bottom-radius(5px);
+		}
+	}
+}

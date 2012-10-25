@@ -107,7 +107,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			attr: this.attr,
 			issue: issue
 		});
-		$('#navbar').html(view.render().el);
+		$('#search_add').html(view.render().el);
 	},
 	
 	pagesHome: function() {
@@ -125,8 +125,13 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		var view = new Gangnam.Views.IssuesIndex({
 			attr: this.attr
 		});
-		$('#navbar').children().remove();
+		this.renderNavbar();
 		$('.page').html(view.render().el);
+	},
+	
+	renderNavbar: function() {
+		var view = new Gangnam.Views.PagesNavbar();
+		$('#navbar').html(view.render().el);
 	},
 	
 	questionsBasics: function(id) {

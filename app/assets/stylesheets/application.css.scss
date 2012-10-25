@@ -11,6 +11,7 @@
 @import "style/fedits";
 @import "style/quedits";
 @import "style/categories";
+@import "style/navbar";
 
 .question-box {
 	width: 100%;
@@ -133,14 +134,14 @@ a {
 	height: 18px; 
 	line-height: 18px; 
 	font-size: 14px; 
-	width: 400px; 
+	width: 404px; 
 	overflow: hidden; 
 	text-overflow: ellipsis; 
 	white-space: nowrap;
 	cursor: pointer;
 	
 	&.hovered {
-		background: #88f;	
+		background: #55B9D5;	
 	}
 }
 
