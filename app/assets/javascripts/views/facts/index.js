@@ -10,13 +10,12 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.question = options.question;
-
-		this.attr.facts.on('blah', this.render, this);
+		this.facts = [];
+		
+		this.attr.facts.on('add', this.render, this);
 	},
 
 	render: function() {
-		this.facts = [];
-		$(this.el).children().remove();
 		var self = this;
 		this.facts = this.attr.facts.where({question_id: this.question.get('id')});
 		$(this.el).html(this.template({
@@ -63,6 +62,10 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
-		$('#create').append(view.render().el);
+		$('#create').html(view.render().el);
+	},
+	
+	onClose: function() {
+		this.attr.facts.unbind("add", this.render);
 	}
 });

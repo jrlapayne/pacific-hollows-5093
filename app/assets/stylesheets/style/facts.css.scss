@@ -172,6 +172,11 @@
 		margin: 1em 0 0 2.5%;
 	}
 	
+	.optional {
+		color: lighten($black, 50%);
+		font-size: 12px;
+	}
+	
 	textarea {
 		color: $black;
 		border: 1px solid #ddd;

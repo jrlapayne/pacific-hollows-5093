@@ -198,6 +198,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	},
 	
 	addQuestion: function() {
+		this.removeResults();
 		this.loading();
 		this.attr.questions.ask(
 			$('#auto').val(), 
