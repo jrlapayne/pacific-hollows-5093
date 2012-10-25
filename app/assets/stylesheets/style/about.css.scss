@@ -1,0 +1,294 @@
+.sub-page-container {
+	position: relative;
+	margin: 0 auto;
+	width: 860px;
+	overflow: auto;
+}
+.inactive-panel {
+	float: left;
+	height: 94px;
+	width: 239px;
+	background-color: #fcfcfc;
+	@include border-radius(6px);
+	@include single-box-shadow(#888, 1px, 1px, 5px, 0);
+	margin-bottom: 30px;
+	padding: 26px 0 0 173px;
+	.image-container {
+		@include border-radius(12px);
+		@include single-box-shadow(#888, 1px, 1px, 3px, 0);
+		margin: -11px 0 0 0;
+		overflow: hidden;
+		height: 90px;
+		width: 75px;
+	}
+}
+.inactive-panel-left {
+	margin-left: 10px;
+	margin-right: 20px;
+}
+.active-panel {
+	float: left;
+	height: 120px;
+	width: 412px;
+	background-color: #eaeaea;
+	@include border-radius(6px);
+	@include single-box-shadow(#888, 1px, 1px, 5px, 0);
+	margin-bottom: 30px;
+	.image-container {
+		@include border-radius(12px);
+		@include single-box-shadow(#888, 1px, 1px, 3px, 0);
+		margin: 15px 11px 0 0;
+		float: right;
+		overflow: hidden;
+		height: 90px;
+		width: 75px;
+	}
+}
+.active-panel-left {
+	margin-left: 10px;
+	margin-right: 20px;
+}
+.quote-container {
+	@include border-radius(6px);
+	float: left;
+	width: 75%;
+	background-color: #eaeaea;
+	margin: 0 0 0 0;
+	padding: 8px 0 8px 10px;
+	font-size: 90%;
+	color: #555555;
+}
+.quote {
+	line-height: 140%;
+}
+.author {
+	margin: 0 5px 0 0;
+	float: right;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 90%;
+}
+
+.logo-image-container {
+	margin: 29px 7px 0 0px;
+	float: right;
+	overflow: hidden;
+	height: 90px;
+	width: 70px;
+}
+.jefferson {
+	margin: -10px 0 0 -18px;
+}
+.jfk {
+	margin: -2px 0 0 -21px;
+}
+.aristotle {
+	margin: -16px 0 0 -24px;
+}
+.mlk {
+	margin: -10px 0 0 -18px;
+}
+.churchill {
+	margin: 0px 0 0 -22px;
+}
+.question-container {
+	&:hover {
+		cursor: pointer;
+	}
+}
+.active-question {
+	font-size: 95%;
+	color: #222222;
+	margin: 15px 0 15px 0;
+}
+.inactive-question {
+	font-size: 95%;
+	color: #444444;
+	margin: 15px 0 0px 0;
+}
+.arrow-container {
+	float: left;
+	width: 28px;
+}
+.active-arrow {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 14px solid darken(rgb(129,181,196), 35%);
+	margin: 2px 0px 0px 3px;
+	float: left;
+}
+.inactive-arrow {
+	width: 0;
+	height: 0;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 14px solid darken(rgb(129,181,196), 20%);
+	margin: 2px 0px 0px 3px;
+	float: left;
+}
+.source {
+	font-size: 80%;
+
+}
+
+#about {
+	.comparison {
+	
+		&.container {
+			width: 100%;
+			height: auto;
+			position: relative;
+			margin: 10px 0 10px 0;
+		}
+	
+		&.panels {
+			position: relative;
+			width: 100%;
+			height: 0px; /* 130px */
+			overflow: hidden;
+			display: none;
+		}
+	}
+
+	.question {
+	
+		&.container {
+			position: relative;
+			width: 100%;
+			height: 50px;
+		}
+	
+		&.arr {
+			float: left;
+			width: 50px;
+		}
+	
+		&.text {
+			float: left;
+			width: 500px;
+		}
+	}
+	
+	.panel {
+		position: absolute;
+		top: 5px;
+		width: 412px;
+		height: 120px;
+		@include border-radius(5px);
+		@include single-box-shadow(rgba(#000, 0.075), 1px, 1px, 2px, 2px);
+		&.active {
+			z-index: 0;
+			background: #eaeaea;
+		}
+	
+		&.inactive {
+			z-index: 1;
+			background: #fcfcfc;
+		}
+	
+		&.left {
+			left: 25px;
+		}
+	
+		&.right {
+			right: 25px;
+		}
+	}
+
+	.logo {
+		z-index: 1;
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		top: 25px;
+		
+		&.active {
+			right: 171px;
+		}
+	
+		&.inactive {
+			right: 171px;
+		}
+	}
+
+	.portrait {
+		z-index: 1;
+		position: absolute;
+		top: 15px;
+		width: 70px;
+		height: 90px;
+		overflow: hidden;
+		@include border-radius(5px);
+		@include single-box-shadow(rgba(#000, 0.3), 0, 0, 3px, 3px);
+		&.active {
+			right: 171px;
+		}
+	
+		&.inactive {
+			right: 171px;
+		}
+	}
+
+	.statement {
+	
+		&.container {
+			position: absolute;
+			top: 42px;
+			left: 10px;
+			width: 310px;
+			height: 36px;
+			font-size: 16px;
+			line-height: 18px;
+		}
+	
+		&.text {
+		
+		}
+	}
+
+	.quote {
+	
+		&.container {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 310px;
+			height: 100px;
+		}
+	
+		&.text {
+		
+		}
+	}
+
+	.name {
+		position: absolute;
+		bottom: 12px;
+		right: 90px;
+		font-style: italic;
+		font-weight: bold;
+		font-size: 14px;
+	}
+	
+	.jefferson {
+		margin: -10px 0 0 -18px;
+	}
+	
+	.jfk {
+		margin: -2px 0 0 -21px;
+	}
+	
+	.aristotle {
+		margin: -16px 0 0 -24px;
+	}
+	
+	.mlk {
+		margin: -10px 0 0 -18px;
+	}
+	
+	.churchill {
+		margin: 0px 0 0 -22px;
+	}
+}

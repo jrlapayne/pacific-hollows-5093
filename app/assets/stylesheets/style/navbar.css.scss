@@ -23,7 +23,7 @@
 	}
 	
 	.factory {
-		cursor: pointer;
+		cursor: default;
 		position: absolute;
 		top: 0;
 		left: 120px;
@@ -32,13 +32,16 @@
 		border-left: 1px solid $black;
 		border-right: 1px solid $black;
 		
-		&:hover {
+		.label {
+			color: rgba(#fff, 0.2);
+		}
+		/* &:hover {
 			background: rgba(#fff, 0.1);
 			
 			.label {
 				color: #55B9D5;
 			}
-		}
+		} */
 	}
 	
 	.about {
@@ -61,7 +64,7 @@
 	}
 	
 	.profile {
-		cursor: pointer;
+		cursor: default;
 		position: absolute;
 		top: 0;
 		left: 360px;
@@ -69,13 +72,17 @@
 		height: 100%;
 		border-right: 1px solid $black;
 		
-		&:hover {
+		.label {
+			color: rgba(#fff, 0.2);
+		}
+		
+		/* &:hover {
 			background: rgba(#fff, 0.1);
 			
 			.label {
 				color: #55B9D5;
 			}
-		}
+		} */
 	}
 	
 	.label {
@@ -89,17 +96,74 @@
 	}
 	
 	.autocomplete {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 420px;
+		height: 40px;
+		
 		input {
-			width: 400px; 
-			margin: 10px 0 0 495px; 
+			width: 382px; 
+			margin: 10px 0 0 15px; 
 			@include border-radius(5px);
+			padding-left: 18px;
+		}
+		
+		.image {
+			position: absolute;
+			top: 12px;
+			left: 20px;
+			width: 16px;
+			height: 16px;
 		}
 		
 		.results {
 			width: 404px; 
-			margin: 0 0 0 495px; 
+			margin: 0 0 0 15px; 
 			background: #fff;
 			@include border-bottom-radius(5px);
+			border-bottom: 1px solid $black;
+			border-left: 1px solid $black;
+			border-right: 1px solid $black;
+			
+			.new-container {
+				width: 404px;
+				min-height: 40px;
+			}
+			
+			.new-question {
+				line-height: 20px;
+				font-size: 14px;
+				width: 340px;
+				float: left;
+			}
+			
+			.ask {
+				cursor: pointer;
+				text-align: center;
+				width: 56px;
+				height: 34px;
+				font-size: 16px;
+				line-height: 18px;
+				margin:2px 2px 0 2px;
+				float: right;
+				color: #fff;
+				background: #55B9D5;
+				border: 1px solid darken(#55B9D5, 15%);
+				@include border-radius(5px);
+				@include gradient(#55B9D5);
+				@include single-box-shadow(rgba(#000, 0.3), 0, 0, 2px, 2px, inset);
+				
+				&:hover {
+					background: lighten(#55B9D5, 10%);
+					@include gradient(lighten(#55B9D5, 10%));
+				}
+				
+				&:active {
+					background: darken(#55B9D5, 10%);
+					@include reverse-gradient(darken(#55B9D5, 10%));
+				}
+			}
 		}
 	}
 }

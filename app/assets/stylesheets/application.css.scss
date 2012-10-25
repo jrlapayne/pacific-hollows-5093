@@ -12,6 +12,7 @@
 @import "style/quedits";
 @import "style/categories";
 @import "style/navbar";
+@import "style/about";
 
 .question-box {
 	width: 100%;
@@ -131,8 +132,9 @@ a {
 }
 
 .autocom-result {
-	height: 18px; 
-	line-height: 18px; 
+	height: 20px; 
+	line-height: 20px;
+	border-bottom: 1px solid #ccc; 
 	font-size: 14px; 
 	width: 404px; 
 	overflow: hidden; 

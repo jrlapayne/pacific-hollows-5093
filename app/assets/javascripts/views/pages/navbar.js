@@ -20,7 +20,7 @@ Gangnam.Views.PagesNavbar = Backbone.View.extend({
 	},
 	
 	factory: function() {
-		Backbone.history.navigate('factory', true);
+		//Backbone.history.navigate('factory', true);
 	},
 	
 	pagesAbout: function() {
@@ -28,6 +28,6 @@ Gangnam.Views.PagesNavbar = Backbone.View.extend({
 	},
 	
 	usersProfile: function() {
-		Backbone.history.navigate('profile', true);
+		//Backbone.history.navigate('profile', true);
 	}
 });

@@ -9,7 +9,8 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		'issue:id/cons' : 'questionsCons',
 		'question:id' : 'factsIndex',
 		'factory' : 'questionsFactory',
-		'profile' : 'usersProfile'
+		'profile' : 'usersProfile',
+		'about' : 'pagesAbout'
 	},
 	
 	initialize: function(options) {
@@ -125,15 +126,11 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 	},
 	
 	pagesHome: function() {
-		if (this.signedInUser(this.current_user)) {
-			Backbone.history.navigate('issues', true);
-		} else {
-			var view = new Gangnam.Views.PagesHome({
-				attr: this.attr
-			});
-			this.setCurrentView(view);
-			$('.page').html(view.render().el);
-		}
+		var view = new Gangnam.Views.PagesHome({
+			attr: this.attr
+		});
+		this.setCurrentView(view);
+		$('.page').html(view.render().el);
 	},
 	
 	issuesIndex: function() {
@@ -199,6 +196,14 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		$('.page').html(JST['pages/columns']);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
+	},
+	
+	pagesAbout: function() {
+		var view = new Gangnam.Views.PagesAbout({
+			attr: this.attr
+		});
+		this.setCurrentView(view);
+		$('.page').html(view.render().el);
 	},
 	
 	usersProfile: function() {

@@ -17,6 +17,7 @@
 		width: 100%;
 		height: 50px;
 		overflow: hidden;
+		@include border-top-radius(5px);
 		
 		.point {
 			@include opacity(0);
@@ -24,12 +25,27 @@
 	}
 	
 	&.middle {
+		z-index: 1;
 		border: 1px solid #9ca5bf;
 		position: absolute;
 		top: 50px;
 		left: 0;
 		width: 100%;
 		height: 100px;
+		@include single-box-shadow(rgba(#000, 0.3), 0, 0, 3px, 3px);
+		@include border-radius(5px);
+		
+		.title.container {
+			@include border-top-radius(4px);
+		}
+		
+		.stats {
+			@include border-bottom-radius(4px);
+		}
+		
+		.sidebar {
+			@include border-right-radius(4px);
+		}
 	}
 	
 	&.bottom {
@@ -41,6 +57,7 @@
 		width: 100%;
 		height: 50px;
 		overflow: hidden;
+		@include border-bottom-radius(5px);
 		
 		.point {
 			@include opacity(0);
@@ -51,6 +68,7 @@
 		width: 100%;
 		text-align: center;
 		height: 50px;
+		line-height: 50px;
 		
 		&.container {
 			background: #fff;

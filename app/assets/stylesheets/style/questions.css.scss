@@ -305,26 +305,26 @@
 			
 			.share {
 				position: absolute;
-				bottom: 12.5%;
-				right: 44.5%;
-				width: 4em;
-				height: 4em;
+				bottom: 1px;
+				right: 120px;
+				width: 53px;
+				height: 53px;
 			}
 			
 			.edit {
 				position: absolute;
-				bottom: 18.75%;
-				right: 23.5%;
-				width: 3.5em;
-				height: 3.5em;
+				bottom: 5px;
+				right: 68px;
+				width: 44px;
+				height: 44px;
 			}
 			
 			.comments {
 				position: absolute;
-				bottom: 29.33%;
-				right: 1.5%;
-				width: 4em;
-				height: 2.667em;
+				bottom: 9px;
+				right: 5px;
+				width: 53px;
+				height: 35px;
 				
 				&.count {
 					font-weight: bold;

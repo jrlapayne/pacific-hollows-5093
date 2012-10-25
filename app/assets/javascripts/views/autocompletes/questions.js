@@ -76,7 +76,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 				this.appendResult(this.matches[i]);
 			}
 			setTimeout(function() {
-				$('#autocom').append($('#auto').val() + " <button id = 'add'>Add</button>");
+				$('#autocom').append(JST['autocompletes/ask']({title: $('#auto').val()}));
 			}, 0);
 			this.hovered = $('#autocom').children().first();
 			$(this.hovered).addClass('hovered');
@@ -189,7 +189,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	},
 	
 	showResults: function() {
-		this.stuff(null);
+		this.autocomplete(null);
 	},
 	
 	goToResult: function(event) {

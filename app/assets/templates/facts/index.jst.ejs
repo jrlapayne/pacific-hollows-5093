@@ -1,6 +1,12 @@
 <div id = "question" style = "margin: 0 0 20px 0"></div>
 <% if (facts.length > 0) { %>
-	<div class = "fact-header"><%= facts.length %> Facts:</div>
+	<div class = "fact-header">
+		<% if (facts.length !== 1) { %>
+			<%= facts.length %> Facts:
+		<% } else { %>
+			<%= facts.length %> Fact:
+		<% } %>
+	</div>
 <% } %>
 <div id = "facts"></div>
 <div id = "create" style = "margin: 1em 0 0 0">
