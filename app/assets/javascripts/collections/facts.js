@@ -7,17 +7,12 @@ Gangnam.Collections.Facts = Backbone.Collection.extend({
 		return - fact.get('score');
 	},
 	
-	resetScores: function(votes) {
-		var score, fact_votes;
-		this.each(function(f) {
-			score = 0;
-			fact_votes = votes.where({question_id: f.get('question_id'), fact_id: f.get('fact_id'), comment_id: null});
-			for (i = 0; i < fact_votes.length; i++) {
-				score = score + fact_votes[i].get('value');
-			}
-			f.set({score: score});
-			f.save();
-		});
+	resetScore: function(vote) {
+		var score = 0, fact;
+		fact = this.where({id: vote.get('fact_id')})[0];
+		
+		fact.set({score: fact.get('score') + vote.get('value')});
+		fact.save();
 		this.checkOrder();
 	},
 	

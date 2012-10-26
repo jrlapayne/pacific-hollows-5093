@@ -13,6 +13,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 		this.facts = [];
 		
 		this.attr.facts.on('add', this.render, this);
+		this.attr.facts.on('reorder', this.render, this);
 	},
 
 	render: function() {

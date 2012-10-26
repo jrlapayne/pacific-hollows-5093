@@ -15,7 +15,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		$(this.el).addClass('static');
+		$(this.el).addClass('static background-cover');
 		$(this.el).html(this.template());
 		setTimeout(function() {
 			self.openFirst();
@@ -26,7 +26,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 	openBox: function(event) {
 		var new_ele = $(event.target).closest('.comparison');
 		var old_ele;
-		var elements = $(this.el).children().get();
+		var elements = $('#monkeys').children().get();
 		
 		if ($(new_ele).hasClass('open')) {
 			return;
@@ -63,7 +63,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 	},
 	
 	openFirst: function() {
-		var element = $(this.el).children().get()[0];
+		var element = $('#monkeys').children().get()[0];
 		
 		$(element).addClass('open');
 		$(element).find('.panels').css('display', 'block');

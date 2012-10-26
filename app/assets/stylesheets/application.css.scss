@@ -13,6 +13,7 @@
 @import "style/categories";
 @import "style/navbar";
 @import "style/about";
+@import "style/home";
 
 .question-box {
 	width: 100%;
@@ -29,26 +30,6 @@
 .highlight {
 	background: #ff0;
 }
-
-#nav a { 
-	border: 1px solid darken(#303030, 10%); 
-	background: #303030; 
-	text-decoration: none; 
-	margin: 0 5px; 
-	padding: 0 5px 0 5px;
-	color: rgba(#000, 0);
-	width: 20px;
-	height: 20px;
-	border-radius: 10px;
-	@include reverse-gradient(#303030);
-}
-
-#nav a.activeSlide { 
-	background: #fff;
-	color: rgba(#fff, 0);
-	@include gradient(darken(#fff, 15%));
-}
-#nav a:focus { outline: none; }
 
 .hide {
 	display: none;

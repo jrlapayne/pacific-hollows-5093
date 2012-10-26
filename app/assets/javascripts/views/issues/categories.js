@@ -84,7 +84,7 @@ Gangnam.Views.IssuesCategories = Backbone.View.extend({
 		if (is_top) {
 			$(old_ele).animate({
 				top: "0",
-				height: "50px"
+				height: "40px"
 			}, time);
 
 			$(old_ele).find('#arrow').animate({
@@ -92,16 +92,16 @@ Gangnam.Views.IssuesCategories = Backbone.View.extend({
 			}, time);
 			
 			$(new_ele).animate({
-				top: "50px",
-				height: "100px"
+				top: "40px",
+				height: "80px"
 			}, time);
 			
 			$(old_ele).addClass('top');
 			$(new_ele).removeClass('top');
 		} else {		
 			$(old_ele).animate({
-				top: "150px",
-				height: "50px"
+				top: "120px",
+				height: "40px"
 			}, time);
 			
 			$(old_ele).find('#arrow').animate({
@@ -109,8 +109,8 @@ Gangnam.Views.IssuesCategories = Backbone.View.extend({
 			}, time);
 			
 			$(new_ele).animate({
-				top: "-=100px",
-				height: "100px"
+				top: "-=80px",
+				height: "80px"
 			}, time);
 			
 			$(old_ele).addClass('bottom');

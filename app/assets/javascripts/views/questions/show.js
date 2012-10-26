@@ -31,7 +31,8 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 		}));
 		
 		setTimeout(function() {
-			//self.renderVotes();
+			self.renderVotes();
+			self.renderRank();
 			//self.renderComments();
 		}, 0);
 		return this;
@@ -47,6 +48,15 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	
 	renderComments: function() {
 		$(this.el).find('.comments').html(JST['comments/number']({comments: this.comments}));
+	},
+	
+	renderRank: function() {
+		var view = new Gangnam.Views.ReputationsQuestion({
+			attr: this.attr,
+			issue: this.attr.issues.where({id: this.question.get('issue_id')})[0],
+			question: this.question
+		});
+		$(this.el).find('#user_info').html(view.render().el);
 	},
 	
 	commentsIndex: function(event) {

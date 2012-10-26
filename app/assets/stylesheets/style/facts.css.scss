@@ -178,7 +178,6 @@
 	}
 	
 	textarea {
-		color: $black;
 		border: 1px solid #ddd;
 		border-style: inset;
 		border-width: 2px;
@@ -195,7 +194,6 @@
 	}
 	
 	input[type = text] {
-		color: $black;
 		width: 94%;
 		font-size: 0.875em;
 		line-height: 1.286em;
@@ -231,6 +229,15 @@
 			background: darken(#55B9D5, 30%);
 			@include reverse-gradient(darken(#55B9D5, 30%));
 		}
+	}
+	
+	.light-text {
+		font-style: italic;
+		color: lighten($black, 50%);
+	}
+	
+	.dark-text {
+		color: $black;
 	}
 }
 

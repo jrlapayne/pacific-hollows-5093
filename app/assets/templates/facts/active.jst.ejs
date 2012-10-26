@@ -1,8 +1,4 @@
-<div class = "vote container">
-	<div class = "vote up"><div class = "small-arrow"></div></div>
-	<div class = "vote count">2</div>
-	<div class = "vote down"><div class = "small-darrow"></div></div>
-</div>
+<div class = "vote container" id = "votes"></div>
 <div class = "title container">
 	<div class = "title">
 		<b><%= fact.get('title') %></b>
@@ -14,13 +10,7 @@
 <div class = "sources container" id = "sources"></div>
 <div class = "extras"></div>
 <div class = "stats">
-	<div class = "picture">
-		<img src = "https://graph.facebook.com/1952630/picture" height = "100%" />
-	</div>
-	<div class = "text">
-		<div class = "name">Andrew</div>
-		<div class = "rank">Rank: 11 of 173</div>
-	</div>
+	<div id = "user_info"></div>
 	<div class = "share tooltip"><span class = "share-tip">Share</span><img src = "assets/facebook64.png" width = "100%" /></div>
 	<div class = "edit tooltip" id = "fedit"><span class = "edit-tip">Edit</span><img src = "assets/gear.png" width = "100%" /></div>
 	<div class = "comments tooltip">

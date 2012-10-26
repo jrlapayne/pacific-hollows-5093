@@ -1,6 +1,7 @@
 Gangnam.Views.PagesHome = Backbone.View.extend({
 	
 	template: JST['pages/home'],
+	id: 'homepage',
 	
 	events: {
 		'click #img1' : 'image1',

@@ -23,6 +23,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 		setTimeout(function() {
 			self.renderVotes();
 			self.renderComments();
+			self.renderRank();
 			for (k = 0; k < self.sources.length; k++) {
 				self.appendSource(self.sources[k]);
 			}
@@ -48,6 +49,15 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	
 	renderComments: function() {
 		$(this.el).find('.fact-comments').html(JST['comments/number']({comments: this.comments}));
+	},
+	
+	renderRank: function() {
+		var view = new Gangnam.Views.ReputationsFact({
+			attr: this.attr,
+			issue: this.attr.issues.where({id: this.fact.get('issue_id')})[0],
+			fact: this.fact
+		});
+		$(this.el).find('#user_info').html(view.render().el);
 	},
 	
 	commentsIndex: function(event) {

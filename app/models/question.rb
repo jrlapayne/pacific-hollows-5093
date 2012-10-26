@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  attr_accessible :issue_id, :title, :description, :votes, :user_id, :category, :has_quiz, :edit_id
+  attr_accessible :issue_id, :title, :description, :score, :user_id, :category, :has_quiz, :edit_id
   
   belongs_to :issue
   has_many :facts, dependent: :destroy

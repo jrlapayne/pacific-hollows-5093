@@ -3,8 +3,8 @@ Gangnam.Views.VotesFact = Backbone.View.extend({
 	template: JST['votes/fact'],
 	
 	events: {
-		'click #fact_up' : 'upVote',
-		'click #fact_down' : 'downVote'		
+		'click #upvote' : 'upVote',
+		'click #downvote' : 'downVote'		
 	},
 	
 	initialize: function(options) {
@@ -35,16 +35,18 @@ Gangnam.Views.VotesFact = Backbone.View.extend({
 	},
 	
 	upVote: function(event) {
+		var vote;
 		if (this.user.canVote()) {
-			this.attr.votes.addOrUpdate(this.user, this.fact.get('question_id'), this.fact.get('id'), null, 1);
-			this.attr.facts.resetScores(this.attr.votes);
+			vote = this.attr.votes.addOrUpdate(this.user, this.fact.get('question_id'), this.fact.get('id'), null, 1);
+			this.attr.facts.resetScore(vote);
 		}
 	},
 	
 	downVote: function(event) {
+		var vote;
 		if (this.user.canVote()) {
-			this.attr.votes.addOrUpdate(this.user, this.fact.get('question_id'), this.fact.get('id'), null, -1);
-			this.attr.facts.resetScores(this.attr.votes);
+			vote = this.attr.votes.addOrUpdate(this.user, this.fact.get('question_id'), this.fact.get('id'), null, -1);
+			this.attr.facts.resetScore(vote);
 		}
 	}
 });

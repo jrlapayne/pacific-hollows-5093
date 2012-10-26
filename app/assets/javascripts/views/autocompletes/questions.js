@@ -180,7 +180,9 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	
 	removeResults: function(event) {
 		var self = this;
-		
+		$('#auto').removeClass('dark-text');
+		$('#auto').addClass('light-text');
+		$('#auto').val('Search/Add Questions...');
 		setTimeout(function() {
 			self.hovered = null;
 			self.matches = null;
@@ -189,6 +191,9 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	},
 	
 	showResults: function() {
+		$('#auto').removeClass('light-text');
+		$('#auto').addClass('dark-text');
+		$('#auto').val('');
 		this.autocomplete(null);
 	},
 	

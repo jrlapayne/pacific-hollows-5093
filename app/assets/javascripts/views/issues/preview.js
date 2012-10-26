@@ -29,10 +29,10 @@ Gangnam.Views.IssuesPreview = Backbone.View.extend({
 	},
 	
 	renderRank: function() {
-		var view = new Gangnam.Views.ReputationsIssue({
+		 /* var view = new Gangnam.Views.ReputationsIssue({
 			attr: this.attr,
 			issue: this.issue
 		});
-		$(this.el).find('#rank').html(view.render().el);
+		$(this.el).find('#rank').html(view.render().el); */
 	}
 });

@@ -3,7 +3,7 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	template: JST['issues/show'],
 	
 	events: {
-		
+		'click #back' : 'goBack'
 	},
 	
 	initialize: function(options) {
@@ -19,5 +19,13 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 			issue: this.issue
 		}));
 		return this;
+	},
+	
+	goBack: function() {
+		if (window.location.hash.slice(1, 9) === 'question') {
+			parent.history.back();
+		} else {
+			Backbone.history.navigate('issues', true);
+		}
 	}
 });

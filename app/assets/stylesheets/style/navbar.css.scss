@@ -104,9 +104,26 @@
 		
 		input {
 			width: 382px; 
-			margin: 10px 0 0 15px; 
+			margin: 6px 0 0 15px; 
 			@include border-radius(5px);
-			padding-left: 18px;
+			padding-left: 20px;
+			height: 20px;
+			font-size: 16px;
+			line-height: 20px;
+			
+			&:focus{
+				outline: none;
+				@include single-box-shadow(rgba(#000, 0.75), 0, 0, 3px, 3px);
+			}
+		}
+		
+		.light-text {
+			font-style: italic;
+			color: lighten($black, 50%);
+		}
+		
+		.dark-text {
+			color: $black;
 		}
 		
 		.image {

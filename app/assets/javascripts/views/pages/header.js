@@ -26,16 +26,16 @@ Gangnam.Views.PagesHeader = Backbone.View.extend({
 	
 	facebookLogin: function() {
 		//window.location = "http://localhost:3000/auth/facebook";
-		window.location = "http://pacific-hollows-5093.herokuapp.com/auth/facebook";
+		//window.location = "http://pacific-hollows-5093.herokuapp.com/auth/facebook";
 	},
 	
 	googleLogin: function() {
 		//window.location = "http://localhost:3000/auth/google";
-		window.location = "http://pacific-hollows-5093.herokuapp.com/auth/google";
+		//window.location = "http://pacific-hollows-5093.herokuapp.com/auth/google";
 	},
 	
 	twitterLogin: function() {
 		//window.location = "http://localhost:3000/auth/twitter";
-		window.location = "http://pacific-hollows-5093.herokuapp.com/auth/twitter";
+		//window.location = "http://pacific-hollows-5093.herokuapp.com/auth/twitter";
 	}
 });

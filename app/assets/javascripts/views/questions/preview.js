@@ -23,7 +23,9 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 			$(this.el).addClass('bottom');
 		}
 		$(this.el).html(this.template({
-			question: this.question
+			question: this.question,
+			facts: this.getFacts(),
+			comments: this.getComments()
 		}));
 		setTimeout(function() {
 			self.renderRank();
@@ -47,5 +49,13 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 			question: this.question
 		});
 		$(this.el).find('#score').html(view.render().el);
+	},
+	
+	getFacts: function() {
+		return this.attr.facts.where({question_id: this.question.get('id')});
+	},
+	
+	getComments: function() {
+		return this.attr.comments.where({question_id: this.question.get('id')});
 	}
 });

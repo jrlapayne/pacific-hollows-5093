@@ -1,5 +1,5 @@
 class Fact < ActiveRecord::Base
-  attr_accessible :issue_id, :question_id, :title, :description, :votes, :user_id, :edit_id
+  attr_accessible :issue_id, :question_id, :title, :description, :score, :user_id, :edit_id
   
   belongs_to :question
   has_many :comments, dependent: :destroy

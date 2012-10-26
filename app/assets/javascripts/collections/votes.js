@@ -6,7 +6,7 @@ Gangnam.Collections.Votes = Backbone.Collection.extend({
 	addOrUpdate: function(user, question_id, fact_id, comment_id, value) {
 		var vote;
 		if(!this.where({user_id: user.get('id'), question_id: question_id, fact_id: fact_id, comment_id: comment_id})[0]) {
-			this.create({
+			vote = this.create({
 				question_id: question_id,
 				fact_id: fact_id,
 				comment_id: comment_id,
@@ -18,5 +18,7 @@ Gangnam.Collections.Votes = Backbone.Collection.extend({
 			vote.set({value: value});
 			vote.save();
 		}
+		
+		return vote;
 	}
 });

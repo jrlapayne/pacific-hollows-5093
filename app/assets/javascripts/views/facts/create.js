@@ -4,7 +4,13 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 	id: 'create_fact',
 	
 	events: {
-		'submit #new_fact' : 'createFact'
+		'submit #new_fact' : 'createFact',
+		'focus #title' : 'focusTitle',
+		'focus #description' : 'focusDescription',
+		'focus #source' : 'focusSource',
+		'blur #title' : 'blurTitle',
+		'blur #description' : 'blurDescription',
+		'blur #source' : 'blurSource'
 	},
 	
 	initialize: function(options) {
@@ -63,6 +69,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 				});
 			} else {
 				alert("Invalid Entry");
+				this.posting = false;
 			}
 		}
 	},
@@ -71,7 +78,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 		var title = $('#new_fact').find('#title').val();
 		var source = $('#new_fact').find('#source').val();
 		
-		if ((title && title !== "" && /\S/.test(title)) && (source && source !== "" && /\S/.test(source))) {
+		if ((title && title !== "" && /\S/.test(title)) && (source && source !== "" && /\S/.test(source)) && title !== "Brief Summary (15 words or less)") {
 			return true;
 		} else {
 			return false;
@@ -81,5 +88,41 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
 		$('#loading').html(view.render().el);
+	},
+	
+	focusTitle: function() {
+		$('#title').removeClass('light-text');
+		$('#title').addClass('dark-text');
+		$('#title').val('');
+	},
+	
+	focusDescription: function() {
+		$('#description').removeClass('light-text');
+		$('#description').addClass('dark-text');
+		$('#description').val('');
+	},
+	
+	focusSource: function() {
+		$('#source').removeClass('light-text');
+		$('#source').addClass('dark-text');
+		$('#source').val('');
+	},
+	
+	blurTitle: function() {
+		$('#title').removeClass('dark-text');
+		$('#title').addClass('light-text');
+		$('#title').val('Brief Summary (15 words or less)');
+	},
+	
+	blurDescription: function() {
+		$('#description').removeClass('dark-text');
+		$('#description').addClass('light-text');
+		$('#description').val('More details about the fact...');
+	},
+	
+	blurSource: function() {
+		$('#source').removeClass('dark-text');
+		$('#source').addClass('light-text');
+		$('#source').val('URL of the source');
 	}
 });

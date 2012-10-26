@@ -35,17 +35,12 @@ Gangnam.Collections.Questions = Backbone.Collection.extend({
 		});
 	},
 	
-	resetScores: function(votes) {
-		var score, ques_votes;
-		this.each(function(q) {
-			score = 0;
-			ques_votes = votes.where({question_id: g.get('question_id'), fact_id: null, comment_id: null});
-			for (i = 0; i < ques_votes.length; i++) {
-				score = score + ques_votes[i].get('value');
-			}
-			q.set({score: score});
-			q.save();
-		});
+	resetScore: function(vote) {
+		var score = 0, question;
+		question = this.where({id: vote.get('question_id')})[0];
+		
+		question.set({score: question.get('score') + vote.get('value')});
+		question.save();
 		this.checkOrder();
 	},
 	

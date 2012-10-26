@@ -3,8 +3,8 @@ Gangnam.Views.VotesQuestion = Backbone.View.extend({
 	template: JST['votes/question'],
 	
 	events: {
-		'click #question_up' : 'upVote',
-		'click #question_down' : 'downVote'
+		'click #upvote' : 'upVote',
+		'click #downvote' : 'downVote'
 	},
 	
 	initialize: function(options) {
@@ -35,16 +35,20 @@ Gangnam.Views.VotesQuestion = Backbone.View.extend({
 	},
 	
 	upVote: function(event) {
+		var vote;
+		
 		if (this.user.canVote()) {
-			this.attr.votes.addOrUpdate(this.user, this.question.get('id'), null, null, 1);
-			this.attr.questions.resetScores(this.attr.votes);
+			vote = this.attr.votes.addOrUpdate(this.user, this.question.get('id'), null, null, 1);
+			this.attr.questions.resetScore(vote);
 		}
 	},
 	
 	downVote: function(event) {
+		var vote;
+		
 		if (this.user.canVote()) {
-			this.attr.votes.addOrUpdate(this.user, this.question.get('id'), null, null, -1);
-			this.attr.questions.resetScores(this.attr.votes);
+			vote = this.attr.votes.addOrUpdate(this.user, this.question.get('id'), null, null, -1);
+			this.attr.questions.resetScore(vote);
 		}
 	}
 });
