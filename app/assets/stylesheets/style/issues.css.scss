@@ -81,18 +81,197 @@
 			&.active {
 				color: #fff;
 				background: $textblue;
-				border: 1px solid darken(#55B9D5, 25%);
+				border: 1px solid darken($backgroundcolor, 25%);
 				cursor: pointer;
-				@include gradient(darken(#55B9D5, 10%));
+				@include gradient(darken($backgroundcolor, 10%));
 				
 				&:hover {
-					background: lighten(#55B9D5, 0%);
-					@include gradient(lighten(#55B9D5, 0%));
+					background: lighten($backgroundcolor, 0%);
+					@include gradient(lighten($backgroundcolor, 0%));
 				}
 
 				&:active{
-					background: darken(#55B9D5, 20%);
-					@include reverse-gradient(darken(#55B9D5, 20%));
+					background: darken($backgroundcolor, 20%);
+					@include reverse-gradient(darken($backgroundcolor, 20%));
+				}
+			}
+			
+			&.inactive {
+				color: lighten($black, 20%);
+				background: #ccc;
+				border: 1px solid darken(#ccc, 10%);
+				cursor: default;
+				@include reverse-gradient(#ccc);
+			}
+		}
+	}
+	
+	.quiz {
+		font-size: 11px;
+		position: absolute;
+		bottom: 84px;
+		right: 5%;
+		height: 10%;
+		width: 30%;
+		
+		button {
+			font-size: 1em;
+			width: 100%;
+			height: 100%;
+			@include border-radius($radius);
+			@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px, inset);
+			&.active {
+				color: #fff;
+				background: $textblue;
+				border: 1px solid darken($black, 10%);
+				cursor: pointer;
+				@include gradient($black);
+
+				&:hover {
+					background: lighten($black, 10%);
+					@include gradient(lighten($black, 10%));
+				}
+
+				&:active{
+					background: darken($black, 10%);
+					@include reverse-gradient(darken($black, 10%));
+				}
+			}
+			
+			&.inactive {
+				color: lighten($black, 20%);
+				background: #ccc;
+				border: 1px solid darken(#ccc, 10%);
+				cursor: default;
+				@include reverse-gradient(#ccc);
+			}
+		}
+	}
+	
+	.hover-container {
+		color: #fff;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.7);
+		z-index: 1;
+		opacity: 0;
+		@include border-radius(4px);
+	
+		transition: opacity 1s;
+		-moz-transition: opacity 1s; /* Firefox 4 */
+		-webkit-transition: opacity 1s; /* Safari and Chrome */
+		-o-transition: opacity 1s; /* Opera */
+	
+		&:hover {
+			opacity: 1;
+		}	
+		.description {
+			background: none;
+			position: relative;
+			display:inline;
+			color:#FFF;
+		}
+	}
+}
+
+.issue.active {
+		
+	.title {
+		color: #fff;
+		position: relative;
+		text-align: left;
+		font-size: 16px;
+		line-height: 18px;
+		width: 96%;
+		height: 18px;
+		margin: 11px 0 0 4%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		
+		&.container {
+			background: $black;
+			position: absolute;
+			margin: 0;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 40px;
+			@include border-top-radius(4px);
+			border-bottom: 1px solid darken($black, 10%);
+		}
+	}
+
+	.thumbnail {	
+		width: 104px;
+		height: 104px;
+		position: absolute;
+		top: 72px;
+		left: 5%;
+	}
+	
+	.rank {
+		position: absolute;
+		
+		&.picture {
+			top: 10%;
+			left: 5%;
+			height: 80%;
+			width: 16%;
+			@include border-radius(5px);
+			overflow: hidden;
+		}
+			
+		&.container {
+			border: none;
+			background: #eee;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 52px;
+			@include border-bottom-radius(4px);
+			border-top: 1px solid #ddd;
+		}
+		
+		&.text {
+			font-size: 14px;
+			bottom: 10%;
+			left: 25%;
+		}
+	}
+	
+	.browse {
+		font-size: 11px;
+		position: absolute;
+		bottom: 120px;
+		right: 5%;
+		height: 10%;
+		width: 30%;
+		
+		button {
+			font-size: 1em;
+			width: 100%;
+			height: 100%;
+			@include border-radius($radius);
+			@include single-box-shadow(rgba(#000, 0.3), 0, 0, 2px, 2px, inset);
+			&.active {
+				color: #fff;
+				background: $textblue;
+				border: 1px solid darken($backgroundcolor, 25%);
+				cursor: pointer;
+				@include gradient(darken($backgroundcolor, 10%));
+				
+				&:hover {
+					background: lighten($backgroundcolor, 0%);
+					@include gradient(lighten($backgroundcolor, 0%));
+				}
+
+				&:active{
+					background: darken($backgroundcolor, 20%);
+					@include reverse-gradient(darken($backgroundcolor, 20%));
 				}
 			}
 			

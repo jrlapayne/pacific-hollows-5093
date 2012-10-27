@@ -50,5 +50,10 @@ Gangnam.Views.VotesQuestion = Backbone.View.extend({
 			vote = this.attr.votes.addOrUpdate(this.user, this.question.get('id'), null, null, -1);
 			this.attr.questions.resetScore(vote);
 		}
+	},
+	
+	onClose: function() {
+		this.attr.votes.unbind("add", this.render);
+		this.attr.votes.unbind("change", this.render);
 	}
 });

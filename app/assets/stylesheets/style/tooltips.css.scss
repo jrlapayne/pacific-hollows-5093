@@ -2,20 +2,20 @@
 	cursor: pointer;
 	
 	.share-tip {
-		background: darken(#55B9D5, 30%);
-		border: 1px solid darken(darken(#55B9D5, 30%), 10%);
+		background: darken($backgroundcolor, 30%);
+		border: 1px solid darken(darken($backgroundcolor, 30%), 10%);
 		color: #fff;
 	}
 	
 	.edit-tip {
-		background: darken(#55B9D5, 30%);
-		border: 1px solid darken(darken(#55B9D5, 30%), 10%);
+		background: darken($backgroundcolor, 30%);
+		border: 1px solid darken(darken($backgroundcolor, 30%), 10%);
 		color: #fff;
 	}
 	
 	.comment-tip {
-		background: darken(#55B9D5, 30%);
-		border: 1px solid darken(darken(#55B9D5, 30%), 10%);
+		background: darken($backgroundcolor, 30%);
+		border: 1px solid darken(darken($backgroundcolor, 30%), 10%);
 		color: #fff;
 	}
 }

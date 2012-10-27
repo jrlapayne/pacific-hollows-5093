@@ -1,6 +1,6 @@
 .question.preview {
 	.bubble {
-		border: 5px solid #55B9D5;
+		border: 5px solid $backgroundcolor;
 		position: absolute;
 		top: 5%;
 		left: 1%;
@@ -94,7 +94,7 @@
 				left: 10%;
 				width: 80%;
 				height: 80%;
-				background: #55B9D5;
+				background: $backgroundcolor;
 				@include border-radius($radius);
 			}
 			
@@ -201,22 +201,22 @@
 				width: 10%;
 				height: 100%;
 				@include border-left-radius(4px);
-				background: #eee;
-				border-right: 1px solid #ddd;
+				background: $backgroundcolor;
+				border-right: 1px solid darken($backgroundcolor, 10%);
 			}
 		
 			&.up {
 				position: absolute;
-				top: 16px;
-				left: 27.5%;
+				top: 53px;
+				left: 35%;
 				width: 45%;
 				height: 15px;
 			}
 		
 			&.down {
 				position: absolute;
-				top: 78px;
-				left: 27.5%;
+				top: 113px;
+				left: 35%;
 				width: 45%;
 				height: 15px;
 			}
@@ -226,8 +226,8 @@
 				text-align: center;
 				font-size: 29px;
 				line-height: 26px;
-				color: $black;
-				top: 41px;
+				color: #fff;
+				top: 76px;
 				left: 10%;
 				width: 80%;
 				height: 26px;
@@ -235,7 +235,7 @@
 		}
 	
 		.bubble {
-			border: 5px solid #55B9D5;
+			border: 5px solid $backgroundcolor;
 			position: absolute;
 			top: 5%;
 			left: 11%;
@@ -280,7 +280,7 @@
 		
 			.text {
 				position: absolute;
-				top: 25%;
+				bottom: 7%;
 				left: 14%;
 				width: 20%;
 				height: 50%;
@@ -305,26 +305,26 @@
 			
 			.share {
 				position: absolute;
-				bottom: 1px;
-				right: 120px;
-				width: 53px;
-				height: 53px;
+				bottom: 2px;
+				right: 1px;
+				width: 44px;
+				height: 44px;
 			}
 			
 			.edit {
 				position: absolute;
 				bottom: 5px;
-				right: 68px;
-				width: 44px;
-				height: 44px;
+				right: 100px;
+				width: 37px;
+				height: 37px;
 			}
 			
 			.comments {
 				position: absolute;
 				bottom: 9px;
-				right: 5px;
-				width: 53px;
-				height: 35px;
+				right: 48px;
+				width: 45px;
+				height: 30px;
 				
 				&.count {
 					font-weight: bold;

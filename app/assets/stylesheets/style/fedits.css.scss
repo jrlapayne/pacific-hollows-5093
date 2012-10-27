@@ -2,7 +2,7 @@
 	padding: 1em 0;
 	
 	label {
-		color: darken(#55B9D5, 20%);
+		color: darken($backgroundcolor, 20%);
 		font-weight: bold;
 		font-size: 1em;
 		margin: 1em 0 0 2.5%;
@@ -33,21 +33,21 @@
 		margin: 1em 0 0 2.5%;
 		width: 25%;
 		height: 3em;
-		border: 1px solid darken(#55B9D5, 30%);
-		background: darken(#55B9D5, 20%);
+		border: 1px solid darken($backgroundcolor, 30%);
+		background: darken($backgroundcolor, 20%);
 		@include border-radius($radius);
-		@include gradient(darken(#55B9D5, 20%));
+		@include gradient(darken($backgroundcolor, 20%));
 		@include single-box-shadow(inset, rgba(#000, 0.5), 0, 0, 5px, 5px);
 		&:hover {
-			border: 1px solid darken(#55B9D5, 20%); 
-			background: darken(#55B9D5, 10%);
-			@include gradient(darken(#55B9D5, 10%));
+			border: 1px solid darken($backgroundcolor, 20%); 
+			background: darken($backgroundcolor, 10%);
+			@include gradient(darken($backgroundcolor, 10%));
 		}
 		
 		&:active {
-			border: 1px solid darken(#55B9D5, 40%); 
-			background: darken(#55B9D5, 30%);
-			@include reverse-gradient(darken(#55B9D5, 30%));
+			border: 1px solid darken($backgroundcolor, 40%); 
+			background: darken($backgroundcolor, 30%);
+			@include reverse-gradient(darken($backgroundcolor, 30%));
 		}
 	}
 	
@@ -65,20 +65,20 @@
 		
 		&.history {
 			left: 37.5%;
-			border: 1px solid darken(#55B9D5, 10%); 
-			background: #55B9D5;
-			@include gradient(#55B9D5);
+			border: 1px solid darken($backgroundcolor, 10%); 
+			background: $backgroundcolor;
+			@include gradient($backgroundcolor);
 			
 			&:hover {
-				border: 1px solid #55B9D5; 
-				background: lighten(#55B9D5, 10%);
-				@include gradient(lighten(#55B9D5, 10%));
+				border: 1px solid $backgroundcolor; 
+				background: lighten($backgroundcolor, 10%);
+				@include gradient(lighten($backgroundcolor, 10%));
 			}
 			
 			&:active {
-				border: 1px solid darken(#55B9D5, 20%); 
-				background: darken(#55B9D5, 10%);
-				@include reverse-gradient(darken(#55B9D5, 10%));
+				border: 1px solid darken($backgroundcolor, 20%); 
+				background: darken($backgroundcolor, 10%);
+				@include reverse-gradient(darken($backgroundcolor, 10%));
 			}
 		}
 		

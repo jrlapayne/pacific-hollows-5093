@@ -102,13 +102,13 @@
 
 a {
 	text-decoration: none;
-	color: #57BBD6;
+	color: $backgroundcolor;
 	
 	&:hover {
 		text-decoration: underline;
 	}
 	&:visited {
-		color: mix(#57BBD6, #333333, 60%);
+		color: mix($backgroundcolor, #333333, 40%);
 	}
 }
 
@@ -124,7 +124,7 @@ a {
 	cursor: pointer;
 	
 	&.hovered {
-		background: #55B9D5;	
+		background: $backgroundcolor;	
 	}
 }
 
@@ -135,7 +135,7 @@ a {
 	left:55px; /* controls horizontal position */
     border-width:20px 20px 0px 0px;
 	border-style:solid;
-    border-color:#55B9D5 transparent transparent transparent; /* #55B9D5 */
+    border-color:$backgroundcolor transparent transparent transparent; /* $backgroundcolor */
     /* reduce the damage in FF3.0 */
     display:block; 
     width:0;
@@ -176,14 +176,14 @@ a {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 0px 12px 15px 12px;
+	border-width: 0px 8px 11px 8px;
 	border-style: solid;
-	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($black, 1) rgba(#fff, 0);
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 1) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
 	&:hover {
-		border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#55B9D5, 1) rgba(#fff, 0);
+		border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($black, 1) rgba(#fff, 0);
 	}
 }
 
@@ -191,14 +191,14 @@ a {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 15px 12px 0px 12px;
+	border-width: 11px 8px 0px 8px;
 	border-style: solid;
-	border-color: rgba($black, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	border-color: rgba(#fff, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
 	&:hover {
-		border-color: rgba(#55B9D5, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+		border-color: rgba($black, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	}
 }
 
@@ -206,14 +206,14 @@ a {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 0px 9px 11px 9px;
+	border-width: 0px 6px 9px 6px;
 	border-style: solid;
-	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($black, 1) rgba(#fff, 0);
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 1) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
 	&:hover {
-		border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#55B9D5, 1) rgba(#fff, 0);
+		border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($backgroundcolor, 1) rgba(#fff, 0);
 	}
 }
 
@@ -221,14 +221,14 @@ a {
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 11px 9px 0px 9px;
+	border-width: 9px 6px 0px 6px;
 	border-style: solid;
-	border-color: rgba($black, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	border-color: rgba(#fff, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
 	&:hover {
-		border-color: rgba(#55B9D5, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+		border-color: rgba($backgroundcolor, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	}
 }
 

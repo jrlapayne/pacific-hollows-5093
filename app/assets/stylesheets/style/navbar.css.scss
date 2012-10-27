@@ -17,7 +17,7 @@
 			background: rgba(#fff, 0.1);
 			
 			.label {
-				color: #55B9D5;
+				color: $backgroundcolor;
 			}
 		}
 	}
@@ -39,7 +39,7 @@
 			background: rgba(#fff, 0.1);
 			
 			.label {
-				color: #55B9D5;
+				color: $backgroundcolor;
 			}
 		} */
 	}
@@ -58,7 +58,7 @@
 			background: rgba(#fff, 0.1);
 			
 			.label {
-				color: #55B9D5;
+				color: $backgroundcolor;
 			}
 		}
 	}
@@ -80,7 +80,7 @@
 			background: rgba(#fff, 0.1);
 			
 			.label {
-				color: #55B9D5;
+				color: $backgroundcolor;
 			}
 		} */
 	}
@@ -165,20 +165,20 @@
 				margin:2px 2px 0 2px;
 				float: right;
 				color: #fff;
-				background: #55B9D5;
-				border: 1px solid darken(#55B9D5, 15%);
+				background: $backgroundcolor;
+				border: 1px solid darken($backgroundcolor, 15%);
 				@include border-radius(5px);
-				@include gradient(#55B9D5);
+				@include gradient($backgroundcolor);
 				@include single-box-shadow(rgba(#000, 0.3), 0, 0, 2px, 2px, inset);
 				
 				&:hover {
-					background: lighten(#55B9D5, 10%);
-					@include gradient(lighten(#55B9D5, 10%));
+					background: lighten($backgroundcolor, 10%);
+					@include gradient(lighten($backgroundcolor, 10%));
 				}
 				
 				&:active {
-					background: darken(#55B9D5, 10%);
-					@include reverse-gradient(darken(#55B9D5, 10%));
+					background: darken($backgroundcolor, 10%);
+					@include reverse-gradient(darken($backgroundcolor, 10%));
 				}
 			}
 		}

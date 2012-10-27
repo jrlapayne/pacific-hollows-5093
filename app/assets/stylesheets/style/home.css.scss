@@ -23,6 +23,46 @@
 	}
 	
 	.next {
+		font-size: 16px;
+		line-height: 40px;
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		@include border-radius(20px);
+		@include single-box-shadow(rgba(#000, 0.3), 0, 0, 1px, 1px, inset);
+		color: #fff;
+		background: $textblue;
+		border: 1px solid darken($backgroundcolor, 25%);
+		cursor: pointer;
+		@include gradient(darken($backgroundcolor, 10%));
 		
+		&:hover {
+			background: lighten($backgroundcolor, 0%);
+			@include gradient(lighten($backgroundcolor, 0%));
+		}
+
+		&:active{
+			background: darken($backgroundcolor, 20%);
+			@include reverse-gradient(darken($backgroundcolor, 20%));
+		}
+	}
+	
+	.triarrow {
+		cursor: pointer;
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		content:"";
+		border-width: 8px 0px 8px 16px;
+		border-style: solid;
+		border-color: transparent transparent transparent rgba(#fff, 1);
+	    display:block; 
+	    width: 0;
+	}
+	
+	.button-box {
+		position: relative;
+		width: 133px;
+		height: 40px;
 	}
 }

@@ -16,11 +16,7 @@
 		<% if (user.get('is_temp_user')) { %>
 			Anon
 		<% } else { %>
-			<% if (user.get('name').split(' ') > 1) { %>
-				<%= user.get('name').substring(0, user.get('name').lastIndexOf(" ")) %>
-			<% } else { %>
-				<%= user.get('name') %>
-			<% } %>
+			<%= user.get('name').split(' ')[0] %>
 		<% } %>
 	</div>
 	<!-- <div class = "rank">Rank: <b><%= rank.rank %></b> of <%= rank.users %></div> -->

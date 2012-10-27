@@ -3,7 +3,8 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	template: JST['issues/show'],
 	
 	events: {
-		'click #back' : 'goBack'
+		'click #back' : 'goBack',
+		'click .hover-container' : 'goBack'
 	},
 	
 	initialize: function(options) {
@@ -14,7 +15,7 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		$(this.el).addClass('panel issue');
+		$(this.el).addClass('panel issue active');
 		$(this.el).html(this.template({
 			issue: this.issue
 		}));

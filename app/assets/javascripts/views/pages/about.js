@@ -5,7 +5,8 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 	
 	events: {
 		'click #explore' : 'openBox',
-		'mouseover .panel' : 'fadeIn',
+		'mouseover .logo' : 'fadeIn',
+		'mouseover .portrait' : 'fadeIn',
 		'mouseout .panel' : 'fadeOut'
 	},
 	
@@ -81,9 +82,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 	fadeIn: function(event) {
 		var element = $(event.target).closest('.panel');
 		var active, inactive;
-		if ($(event.relatedTarget).closest('.panel').attr('id')) {
-			return;
-		}
+	
 		if (parseInt($(element).next().attr('id')) === parseInt($(element).attr('id'))) {
 			inactive = element;
 			active = $(element).next();
