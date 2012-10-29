@@ -7,7 +7,8 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		'click #explore' : 'openBox',
 		'mouseover .logo' : 'fadeIn',
 		'mouseover .portrait' : 'fadeIn',
-		'mouseout .panel' : 'fadeOut'
+		'mouseout .panel' : 'fadeOut',
+		'click #issues' : 'issuesIndex'
 	},
 	
 	initialize: function(options) {
@@ -143,5 +144,9 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		$(inactive).animate({
 			opacity: "1"
 		}, 1000);
+	},
+	
+	issuesIndex: function() {
+		Backbone.history.navigate('issues', true);
 	}
 });

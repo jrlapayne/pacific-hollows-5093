@@ -5,6 +5,7 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 	events: {
 		'click #cancel' : 'renderQuestion',
 		'submit #question_edit' : 'createQuedit',
+		'click #delete' : 'deleteQuestion',
 		'click #history' : 'queditsIndex'
 	},
 	
@@ -66,5 +67,26 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 		});
 		$(element).children().remove();
 		$(element).html(view.render().el);
+	},
+	
+	deleteQuestion: function() {
+		if (confirm('Are you sure?')) {
+			this.loading();
+			this.question.destroy({
+				success: function(model, response) {
+					$('#loading').children().remove();
+					parent.history.back();
+				},
+				error: function(model, response) {
+					$('#loading').children().remove();
+					parent.history.back();
+				}
+			});
+		}
+	},
+	
+	loading: function() {
+		var view = new Gangnam.Views.PagesLoading();
+		$('#loading').html(view.render().el);
 	}
 });

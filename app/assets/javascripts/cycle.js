@@ -1062,12 +1062,12 @@ $.fn.cycle.defaults = {
     skipInitializationCallbacks: false, // set to true to disable the first before/after callback that occurs prior to any transition
     slideExpr:        null,     // expression for selecting slides (if something other than all children is required)
     slideResize:      1,        // force slide width/height to fixed size before every transition
-    speed:            1000,     // speed of the transition (any valid fx speed value)
+    speed:            500,     // speed of the transition (any valid fx speed value)
     speedIn:          null,     // speed of the 'in' transition
     speedOut:         null,     // speed of the 'out' transition
     startingSlide:    undefined,// zero-based index of the first slide to be displayed
     sync:             1,        // true if in/out transitions should occur simultaneously
-    timeout:          4000,     // milliseconds between slide transitions (0 to disable auto advance)
+    timeout:          30000,     // milliseconds between slide transitions (0 to disable auto advance)
     timeoutFn:        null,     // callback for determining per-slide timeout value:  function(currSlideElement, nextSlideElement, options, forwardFlag)
     updateActivePagerLink: null,// callback fn invoked to update the active pager link (adds/removes activePagerClass style)
     width:            null      // container width (if the 'fit' option is true, the slides will be set to this width as well)

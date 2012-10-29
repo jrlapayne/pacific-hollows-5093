@@ -14,6 +14,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 		
 		this.attr.facts.on('add', this.render, this);
 		this.attr.facts.on('reorder', this.render, this);
+		this.attr.facts.on('destroy', this.render, this);
 	},
 
 	render: function() {
@@ -69,5 +70,6 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	onClose: function() {
 		this.attr.facts.unbind("add", this.render);
 		this.attr.facts.unbind("reorder", this.render);
+		this.attr.facts.unbind("destroy", this.render);
 	}
 });

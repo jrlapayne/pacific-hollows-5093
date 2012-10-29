@@ -327,3 +327,40 @@ textarea {
 		}
 	}
 }
+
+.slider-image {
+	position: relative;
+}
+
+.highlight-arrow {
+	cursor: pointer;
+	position: absolute;
+	bottom: 55px;
+	right: 23px;
+	cursor: pointer;
+	content: "";
+	display: block; 
+	border-width: 35px 0px 35px 57px;
+	border-style: solid;
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	width: 0;
+	height: 0;
+	
+	&:hover {
+		border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0.25);
+		
+		.highlight-box {
+			background: rgba(#fff, 0.25);
+		}
+	}
+}
+
+.highlight-box {
+	cursor: pointer;
+	position: absolute;
+	bottom: -11px;
+	right: 57px;
+	width: 108px;
+	height: 22px;
+	background: rgba(#fff, 0);
+}

@@ -5,7 +5,8 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 	events: {
 		'click #cancel' : 'renderFact',
 		'submit #fact_edit' : 'createFedit',
-		'click #history' : 'feditsIndex'
+		'click #history' : 'feditsIndex',
+		'click #delete' : 'deleteFact'
 	},
 	
 	initialize: function(options) {
@@ -88,5 +89,24 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 		});
 		$(element).children().remove();
 		$(element).html(view.render().el);
+	},
+	
+	deleteFact: function() {
+		if (confirm('Are you sure?')) {
+			this.loading();
+			this.fact.destroy({
+				success: function(model, response) {
+					$('#loading').children().remove();
+				},
+				error: function(model, response) {
+					$('#loading').children().remove();
+				}
+			});
+		}
+	},
+	
+	loading: function() {
+		var view = new Gangnam.Views.PagesLoading();
+		$('#loading').html(view.render().el);
 	}
 });
