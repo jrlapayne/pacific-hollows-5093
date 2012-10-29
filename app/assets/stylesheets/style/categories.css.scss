@@ -88,13 +88,18 @@
 	}
 	
 	.title {
+		margin: 1px 0 0 1px;
+		color: #fff;
 		width: 100%;
 		text-align: center;
 		height: 65px;
 		line-height: 40px;
 		
 		&.container {
-			background: #fff;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 67px;
 		}
 	}
 	
