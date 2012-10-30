@@ -235,8 +235,11 @@ a {
 .source {
 	
 	&.container {
+		color: $backgroundcolor;
 		height: 13px;
 		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 		font-size: 11px;
 	}
 	
