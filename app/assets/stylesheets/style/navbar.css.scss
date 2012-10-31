@@ -14,7 +14,7 @@
 		width: 60px;
 		height: 100%;
 		.label {
-			color: rgb(184,184,184);
+			color: rgb(187,187,187);
 			content: #8226;
 		}
 		
@@ -36,7 +36,7 @@
 		height: 100%;
 		
 		.label {
-			color: rgb(184,184,184);
+			color: rgb(187,187,187);
 		}
 		&:hover {
 			.label {
@@ -55,7 +55,7 @@
 		width: 60px;
 		height: 100%;
 		.label {
-			color: rgb(184,184,184);
+			color: rgb(187,187,187);
 		}
 		
 		&:hover {
@@ -76,7 +76,7 @@
 		height: 100%;
 		
 		.label {
-			color: rgb(184,184,184);
+			color: rgb(187,187,187);
 		}
 		
 		&:hover {
@@ -145,7 +145,7 @@
 			&:hover{
 				color: lighten($black, 10%);
 			}
-			color: lighten($black, 30%);
+			color: lighten($black, 45%);
 			font-size: 80%;
 		}
 		

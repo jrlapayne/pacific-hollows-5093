@@ -1,20 +1,20 @@
 .question.preview {
 	.bubble {
-		border: 3px solid $questionbubblecolor;
+		border: 2px solid $questionbubblecolor;
 		position: absolute;
 		top: 8.6%;
 		left: 2.8%;
 		width: 93.8%;
 		height: 44%;
-		@include border-radius(20px);
+		@include border-radius(15px);
 		z-index: 1;
 	
 		.title {
 			position: relative;
-			font-size: 14px;
+			font-size: 15px;
 			line-height: 18px;
 			display: table-cell;
-			color: darken($black,10%);  
+			color: darken($black,1%);  
 		  	vertical-align: middle; 
 		  	text-align: left;
 			
@@ -37,7 +37,7 @@
 		.picture {
 			position: absolute;
 			top: -3.2%;
-			left: 3.2%;
+			left: 5.3%;
 			height: 80%;
 			width: 7.3%;
 			overflow: hidden;
@@ -54,9 +54,9 @@
 		
 		.text {
 			position: absolute;
-			top: 22%;
-			left: 13.3%;
-			width: 30%;
+			top: 8%;
+			left: 14.8%;
+			width: 45%;
 			height: 50%;
 			font-size: 0.80em;
 			font-weight: bold;
@@ -67,7 +67,7 @@
 				left: 0;
 				width: 100%;
 				height: 50%;
-				color: lighten($black, 10%);
+				color: lighten($black, 1%);
 			}
 			
 			.rank {
@@ -77,33 +77,110 @@
 				font-size: 0.7em;
 				width: 100%;
 				height: 50%;
-				color: lighten($black, 35%);
+				color: lighten($black, 30%);
 				.label {
 					font-weight: normal;
 				}
 			}
 			
 			.date {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				width: 100%;
-				height: 33%;
+				font-weight: normal;
+				font-size: 0.70em;
+				color: lighten($black, 35%);
 			}
 		}
 		
-		.comments {
-			display: none;
+		.votes {
 			&.container {
 				position: absolute;
-				bottom: 0;
-				right: 0.3%;
-				width: 12%;
-				height: 100%;
+				bottom: 12%;
+				right: 21.1%;
+				width: 8%;
+				height: 80%;
 			}
 			
 			&.label {
-				font-size: 10px;
+				font-size: 8px;
+				color: lighten($black, 20%);
+				position: absolute;
+				top: -15%;
+				left: 0;
+				width: 100%;
+				text-align: center;
+			}
+			
+			&.box {
+				cursor: default;
+				position: absolute;
+				bottom: 10%;
+				left: 10%;
+				width: 80%;
+				height: 80%;
+				background: $black;
+				@include border-radius(0.3em);
+			}
+			
+			&.number {
+				width: 100%;
+				margin: 0.25em 0 0 0;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				font-size: 1.25em;
+			}
+		}
+		
+		.facts {
+			&.container {
+				position: absolute;
+				bottom: 12%;
+				right: 12.7%;
+				width: 8%;
+				height: 80%;
+			}
+			
+			&.label {
+				font-size: 8px;
+				color: lighten($black, 20%);
+				position: absolute;
+				top: -15%;
+				left: 0;
+				width: 100%;
+				text-align: center;
+			}
+			
+			&.box {
+				cursor: default;
+				position: absolute;
+				bottom: 10%;
+				left: 10%;
+				width: 80%;
+				height: 80%;
+				background: desaturate(darken($backgroundcolor, 5%), 20%);
+				@include border-radius(0.3em);
+			}
+			
+			&.number {
+				width: 100%;
+				margin: 0.25em 0 0 0;
+				text-align: center;
+				font-weight: bold;
+				color: #fff;
+				font-size: 1.25em;
+			}
+		}
+		.comments {
+			&.container {
+				position: absolute;
+				bottom: 12%;
+				right: 4.5%;
+				width: 8%;
+				height: 80%;
+			}
+			
+			&.label {
+				font-size: 8px;
+				color: lighten($black, 20%);
 				position: absolute;
 				top: -15%;
 				left: 0;
@@ -119,98 +196,16 @@
 				width: 80%;
 				height: 80%;
 				background: $backgroundcolor;
-				@include border-radius($radius);
-			}
-			
-			&.number {
-				width: 100%;
-				margin: 0.285em 0 0 0;
-				text-align: center;
-				font-weight: bold;
-				color: #fff;
-				font-size: 1.75em;
-			}
-		}
-		
-		.votes {
-			
-			&.container {
-				position: absolute;
-				bottom: 15%;
-				right: 11%;
-				width: 8%;
-				height: 80%;
-			}
-			
-			&.label {
-				font-size: 8px;
-				color: lighten($black, 25%);
-				position: absolute;
-				top: -15%;
-				left: 0;
-				width: 100%;
-				text-align: center;
-			}
-			
-			&.box {
-				cursor: default;
-				position: absolute;
-				bottom: 10%;
-				left: 10%;
-				width: 80%;
-				height: 80%;
-				background: desaturate(darken($backgroundcolor, 5%), 15%);
 				@include border-radius(0.3em);
 			}
 			
 			&.number {
 				width: 100%;
-				margin: 0.05em 0 0 0;
+				margin: 0.25em 0 0 0;
 				text-align: center;
 				font-weight: bold;
 				color: #fff;
-				font-size: 1.65em;
-			}
-		}
-		
-		.facts {
-			
-			&.container {
-				position: absolute;
-				bottom: 15%;
-				right: 1.9%;
-				width: 8%;
-				height: 80%;
-			}
-			
-			&.label {
-				font-size: 8px;
-				color: lighten($black, 25%);
-				position: absolute;
-				top: -15%;
-				left: 0;
-				width: 100%;
-				text-align: center;
-			}
-			
-			&.box {
-				cursor: default;
-				position: absolute;
-				bottom: 10%;
-				left: 10%;
-				width: 80%;
-				height: 80%;
-				background: desaturate(darken($backgroundcolor, 25%), 27%);
-				@include border-radius(0.3em);
-			}
-			
-			&.number {
-				width: 100%;
-				margin: 0.05em 0 0 0;
-				text-align: center;
-				font-weight: bold;
-				color: #fff;
-				font-size: 1.65em;
+				font-size: 1.25em;
 			}
 		}
 	}
@@ -386,9 +381,9 @@
 .triangle-border:before {
 	content:"";
 	position:absolute;
-	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	bottom:-15px; /* value = - border-top-width - border-bottom-width */
 	left:55px; /* controls horizontal position */
-    border-width:20px 20px 0px 0px;
+  border-width:15px 10px 0px 10px;
 	border-style:solid;
     border-color:$questionbubblecolor transparent transparent transparent; /* $backgroundcolor */
     /* reduce the damage in FF3.0 */
@@ -399,9 +394,9 @@
 .triangle-border:after {
 	content:"";
 	position:absolute;
-	bottom:-13px; /* value = - border-top-width - border-bottom-width */
-	left:58px; /* value = (:before left) + (:before border-left) - (:after border-left) */
-	border-width:17px 17px 0px 0px;
+	bottom:-11px; /* value = - border-top-width - border-bottom-width */
+	left:57px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+	border-width:12px 8px 0px 8px;
 	border-style:solid;
 	border-color:#fff transparent transparent transparent;
     /* reduce the damage in FF3.0 */
