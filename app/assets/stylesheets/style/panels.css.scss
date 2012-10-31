@@ -65,6 +65,12 @@
 				margin-bottom: 15px;
 			}
 		}
+		
+		&.active {
+			background: #fff;
+			border: 1px solid #777;
+			@include border-radius($radius);
+		}
 	}
 	
 	&.fact {
