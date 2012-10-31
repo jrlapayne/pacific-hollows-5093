@@ -3,16 +3,16 @@
 </div>
 <div class = "thumbnail">
 	<% if (issue.get('thumbnail')) { %>
-		<img src = "assets/<%= issue.get('thumbnail') %>" height = "100%"/>
+		<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%"/>
 	<% } else { %>
-		<img src = "assets/fusegap_dark.png" height = "100%" />
+		<img src = "assets/logos/black.png" height = "100%" />
 	<% } %>
 </div>
 <div class = "browse"><button class = "active" id = "back">BACK</button></div>
 <div class = "quiz"><button class = "active" id = "quiz">QUIZ</button></div>
 <div class = "rank container">
 	<!-- <div class = "rank picture">
-		<img src = "assets/fusegap.png" height = "100%" />
+		<img src = "assets/logos/blue.png" height = "100%" />
 	</div> -->
 	<div class = "rank text"></div>
 </div>

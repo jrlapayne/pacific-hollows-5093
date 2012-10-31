@@ -100,4 +100,12 @@
 		
 		@include border-radius(5px);
 	}
+	
+	&.quiz {
+		width: 100%;
+		background: #fff;
+		border: 1px solid #777;
+		
+		@include border-radius(5px);
+	}
 }
