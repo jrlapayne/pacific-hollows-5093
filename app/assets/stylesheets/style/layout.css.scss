@@ -1,7 +1,7 @@
 html {
 	height: 100%;
 	@include fonts;
-	color: #880000;
+	color: #333333;
 	font-size: 100%;
 }
 
@@ -9,7 +9,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: #000;
+	background: $greybackgroundblue;
 	font-size: 1em;
 }
 
