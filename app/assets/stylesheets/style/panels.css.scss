@@ -42,6 +42,14 @@
 			@include box-shadow(rgb(218,218,218) 0 1px 1px);
 
 			&:nth-child(even) {
+				border-left: 1px solid rgb(160,160,160);
+				border-right: 1px solid rgb(160,160,160);
+				@include border-top-radius(5px);
+				border-top: 1px solid rgb(155,155,155);
+				@include border-bottom-radius(5px);
+				border-bottom: 1px solid rgb(160,160,160);
+				@include box-shadow(rgb(210,210,210) 0 1px 1px);
+				
 				.bubble {
 					border: 2px solid lighten(desaturate($questionbubblecolor, 15%),5%);
 				}
