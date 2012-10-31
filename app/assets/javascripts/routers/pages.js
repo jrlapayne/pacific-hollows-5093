@@ -10,7 +10,8 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		'question:id' : 'factsIndex',
 		'factory' : 'questionsFactory',
 		'profile' : 'usersProfile',
-		'about' : 'pagesAbout'
+		'about' : 'pagesAbout',
+		'quiz:id' : 'quizzesIndex'
 	},
 	
 	initialize: function(options) {
@@ -207,6 +208,22 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 	},
 	
 	usersProfile: function() {
-		
+		var view = new Gangnam.Views.UsersProfile({
+			attr: this.attr,
+			user: this.users.where({id: this.current_user.get('id')})[0]
+		});
+		$('.page').html(JST['pages/columns']);
+		this.setCurrentView(view);
+		$('#right').html(view.render().el);
+	},
+	
+	quizzesIndex: function(id) {
+		var view = new Gangnam.Views.QuizzesIndex({
+			attr: this.attr,
+			issue: this.issues.where({id: parseInt(id)})[0]
+		});
+		this.setCurrentView(view);
+		$('.page').html(JST['pages/columns']);
+		$('#right').html(view.render().el);
 	}
 });

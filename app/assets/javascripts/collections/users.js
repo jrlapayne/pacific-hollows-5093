@@ -8,7 +8,7 @@ Gangnam.Collections.Users = Backbone.Collection.extend({
 	},
 	
 	getIssueRank: function(user, issue, reputations) {
-		var users = _.toArray(this);
+		var users = this.where({});
 		var array = [];
 		var rank = users.length;
 		var rep, loc = null;
@@ -17,7 +17,7 @@ Gangnam.Collections.Users = Backbone.Collection.extend({
 			if (reputations.where({user_id: users[i].get('id'), issue_id: issue.get('id')})[0]) {
 				rep = reputations.where({user_id: users[i].get('id'), issue_id: issue.get('id')})[0].get('rep');
 			} else {
-				rep = 0
+				rep = 0;
 			}
 			array.push({id: users[i].get('id'), rep: rep});
 		}

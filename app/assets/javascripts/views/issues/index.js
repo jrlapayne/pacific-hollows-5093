@@ -3,7 +3,7 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 	template: JST['issues/index'],
 	
 	events: {
-		'click .issue' : 'getLoc',
+		'click .issue' : 'issueShow',
 		'click #quiz' : 'issueQuiz'
 	},
 	
@@ -34,11 +34,7 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 		$(this.el).append(view.render().el);
 	},
 	
-	getLoc: function(event) {
-		if ($(event.target).hasClass('quiz') || $(event.target).attr('id') === 'quiz') {
-			return;
-		}
-		var element = $(event.target).closest('.issue');
+	getLoc: function(element) {
 		var top = $(element).position().top;
 		var left = $(element).position().left;
 		var elements = $('.issue').get();
@@ -58,12 +54,28 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 			left: '0',
 			margin: '0 0 0 0.625em'
 		}, 500);
+	},
+	
+	issueShow: function(event) {
+		var element = $(event.target).closest('.issue');
+		if ($(event.target).hasClass('quiz') || $(event.target).attr('id') === 'quiz') {
+			return;
+		}
+		
+		this.getLoc(element);
+		
 		setTimeout(function() {
 			Backbone.history.navigate('issue' + $(element).attr('id'), true);	
 		}, 500);
 	},
 	
-	issueQuiz: function() {
-		alert('Quiz!');
+	issueQuiz: function(event) {
+		var element = $(event.target).closest('.issue');
+		
+		this.getLoc(element);
+		
+		setTimeout(function() {
+			Backbone.history.navigate('quiz' + $(element).attr('id'), true);
+		}, 500);
 	}
 });

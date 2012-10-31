@@ -183,7 +183,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 		if ($('#auto').val() === "" || !/\S/.test($('#title').val())) {
 			$('#auto').removeClass('dark-text');
 			$('#auto').addClass('light-text');
-			$('#auto').val('Search/Add Questions...');
+			$('#auto').val('Search or Add Questions...');
 		}
 		setTimeout(function() {
 			self.hovered = null;

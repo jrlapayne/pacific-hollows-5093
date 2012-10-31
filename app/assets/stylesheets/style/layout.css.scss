@@ -9,8 +9,12 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: $backgroundcolor;
+	background: $greybackgroundblue;
 	font-size: 1em;
+}
+
+textarea {
+    resize: none;
 }
 
 .page {
@@ -70,7 +74,7 @@ body {
 .background {
 	width: 900px;
 	height: 100%;
-	background: rgba(#fff, 0.5);
+	background: rgba(#fff, 0.6);
 	position: fixed;
 	top: 0;
 	z-index: -1000;

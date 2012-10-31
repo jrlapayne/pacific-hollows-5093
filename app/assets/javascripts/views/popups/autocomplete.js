@@ -12,6 +12,7 @@ Gangnam.Views.PopupsAutocomplete = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
+		$(this.el).addClass('popup wrapper');
 		$(this.el).html(this.template());
 		setTimeout(function() {
 			self.slideDown();
@@ -20,14 +21,14 @@ Gangnam.Views.PopupsAutocomplete = Backbone.View.extend({
 	},
 	
 	slideDown: function() {
-		$('#popup_container').animate({
+		$(this.el).animate({
 			top: '0'
 		}, 500);
 	},
 	
 	slideUp: function() {
-		$('#popup_container').animate({
-			top: '-100px'
+		$(this.el).animate({
+			top: '-60px'
 		}, 500);
 	}
 });

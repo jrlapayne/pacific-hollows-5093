@@ -1,0 +1,19 @@
+.popup {
+	
+	&.container {
+		position: absolute;
+		width: 900px;
+		margin: 0 auto;
+		height: 60px;
+	}
+	
+	&.wrapper {
+		z-index: 1000;
+		position: absolute;
+		top: -60px;
+		left: 225px;
+		width: 450px;
+		height: 60px;
+		background: #800;
+	}
+}

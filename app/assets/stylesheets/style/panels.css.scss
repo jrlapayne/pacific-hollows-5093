@@ -15,8 +15,8 @@
 		@include box-shadow(rgba(#000, 0.15) 3px 0 3px, rgba(#000, 0.15) -3px 0 3px, rgba(#000, 0.15)  0 5px 5px);
 		
 		&.preview {
-			width: 260px;
-			height: 260px;
+			width: 16.25em;
+			height: 16.25em;
 			margin: 1.25em 0 0.625em 1.875em;
 			position: relative;
 			float: left;
@@ -30,11 +30,25 @@
 		
 		&.preview {
 			cursor: pointer;
-			height: 10.063em;
+			height: 9em;
 			background: #fff;
-			border-left: 1px solid #9ca5bf;
-			border-right: 1px solid #9ca5bf;
-			border-bottom: 1px solid #dfdfdf;
+			border-left: 1px solid rgb(185,185,185);
+			border-right: 1px solid rgb(185,185,185);
+			@include border-top-radius(5px);
+			border-top: 1px solid rgb(180,180,180);
+			@include border-bottom-radius(5px);
+			border-bottom: 1px solid rgb(185,185,185);
+			margin-bottom: 15px;
+			@include box-shadow(rgb(218,218,218) 0 1px 1px);
+
+			&:nth-child(even) {
+				.bubble {
+					border: 3px solid lighten(desaturate($questionbubblecolor, 15%),5%);
+				}
+				.triangle-border:before {
+					border-color: lighten(desaturate($questionbubblecolor, 15%),5%) transparent transparent transparent;
+				}
+			}
 
 			&:hover {
 				background: mix(#fff, #57BBD6, 95%);
@@ -44,21 +58,12 @@
 			}
 
 			&.top {
-				@include border-top-radius(5px);
-				border-top: 1px solid #9ca5bf;
+				margin-top: 1px;
 			}
 
 			&.bottom {
-				@include border-bottom-radius(5px);
-				border-bottom: 1px solid #9ca5bf;
 				margin-bottom: 15px;
 			}
-		}
-		
-		&.active {
-			background: #fff;
-			border: 1px solid #777;
-			@include border-radius($radius);
 		}
 	}
 	
@@ -83,5 +88,16 @@
 			@include border-radius($radius);
 			margin-bottom: 0.625em;
 		}
+	}
+	
+	&.user {
+		width: 100%;
+		background: #fff;
+		margin: 0 0 10px 0;
+		position: relative;
+		height: 150px;
+		border: 1px solid #777;
+		
+		@include border-radius(5px);
 	}
 }

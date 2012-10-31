@@ -4,7 +4,8 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	
 	events: {
 		'click #back' : 'goBack',
-		'click .hover-container' : 'goBack'
+		'click .hover-container' : 'goBack',
+		'click #quiz' : 'issueQuiz'
 	},
 	
 	initialize: function(options) {
@@ -22,11 +23,18 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 		return this;
 	},
 	
-	goBack: function() {
+	goBack: function(event) {
+		if ($(event.target).hasClass('quiz') || $(event.target).attr('id') === 'quiz') {
+			return;
+		}
 		if (window.location.hash.slice(1, 9) === 'question') {
 			parent.history.back();
 		} else {
 			Backbone.history.navigate('issues', true);
 		}
+	},
+	
+	issueQuiz: function(event) {
+		Backbone.history.navigate('quiz' + this.issue.get('id'), true);
 	}
 });

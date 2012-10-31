@@ -1,0 +1,13 @@
+<div class = "thumbnail">
+	<% if (issue.get('thumbnail')) { %>
+		<img src = "assets/<%= issue.get('thumbnail') %>" height = "100%"/>
+	<% } else { %>
+		<img src = "assets/fusegap_dark.png" height = "100%" />
+	<% } %>
+</div>
+<div class = "title container">
+	<div class = "title text"><%= issue.get('title') %></div>
+</div>
+<div id = "user_info"></div>
+<div class = "achievement container" id = "achievements"></div>
+

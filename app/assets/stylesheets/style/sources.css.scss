@@ -1,0 +1,28 @@
+a {
+	text-decoration: none;
+	color: $backgroundcolor;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+	&:visited {
+		color: mix($backgroundcolor, #333333, 40%);
+	}
+}
+
+.source {
+	
+	&.container {
+		color: $backgroundcolor;
+		height: 13px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 11px;
+	}
+	
+	&.label {
+		font-weight: bold;
+		color: #999999;
+	}
+}

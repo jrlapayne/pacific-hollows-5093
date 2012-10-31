@@ -1,8 +1,8 @@
-$radius: 0.313em;
+$radius: 0.413em;
 $innerRadius: 0.25em; 
 $textblue: #007ccf;
 $lightgreytext: rgb(153,153,153);
-$backgroundcolor: #81B5C4;
+$backgroundcolor: lighten(desaturate(#81B5C4, 5%), 5%);
 $black: #303030;
 $panelouterbordercolor: #9ca5bf;
 $panelinnerbordercolor: #dfdfdf;
@@ -10,3 +10,5 @@ $buttonshadowblue: rgb(126,203,224);
 $greentext: #00cc00;
 $redtext: #ff4747;
 $facebookblue: rgb(59,89,152);
+$questionbubblecolor: lighten(desaturate(#81B5C4, 7%), 5%);
+$greybackgroundblue: lighten(desaturate(#81B5C4, 5%), 5%);

@@ -42,7 +42,7 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 		var view = new Gangnam.Views.PopupsAutocomplete({
 			
 		});
-		$('#popup_container').html(view.render().el);
+		$('.popup').html(view.render().el);
 	},
 	
 	image2: function() {

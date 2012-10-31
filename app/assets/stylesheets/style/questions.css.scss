@@ -1,19 +1,20 @@
 .question.preview {
 	.bubble {
-		border: 5px solid $backgroundcolor;
+		border: 3px solid $questionbubblecolor;
 		position: absolute;
-		top: 5%;
-		left: 1%;
-		width: 96%;
-		height: 45%;
-		@include border-radius(10px);
+		top: 8.6%;
+		left: 2.8%;
+		width: 93.8%;
+		height: 44%;
+		@include border-radius(20px);
 		z-index: 1;
 	
 		.title {
 			position: relative;
 			font-size: 14px;
 			line-height: 18px;
-			display: table-cell; 
+			display: table-cell;
+			color: darken($black,10%);  
 		  	vertical-align: middle; 
 		  	text-align: left;
 			
@@ -35,41 +36,64 @@
 		
 		.picture {
 			position: absolute;
-			top: 0;
-			left: 2%;
-			height: 90%;
-			width: 9%;
+			top: -3.2%;
+			left: 3.2%;
+			height: 80%;
+			width: 7.3%;
 			overflow: hidden;
-			@include border-radius($radius);
+			@include border-radius(3px);
+		}
+		
+		.picture-wrapper {
+			overflow: hidden;
+			position: static;
+			width: 100%;
+			height: 100%;
+			@include border-radius(3px);
 		}
 		
 		.text {
 			position: absolute;
-			top: 25%;
-			left: 13%;
-			width: 20%;
+			top: 22%;
+			left: 13.3%;
+			width: 30%;
 			height: 50%;
-			font-size: 0.75em;
+			font-size: 0.80em;
+			font-weight: bold;
 			
 			.name {
 				position: absolute;
-				top: 0;
+				top: 6%;
 				left: 0;
 				width: 100%;
 				height: 50%;
+				color: lighten($black, 10%);
 			}
 			
 			.rank {
 				position: absolute;
+				bottom: -23%;
+				left: 0;
+				font-size: 0.7em;
+				width: 100%;
+				height: 50%;
+				color: lighten($black, 35%);
+				.label {
+					font-weight: normal;
+				}
+			}
+			
+			.date {
+				position: absolute;
 				bottom: 0;
 				left: 0;
 				width: 100%;
-				height: 50%;
+				height: 33%;
 			}
 		}
 		
 		.comments {
-			
+			display: none;
 			&.container {
 				position: absolute;
 				bottom: 0;
@@ -112,14 +136,15 @@
 			
 			&.container {
 				position: absolute;
-				bottom: 0;
-				right: 24.6%;
-				width: 12%;
-				height: 100%;
+				bottom: 15%;
+				right: 11%;
+				width: 8%;
+				height: 80%;
 			}
 			
 			&.label {
-				font-size: 10px;
+				font-size: 8px;
+				color: lighten($black, 25%);
 				position: absolute;
 				top: -15%;
 				left: 0;
@@ -134,17 +159,17 @@
 				left: 10%;
 				width: 80%;
 				height: 80%;
-				background: $black;
-				@include border-radius($radius);
+				background: desaturate(darken($backgroundcolor, 5%), 15%);
+				@include border-radius(0.3em);
 			}
 			
 			&.number {
 				width: 100%;
-				margin: 0.285em 0 0 0;
+				margin: 0.05em 0 0 0;
 				text-align: center;
 				font-weight: bold;
 				color: #fff;
-				font-size: 1.75em;
+				font-size: 1.65em;
 			}
 		}
 		
@@ -152,14 +177,15 @@
 			
 			&.container {
 				position: absolute;
-				bottom: 0;
-				right: 12.3%;
-				width: 12%;
-				height: 100%;
+				bottom: 15%;
+				right: 1.9%;
+				width: 8%;
+				height: 80%;
 			}
 			
 			&.label {
-				font-size: 10px;
+				font-size: 8px;
+				color: lighten($black, 25%);
 				position: absolute;
 				top: -15%;
 				left: 0;
@@ -174,17 +200,17 @@
 				left: 10%;
 				width: 80%;
 				height: 80%;
-				background: #aaa;
-				@include border-radius($radius);
+				background: desaturate(darken($backgroundcolor, 25%), 27%);
+				@include border-radius(0.3em);
 			}
 			
 			&.number {
 				width: 100%;
-				margin: 0.285em 0 0 0;
+				margin: 0.05em 0 0 0;
 				text-align: center;
 				font-weight: bold;
 				color: #fff;
-				font-size: 1.75em;
+				font-size: 1.65em;
 			}
 		}
 	}
@@ -235,7 +261,7 @@
 		}
 	
 		.bubble {
-			border: 5px solid $backgroundcolor;
+			border: 2px solid $questionbubblecolor;
 			position: absolute;
 			top: 5%;
 			left: 11%;
@@ -277,7 +303,15 @@
 				overflow: hidden;
 				@include border-radius($radius);
 			}
-		
+			
+			.picture-wrapper {
+				position: static;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				@include border-radius($radius);
+			}
+			
 			.text {
 				position: absolute;
 				bottom: 7%;
@@ -291,15 +325,23 @@
 					top: 0;
 					left: 0;
 					width: 100%;
-					height: 50%;
+					height: 33%;
 				}
-			
+
 				.rank {
+					position: absolute;
+					top: 33%;
+					left: 0;
+					width: 100%;
+					height: 33%;
+				}
+
+				.date {
 					position: absolute;
 					bottom: 0;
 					left: 0;
 					width: 100%;
-					height: 50%;
+					height: 33%;
 				}
 			}
 			
@@ -339,4 +381,30 @@
 			}
 		}
 	}
+}
+
+.triangle-border:before {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:55px; /* controls horizontal position */
+    border-width:20px 20px 0px 0px;
+	border-style:solid;
+    border-color:$questionbubblecolor transparent transparent transparent; /* $backgroundcolor */
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+.triangle-border:after {
+	content:"";
+	position:absolute;
+	bottom:-13px; /* value = - border-top-width - border-bottom-width */
+	left:58px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+	border-width:17px 17px 0px 0px;
+	border-style:solid;
+	border-color:#fff transparent transparent transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
 }

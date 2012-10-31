@@ -5,84 +5,85 @@
 	height: 40px;
 	
 	.issues {
+		font-weight: bold;
+		font-size: 80%;
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 0;
-		width: 120px;
+		left: 17px;
+		width: 60px;
 		height: 100%;
-		border-left: 1px solid $black;
+		.label {
+			color: rgb(184,184,184);
+			content: #8226;
+		}
 		
 		&:hover {
-			background: rgba(#fff, 0.1);
-			
 			.label {
-				color: $backgroundcolor;
+				color: rgb(255,255,255);
 			}
 		}
 	}
 	
 	.factory {
-		cursor: default;
-		position: absolute;
-		top: 0;
-		left: 120px;
-		width: 120px;
-		height: 100%;
-		border-left: 1px solid $black;
-		border-right: 1px solid $black;
-		
-		.label {
-			color: rgba(#fff, 0.2);
-		}
-		/* &:hover {
-			background: rgba(#fff, 0.1);
-			
-			.label {
-				color: $backgroundcolor;
-			}
-		} */
-	}
-	
-	.about {
+		font-weight: bold;
+		font-size: 80%;
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 240px;
-		width: 120px;
+		left: 106px;
+		width: 60px;
 		height: 100%;
-		border-left: 1px solid $black;
-		border-right: 1px solid $black;
+		
+		.label {
+			color: rgb(184,184,184);
+		}
+		&:hover {
+			.label {
+				color: rgb(255,255,255);
+			}
+		}
+	}
+	
+	.about {
+		font-weight: bold;
+		font-size: 80%;
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 190px;
+		width: 60px;
+		height: 100%;
+		.label {
+			color: rgb(184,184,184);
+		}
 		
 		&:hover {
-			background: rgba(#fff, 0.1);
-			
 			.label {
-				color: $backgroundcolor;
+				color: rgb(255,255,255);
 			}
 		}
 	}
 	
 	.profile {
-		cursor: default;
+		font-weight: bold;
+		font-size: 80%;
+		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 360px;
-		width: 120px;
+		left: 275px;
+		width: 60px;
 		height: 100%;
-		border-right: 1px solid $black;
 		
 		.label {
-			color: rgba(#fff, 0.2);
+			color: rgb(184,184,184);
 		}
 		
-		/* &:hover {
-			background: rgba(#fff, 0.1);
-			
+		&:hover {
 			.label {
-				color: $backgroundcolor;
+				color: rgb(255,255,255);
 			}
-		} */
+		}
 	}
 	
 	.label {
@@ -102,24 +103,50 @@
 		width: 420px;
 		height: 40px;
 		
-		input {
-			width: 382px; 
-			margin: 6px 0 0 15px; 
-			@include border-radius(5px);
-			padding-left: 20px;
-			height: 20px;
-			font-size: 16px;
+		.autocom-result {
+			height: 20px; 
 			line-height: 20px;
-			
+			border-bottom: 1px solid #ccc; 
+			font-size: 14px; 
+			width: 542px; 
+			overflow: hidden; 
+			text-overflow: ellipsis; 
+			white-space: nowrap;
+			cursor: pointer;
+
+			&.hovered {
+				background: $backgroundcolor;	
+			}
+		}
+		
+		input {
+			width: 327px; 
+			margin: 6px 0 0 81px; 
+			@include border-radius(5px);
+			padding-left: 10px;
+			height: 25px;
+			font-size: 14px;
+			line-height: 20px;
+			border: none;
+			border-top: 1px solid #b0b0b0;
+			&:hover{
+				outline: none;
+				@include single-box-shadow(darken(#81B5C4, 20%), 0, 0, 1px, 1px);
+			}
 			&:focus{
 				outline: none;
-				@include single-box-shadow(rgba(#000, 0.75), 0, 0, 3px, 3px);
+				@include single-box-shadow(darken(#81B5C4, 10%), 0, 0, 2px, 2px);
+				width: 534px;
+				margin-left: -126px;
 			}
 		}
 		
 		.light-text {
-			font-style: italic;
-			color: lighten($black, 50%);
+			&:hover{
+				color: lighten($black, 10%);
+			}
+			color: lighten($black, 30%);
+			font-size: 80%;
 		}
 		
 		.dark-text {
@@ -128,30 +155,31 @@
 		
 		.image {
 			position: absolute;
-			top: 12px;
-			left: 20px;
-			width: 16px;
-			height: 16px;
+			top: 14px;
+			left: 398px;
+			width: 14px;
+			height: 10px;
 		}
 		
 		.results {
-			width: 404px; 
-			margin: 0 0 0 15px; 
+			width: 542px; 
+			margin: 0 0 0 -126px; 
 			background: #fff;
 			@include border-bottom-radius(5px);
-			border-bottom: 1px solid $black;
-			border-left: 1px solid $black;
-			border-right: 1px solid $black;
+			border-bottom: 1px solid darken($black, 10%);
+			border-left: 1px solid darken($black, 10%);
+			border-right: 1px solid darken($black, 10%);
 			
 			.new-container {
-				width: 404px;
+				width: 540px;
 				min-height: 40px;
+				padding-left: 2px;
 			}
 			
 			.new-question {
 				line-height: 20px;
 				font-size: 14px;
-				width: 340px;
+				width: 480px;
 				float: left;
 			}
 			
