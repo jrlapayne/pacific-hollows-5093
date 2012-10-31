@@ -3,7 +3,7 @@ Gangnam.Views.AnswersResults = Backbone.View.extend({
 	template: JST['answers/results'],
 	
 	events: {
-		
+		'click #next' : 'nextQuestion'
 	},
 	
 	initialize: function(options) {
@@ -30,5 +30,13 @@ Gangnam.Views.AnswersResults = Backbone.View.extend({
 			this.is_correct = false;
 			this.correct_ans = correct_ans;
 		}
+	},
+	
+	nextQuestion: function() {
+		var view = new Gangnam.Views.QuizzesIndex({
+			attr: this.attr,
+			issue: this.attr.issues.where({id: this.attr.questions.where({id: this.answer.get('question_id')})[0].get('issue_id')})[0]
+		});
+		$('#right').html(view.render().el);
 	}
 });

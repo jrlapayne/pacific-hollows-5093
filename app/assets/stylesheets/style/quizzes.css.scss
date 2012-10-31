@@ -11,18 +11,60 @@
 		}
 	}
 	
-	.answers-box {
+	.answers {
+		.answer {
 
-	}
-	
-	.answer {
-		
-		&.container {
+			&.container {
 
+			}
+
+			&.button {
+
+			}
 		}
 		
-		&.button {
-
+		.result {
+			
+			&.container {
+				
+			}
+			
+			&.text {
+				
+				.correct {
+					
+				}
+				
+				.wrong {
+					
+				}
+			}
+		}
+		
+		.correct-answer {
+			
+			&.container {
+				
+			}
+			
+			&.text {
+				
+			}
+		}
+		
+		.ragecomic {
+			
+		}
+		
+		.buttons {
+			
+			.dispute {
+				
+			}
+			
+			.next {
+				
+			}
 		}
 	}
 }

@@ -18,7 +18,7 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 		setTimeout(function() {
 			self.renderIssue();
 			for (i = 0; i < self.questions.length; i++) {
-				if (!self.attr.tasks.where({user_id: self.attr.current_user.get('id'), question_id: self.questions[i], is_quiz: true})[0]) {
+				if (!self.attr.tasks.where({user_id: self.attr.current_user.get('id'), question_id: self.questions[i].get('id'), is_quiz: true})[0]) {
 					self.renderQuiz(self.questions[i]);
 				}
 			}

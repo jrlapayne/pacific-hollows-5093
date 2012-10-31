@@ -22,10 +22,13 @@ Gangnam.Views.AnswersShow = Backbone.View.extend({
 	
 	renderResults: function(event) {
 		var view = new Gangnam.Views.AnswersResults({
-			attr: this.attr
+			attr: this.attr,
 			answer: this.answer
 		});
-		this.attr.tasks.quizTask(this.attr.questions.where({id: this.answer.get('question_id')})[0], this.answer, this.attr.current_user, this.attr.reputations);
+		var question = this.attr.questions.where({id: this.answer.get('question_id')})[0];
+		alert('stop!');
+		this.attr.tasks.quizTask(question, this.answer, this.attr.current_user, this.attr.reputations);
+		alert('go!');
 		$('.answers').html(view.render().el);
 	}
 });
