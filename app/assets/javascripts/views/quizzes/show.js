@@ -14,7 +14,7 @@ Gangnam.Views.QuizzesShow = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$(this.el).attr('id', this.question.get('id'));
-		$(this.el).addClass('quiz');
+		$(this.el).addClass('panel quiz');
 		$(this.el).html(this.template({
 			question: this.question
 		}));
