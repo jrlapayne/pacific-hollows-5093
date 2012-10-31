@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022230010) do
+ActiveRecord::Schema.define(:version => 20121030154208) do
 
   create_table "achievements", :force => true do |t|
     t.integer  "achievement_id"
@@ -94,14 +94,13 @@ ActiveRecord::Schema.define(:version => 20121022230010) do
   create_table "questions", :force => true do |t|
     t.integer  "issue_id"
     t.string   "title"
-    t.text     "description"
     t.integer  "user_id"
     t.string   "category"
-    t.boolean  "has_quiz",    :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "has_quiz",   :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "edit_id"
-    t.integer  "score",       :default => 0
+    t.integer  "score",      :default => 0
   end
 
   create_table "reputations", :force => true do |t|
