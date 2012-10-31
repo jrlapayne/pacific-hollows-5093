@@ -38,12 +38,12 @@
 			border-top: 1px solid rgb(180,180,180);
 			@include border-bottom-radius(5px);
 			border-bottom: 1px solid rgb(185,185,185);
-			margin-bottom: 15px;
+			margin-bottom: 12px;
 			@include box-shadow(rgb(218,218,218) 0 1px 1px);
 
 			&:nth-child(even) {
 				.bubble {
-					border: 3px solid lighten(desaturate($questionbubblecolor, 15%),5%);
+					border: 2px solid lighten(desaturate($questionbubblecolor, 15%),5%);
 				}
 				.triangle-border:before {
 					border-color: lighten(desaturate($questionbubblecolor, 15%),5%) transparent transparent transparent;
