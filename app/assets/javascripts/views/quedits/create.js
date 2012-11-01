@@ -92,13 +92,12 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 	},
 	
 	answersCreate: function() {
-		alert('this feature will be up soon');
-		/* var element = $(this.el).closest('#question');
+		var element = $(this.el).closest('#question');
 		var view = new Gangnam.Views.AnswersCreate({
 			attr: this.attr,
 			question: this.question
 		});
 		$(element).children().remove();
-		$(element).html(view.render().el); */
+		$(element).html(view.render().el);
 	}
 });

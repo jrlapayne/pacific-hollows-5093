@@ -45,10 +45,10 @@ Gangnam.Views.AnswersCreate = Backbone.View.extend({
 			} 
 			if (answers[i]) {
 				if (array[i] !== "" && /\S/.test(array[i])) {
-					to_destroy.push(answers[i]);
-				} else {
 					answers[i].set({content: array[i], is_correct: is_correct});
 					answers[i].save();
+				} else {
+					answers[i].destroy();
 				}
 			} else {
 				if (array[i] !== "" && /\S/.test(array[i])) {
@@ -61,10 +61,13 @@ Gangnam.Views.AnswersCreate = Backbone.View.extend({
 			}
 		}
 		
-		for (i = 0; i < to_destroy.length; i++) {
-			to_destroy[i].destroy();
+		if (this.attr.answers.where({question_id: this.question.get('id')}).length > 1) {
+			this.question.set({has_quiz: true});
+			this.question.save();
+		} else {
+			this.question.set({has_quiz: false});
+			this.question.save();
 		}
-		
 		this.renderQuestion();
 	},
 	
