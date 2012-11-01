@@ -6,7 +6,8 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 		'click #cancel' : 'renderQuestion',
 		'submit #question_edit' : 'createQuedit',
 		'click #delete' : 'deleteQuestion',
-		'click #history' : 'queditsIndex'
+		'click #history' : 'queditsIndex',
+		'click #quiz' : 'answersCreate'
 	},
 	
 	initialize: function(options) {
@@ -88,5 +89,16 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
 		$('#loading').html(view.render().el);
+	},
+	
+	answersCreate: function() {
+		alert('this feature will be up soon');
+		/* var element = $(this.el).closest('#question');
+		var view = new Gangnam.Views.AnswersCreate({
+			attr: this.attr,
+			question: this.question
+		});
+		$(element).children().remove();
+		$(element).html(view.render().el); */
 	}
 });

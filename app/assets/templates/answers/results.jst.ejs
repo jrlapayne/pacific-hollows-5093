@@ -1,0 +1,31 @@
+<div class = "result container">
+	<div class = "result text">
+		<% if (is_correct) { %>
+			<span class = "correct">Correct</span>
+		<% } else { %>
+			<span class = "wrong">Wrong</span>
+		<% } %>
+	</div>
+</div>
+<div class = "correct-answer container">
+	<div class = "correct-answer text">
+		<% if (is_correct) { %>
+			Your answer: <%= answer.get('content') %>
+		<% } else { %>
+			Correct answer: <%= answer.get('content') %>
+		<% } %>
+	</div>
+</div>
+<div class = "ragecomic">
+	<% if (is_correct) { %>
+		<% var win_num = 1 + Math.floor(Math.random() * 16); %>
+		<img src = "assets/rage/win/<%= win_num %>.png" />
+	<% } else { %>
+		<% var fail_num = 1 + Math.floor(Math.random() * 23); %>
+		<img src = "assets/rage/fail/<%= fail_num %>.png" />	
+	<% } %>
+</div>
+<div class = "buttons">
+	<button class = "dispute" id = "dispute">Dispute Answer</button>
+	<button class = "next" id = "next">Next Question</button>
+</div>

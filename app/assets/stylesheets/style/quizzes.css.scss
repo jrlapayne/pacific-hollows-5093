@@ -11,18 +11,100 @@
 		}
 	}
 	
-	.answers-box {
+	.answers {
+		.answer {
 
+			&.container {
+
+			}
+
+			&.button {
+
+			}
+		}
+		
+		.result {
+			
+			&.container {
+				
+			}
+			
+			&.text {
+				
+				.correct {
+					
+				}
+				
+				.wrong {
+					
+				}
+			}
+		}
+		
+		.correct-answer {
+			
+			&.container {
+				
+			}
+			
+			&.text {
+				
+			}
+		}
+		
+		.ragecomic {
+			
+		}
+		
+		.buttons {
+			
+			.dispute {
+				
+			}
+			
+			.next {
+				
+			}
+		}
 	}
 	
-	.answer {
+	.completed {
 		
 		&.container {
-
+		
 		}
 		
-		&.button {
-
+		&.text {
+			
 		}
+	}
+	
+	.score {
+		
+		&.container {
+			
+		}
+		
+		&.text {
+			
+		}
+	}
+}
+
+#answered {
+	
+	.symbol {
+		
+		.checkmark {
+			
+		}
+		
+		.x-mark {
+			
+		}
+	}
+	
+	.question {
+		
 	}
 }
