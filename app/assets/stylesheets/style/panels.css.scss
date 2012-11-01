@@ -12,7 +12,7 @@
 		@include border-radius($radius);
 		position: relative;
 		border: 1px solid #9ca5bf;
-		@include box-shadow(rgba(#000, 0.15) 3px 0 3px, rgba(#000, 0.15) -3px 0 3px, rgba(#000, 0.15)  0 5px 5px);
+		@include box-shadow(rgba(#000, 0.1) 2px 0 2px, rgba(#000, 0.1) -2px 0 2px, rgba(#000, 0.1)  0 2px 2px);
 		
 		&.preview {
 			width: 16.25em;
@@ -28,33 +28,44 @@
 		position: relative;
 		cursor: default;
 		
+		&.active {
+    	background: #fff;
+    	border-left: 1px solid rgb(160,160,160);
+			border-right: 1px solid rgb(160,160,160);
+			@include border-top-radius(7px);
+			border-top: 1px solid rgb(155,155,155);
+			@include border-bottom-radius(7px);
+			border-bottom: 1px solid rgb(160,160,160);
+			@include box-shadow(rgb(210,210,210) 0 1px 1px);
+    }
+		
 		&.preview {
 			cursor: pointer;
-			height: 9em;
+			height: 10em;
 			background: #fff;
-			border-left: 1px solid rgb(185,185,185);
-			border-right: 1px solid rgb(185,185,185);
-			@include border-top-radius(5px);
+			border-left: 1px solid rgb(180,180,180);
+			border-right: 1px solid rgb(180,180,180);
+			@include border-top-radius(7px);
 			border-top: 1px solid rgb(180,180,180);
-			@include border-bottom-radius(5px);
-			border-bottom: 1px solid rgb(185,185,185);
-			margin-bottom: 12px;
+			@include border-bottom-radius(7px);
+			border-bottom: 1px solid rgb(180,180,180);
+			margin-bottom: 10px;
 			@include box-shadow(rgb(218,218,218) 0 1px 1px);
 
 			&:nth-child(even) {
 				border-left: 1px solid rgb(160,160,160);
 				border-right: 1px solid rgb(160,160,160);
-				@include border-top-radius(5px);
+				@include border-top-radius(7px);
 				border-top: 1px solid rgb(155,155,155);
-				@include border-bottom-radius(5px);
+				@include border-bottom-radius(7px);
 				border-bottom: 1px solid rgb(160,160,160);
 				@include box-shadow(rgb(210,210,210) 0 1px 1px);
 				
 				.bubble {
-					border: 2px solid lighten(desaturate($questionbubblecolor, 15%),5%);
+					border: 2px solid darken(desaturate($questionbubblecolor, 15%),15%);
 				}
 				.triangle-border:before {
-					border-color: lighten(desaturate($questionbubblecolor, 15%),5%) transparent transparent transparent;
+					border-color: darken(desaturate($questionbubblecolor, 15%),15%) transparent transparent transparent;
 				}
 			}
 
