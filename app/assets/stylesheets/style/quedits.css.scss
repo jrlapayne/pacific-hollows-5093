@@ -139,6 +139,7 @@
 		
 		&.delete {
 			color: $black;
+			bottom: 0.5em;
 			right: 2.5%;
 			border: 1px solid darken(#ccc, 10%);
 			background: #ccc;
@@ -154,6 +155,27 @@
 				border: 1px solid darken(#ccc, 20%); 
 				background: darken(#ccc, 10%);
 				@include reverse-gradient(darken(#ccc, 10%));
+			}
+		}
+		
+		&.quiz {
+			color: $black;
+			bottom: 4em;
+			right: 2.5%;
+			border: 1px solid darken(#D9B811, 10%); 
+			background: #D9B811;
+			@include gradient(#D9B811);
+			
+			&:hover {
+				border: 1px solid #D9B811; 
+				background: lighten(#D9B811, 10%);
+				@include gradient(lighten(#D9B811, 10%));
+			}
+			
+			&:active {
+				border: 1px solid darken(#D9B811, 20%); 
+				background: darken(#D9B811, 10%);
+				@include reverse-gradient(darken(#D9B811, 10%));
 			}
 		}
 	}

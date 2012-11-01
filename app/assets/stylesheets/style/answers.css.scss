@@ -1,0 +1,82 @@
+.create-answers {
+	padding: 1em 0;
+	
+	label {
+		color: darken($backgroundcolor, 20%);
+		font-weight: bold;
+		font-size: 1em;
+		margin: 1em 0 0 2.5%;
+	}
+	
+	input[type = text] {
+		color: $black;
+		width: 94%;
+		font-size: 0.875em;
+		line-height: 1.286em;
+		margin: 0 0 0 2.5%;
+		@include border-radius($radius);
+		
+		&:focus{
+			outline: none;
+			@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px);
+		}
+	}
+	
+	input[type = submit] {
+		font-weight: bold;
+		cursor: pointer;
+		color: #fff;
+		margin: 1em 0 0 2.5%;
+		width: 20%;
+		height: 3em;
+		border: 1px solid darken($backgroundcolor, 30%);
+		background: darken($backgroundcolor, 20%);
+		@include border-radius($radius);
+		@include gradient(darken($backgroundcolor, 20%));
+		@include single-box-shadow(inset, rgba(#000, 0.5), 0, 0, 5px, 5px);
+		&:hover {
+			border: 1px solid darken($backgroundcolor, 20%); 
+			background: darken($backgroundcolor, 10%);
+			@include gradient(darken($backgroundcolor, 10%));
+		}
+		
+		&:active {
+			border: 1px solid darken($backgroundcolor, 40%); 
+			background: darken($backgroundcolor, 30%);
+			@include reverse-gradient(darken($backgroundcolor, 30%));
+		}
+	}
+	
+	&.button {
+		cursor: pointer;
+		font-weight: bold;
+		padding: 0;
+		position: absolute; 
+		bottom: 1.5em;  
+		width: 20%; 
+		height: 3em; 
+		color: #fff;
+		@include border-radius($radius);
+		@include single-box-shadow(inset, rgba(#000, 0.5), 0, 0, 5px, 5px);
+		
+		&.cancel {
+			color: #fff;
+			right: 2.5%;
+			border: 1px solid darken($black, 10%);
+			background: $black;
+			@include gradient($black);
+			
+			&:hover {
+				border: 1px solid $black; 
+				background: lighten($black, 10%);
+				@include gradient(lighten($black, 10%));
+			}
+			
+			&:active {
+				border: 1px solid darken($black, 20%); 
+				background: darken($black, 10%);
+				@include reverse-gradient(darken(#ccc, 10%));
+			}
+		}
+	}
+}

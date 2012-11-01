@@ -1,0 +1,28 @@
+<form id = "answers" class = "create-answers">
+	<label>Correct:</label></br>
+	<% if (correct) { %>
+		<input type = "text" maxlength = "255" id = "correct" value = "<%= correct.get('content') %>" />
+	<% } else { %>
+		<input type = "text" maxlength = "255" id = "correct" />
+	<% } %></br>
+	<label>Wrong:</label></br>
+	<% if (answers[1]) { %>
+		<input type = "text" maxlength = "255" id = "wrong1" value = "<%= answers[1].get('content') %>" />
+	<% } else { %>
+		<input type = "text" maxlength = "255" id = "wrong1" />
+	<% } %></br>
+	<label>Wrong:</label></br>
+	<% if (answers[2]) { %>
+		<input type = "text" maxlength = "255" id = "wrong2" value = "<%= answers[2].get('content') %>" />
+	<% } else { %>
+		<input type = "text" maxlength = "255" id = "wrong2" />
+	<% } %></br>
+	<label>Wrong:</label></br>
+	<% if (answers[3]) { %>
+		<input type = "text" maxlength = "255" id = "wrong3" value = "<%= answers[3].get('content') %>" />
+	<% } else { %>
+		<input type = "text" maxlength = "255" id = "wrong3" />
+	<% } %><br>
+	<input type = "submit" value = "Create Answers" />
+</form>
+<button id = "cancel" class = "create-answers button cancel">Cancel</button>

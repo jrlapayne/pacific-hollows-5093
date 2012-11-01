@@ -26,9 +26,8 @@ Gangnam.Views.AnswersShow = Backbone.View.extend({
 			answer: this.answer
 		});
 		var question = this.attr.questions.where({id: this.answer.get('question_id')})[0];
-		alert('stop!');
-		this.attr.tasks.quizTask(question, this.answer, this.attr.current_user, this.attr.reputations);
-		alert('go!');
+		var user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
+		this.attr.tasks.quizTask(question, this.answer, user, this.attr.reputations);
 		$('.answers').html(view.render().el);
 	}
 });
