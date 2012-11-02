@@ -344,38 +344,34 @@
 					color: lighten($black, 35%);
 				}
 			}
-			.share {
-				position: absolute;
-				bottom: 2px;
-				right: 1px;
-				width: 12px;
-				height: 12px;
-			}
-			
-			.edit {
-				position: absolute;
-				bottom: 5px;
-				right: 100px;
-				width: 37px;
-				height: 37px;
-			}
-			
-			.comments {
-				position: absolute;
-				bottom: 9px;
-				right: 48px;
-				width: 45px;
-				height: 30px;
+			.actions {
 				
-				&.count {
-					font-weight: bold;
-					text-align: center;
-					color: #fff;
+				.share {
 					position: absolute;
-					top: 25%;
-					left: 0;
-					width: 100%;
-					height: 50%;
+					bottom: 2px;
+					right: 1px;
+					width: 12px;
+					height: 12px;
+				}
+			
+				.edit {
+					position: absolute;
+					bottom: 5px;
+					right: 100px;
+					width: 37px;
+					height: 37px;
+				}
+			
+				.comments {
+					position: absolute;
+					bottom: 9px;
+					right: 48px;
+					width: 45px;
+					height: 30px;
+				}
+				
+				.spacer {
+					
 				}
 			}
 		}

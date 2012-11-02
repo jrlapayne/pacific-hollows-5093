@@ -33,7 +33,9 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.privileges = options.privileges;
 		this.achievements = options.achievements;
 		this.users = options.users;
-		
+		window.scroll_loc = 0;
+		window.factory = this.getFactory();
+
 		this.attr = {
 			current_user: this.current_user,
 			issues: this.issues,
@@ -49,7 +51,9 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			reputations: this.reputations,
 			privileges: this.privileges,
 			achievements: this.achievements,
-			users: this.users
+			users: this.users,
+			scroll_loc: this.scroll_loc,
+			factory: this.factory
 		};
 		
 		this.pagesHeader();
@@ -105,6 +109,16 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		}
 		
 		this.current_view = view;
+	},
+	
+	getFactory: function() {
+		var array = [];
+		
+		this.issues.each(function(i) {
+			array.push(i.get('id'));
+		});
+		
+		return array;
 	},
 	
 	signedInUser: function(user) {
@@ -196,6 +210,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		});
 		$('.page').html(JST['pages/columns']);
 		this.setCurrentView(view);
+		this.issuesFactory();
 		$('#right').html(view.render().el);
 	},
 	
@@ -225,5 +240,12 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.setCurrentView(view);
 		$('.page').html(JST['pages/columns']);
 		$('#right').html(view.render().el);
+	},
+	
+	issuesFactory: function() {
+		var view = new Gangnam.Views.IssuesFactory({
+			attr: this.attr
+		});
+		$('#left_top').html(view.render().el);
 	}
 });

@@ -1,0 +1,6 @@
+<%= issue.get('title') %>
+<% if (is_checked) { %>
+	<input class = "checkbox" type = "checkbox" name = "issue" id = "<%= issue.get('id') %>" checked />
+<% } else { %>
+	<input class = "checkbox" type = "checkbox" name = "issue" id = "<%= issue.get('id') %>" />
+<% } %>
