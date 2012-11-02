@@ -357,8 +357,9 @@
 					color: lighten($black, 35%);
 				}
 			}
+			
 			.actions {
-
+				
 				.share {
 					position: absolute;
 					bottom: 2px;
@@ -366,6 +367,7 @@
 					width: 12px;
 					height: 12px;
 				}
+			
 				.edit {
 					position: absolute;
 					bottom: 5px;
@@ -373,17 +375,17 @@
 					width: 15px;
 					height: 15px;
 				}
-
+			
 				.comments {
 					position: absolute;
 					bottom: 9px;
 					right: 48px;
 					width: 22px;
-					height: 15px;
+					height: 15px;	
 				}
-
+				
 				.spacer {
-
+				
 				}
 			}
 		}
