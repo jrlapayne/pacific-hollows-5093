@@ -47,7 +47,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	},
 	
 	renderComments: function() {
-		$(this.el).find('.comments').html(JST['comments/number']({comments: this.comments}));
+		$(this.el).find('.comments.count').html(JST['comments/number']({comments: this.comments}));
 	},
 	
 	renderRank: function() {

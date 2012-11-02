@@ -48,7 +48,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	},
 	
 	renderComments: function() {
-		$(this.el).find('.fact-comments').html(JST['comments/number']({comments: this.comments}));
+		$(this.el).find('.comments.count').html(JST['comments/number']({comments: this.comments}));
 	},
 	
 	renderRank: function() {
