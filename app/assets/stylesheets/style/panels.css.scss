@@ -94,14 +94,29 @@
 		position: relative;
 		cursor: default;
 		min-height: 150px;
-		border: 1px solid #777;
+		border: 1px solid #888;
+		margin-bottom: 10px;
+		@include box-shadow(rgb(200,200,200) 0 1px 1px);
+		
+		@include border-top-radius($radius);
+		@include border-bottom-radius($radius);
 		
 		&.top {
-			@include border-top-radius($radius);
+			
 		}
 		
 		&.bottom {
-			@include border-bottom-radius($radius);
+			
+		}
+		
+		.stats {
+			@include border-bottom-radius($innerRadius);
+		}
+		.vote {
+			&.container {
+				@include border-corner-radius(top, left, $innerRadius);
+				@include border-corner-radius(bottom, left, $innerRadius);
+			}
 		}
 		
 		&.create {
