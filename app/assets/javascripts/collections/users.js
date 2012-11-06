@@ -7,48 +7,32 @@ Gangnam.Collections.Users = Backbone.Collection.extend({
 		return - user.get('rep');
 	},
 	
-	getIssueRank: function(user, issue, reputations) {
-		var users = this.where({});
-		var array = [];
-		var rank = users.length;
-		var rep, loc = null;
+	getRank: function(user) {
+		var users = [], rank, loc = null;
 		
-		for (i = 0; i < users.length; i++) {
-			if (reputations.where({user_id: users[i].get('id'), issue_id: issue.get('id')})[0]) {
-				rep = reputations.where({user_id: users[i].get('id'), issue_id: issue.get('id')})[0].get('rep');
-			} else {
-				rep = 0;
+		this.each(function(u) {
+			if (u.get('rep') !== 0) {
+				users.push({id: u.get('id'), rep: u.get('rep')});
 			}
-			array.push({id: users[i].get('id'), rep: rep});
-		}
+		});
 		
-		array.sort(function(a, b) {
+		rank = users.length;
+		users.sort(function(a,b) {
 			return b.rep - a.rep;
 		});
-
-		for (i = 0; i < array.length; i++) {
-			if (array[i].id === user.get('id')) {
+		
+		for (i = 0; i < users.length; i++) {
+			if (users[i].id === user.get('id')) {
 				loc = i;
 			}
-			if (loc !== null && array[loc].rep > array[i].rep) {
+			if (loc !== null && users[loc].rep > users[i].rep) {
 				rank = i;
 				break;
 			}
 		}
 		
-		return {rank: rank, users: users.length};
-	},
-	
-	getRank: function(user) {
-		this.sort();
-		var users = _.toArray(this);
-		var rank = users.length;
-		
-		for (i = 0; i < users.length; i++) {
-			if (user.get('rep') > users[i].get('rep')) {
-				rank = i;
-				break;
-			}
+		if (loc === null && rank === users.length) {
+			rank = null;
 		}
 		
 		return {rank: rank, users: users.length};

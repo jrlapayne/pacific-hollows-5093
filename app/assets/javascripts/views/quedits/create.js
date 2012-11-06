@@ -58,6 +58,13 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 				self.renderQuestion();
 			}
 		});
+		
+		this.attr.quedits.achievement(
+			this.attr.users.where({id: this.attr.current_user.get('id')})[0],
+			this.attr.achievements,
+			this.attr.user_achievements,
+			this.attr.issues.where({id: this.question.get('issue_id')})[0]
+		);
 	},
 	
 	queditsIndex: function() {

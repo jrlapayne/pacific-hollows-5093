@@ -36,16 +36,20 @@ Gangnam.Views.VotesFact = Backbone.View.extend({
 	
 	upVote: function(event) {
 		var vote;
+		var ids = {issue: this.fact.get('issue_id'), question: this.fact.get('question_id'), fact: this.fact.get('id'), comment: null};
+		
 		if (this.user.canVote()) {
-			vote = this.attr.votes.addOrUpdate(this.user, this.fact.get('question_id'), this.fact.get('id'), null, 1);
+			vote = this.attr.votes.addOrUpdate(this.user, ids, 1, this.attr.achievements, this.attr.user_achievements);
 			this.attr.facts.resetScore(vote);
 		}
 	},
 	
 	downVote: function(event) {
 		var vote;
+		var ids = {issue: this.fact.get('issue_id'), question: this.fact.get('question_id'), fact: this.fact.get('id'), comment: null};
+		
 		if (this.user.canVote()) {
-			vote = this.attr.votes.addOrUpdate(this.user, this.fact.get('question_id'), this.fact.get('id'), null, -1);
+			vote = this.attr.votes.addOrUpdate(this.user, ids, -1, this.attr.achievements, this.attr.user_achievements);
 			this.attr.facts.resetScore(vote);
 		}
 	},

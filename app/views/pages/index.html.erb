@@ -20,7 +20,8 @@
 		"votes" : <%= Vote.all.to_json %>,
 		"reputations" : <%= Reputation.all.to_json %>,
 		"privileges" : <%= Privilege.all.to_json %>,
-		"achievements" : <%= Achievement.all.to_json %>
+		"achievements" : <%= Achievement.all.to_json %>,
+		"user_achievements" : <%= UserAchievement.all.to_json %>
 	}
 </script>
 

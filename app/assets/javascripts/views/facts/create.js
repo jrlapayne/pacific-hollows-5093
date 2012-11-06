@@ -41,6 +41,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 			
 			if (this.checkValues(title, source)) {
 				this.loading();
+				
 				this.attr.facts.create({
 					issue_id: this.question.get('issue_id'),
 					question_id: this.question.get('id'),
@@ -74,6 +75,13 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 						});
 					}
 				});
+				
+				this.attr.facts.achievement(
+					this.attr.users.where({id: this.attr.current_user.get('id')})[0], 
+					this.attr.achievements, 
+					this.attr.user_achievements, 
+					this.attr.issues.where({id: this.question.get('issue_id')})[0]
+				);
 			} else {
 				alert("Invalid Entry");
 				this.posting = false;

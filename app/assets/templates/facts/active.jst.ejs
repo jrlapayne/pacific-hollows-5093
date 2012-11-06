@@ -4,9 +4,11 @@
 		<b><%= fact.get('title') %></b>
 	</div>
 </div>
-<div class = "description container">
-	<div class = "description"><%= fact.get('description') %></div>
-</div>
+<% if (fact.get('description') && fact.get('description') !== "") { %>
+	<div class = "description container">
+		<div class = "description"><%= fact.get('description') %></div>
+	</div>
+<% } %>
 <div class = "sources container" id = "sources"></div>
 <div class = "extras"></div>
 <div class = "stats">

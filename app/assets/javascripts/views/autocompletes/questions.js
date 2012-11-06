@@ -215,6 +215,12 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 			this.attr.users.where({id: this.attr.current_user.get('id')})[0], 
 			this.attr.quedits
 		);
+		this.attr.questions.achievement(
+			this.attr.users.where({id: this.attr.current_user.get('id')})[0], 
+			this.attr.achievements, 
+			this.attr.user_achievements, 
+			this.issue
+		);
 	},
 	
 	loading: function() {

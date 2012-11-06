@@ -15,6 +15,7 @@ Gangnam.Views.UsersProfile = Backbone.View.extend({
 		var self = this;
 		var issues = this.getIssues();
 		setTimeout(function() {
+			self.renderOverview();
 			for (i = 0; i < issues.length; i++) {
 				self.appendIssue(issues[i]);
 			}
@@ -42,5 +43,13 @@ Gangnam.Views.UsersProfile = Backbone.View.extend({
 		}
 		
 		return array;
+	},
+	
+	renderOverview: function() {
+		var view = new Gangnam.Views.UsersOverview({
+			attr: this.attr,
+			user: this.user
+		});
+		$('#left_top').html(view.render().el);
 	}
 });

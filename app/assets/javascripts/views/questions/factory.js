@@ -6,19 +6,20 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
-		this.questions = this.getQuestions();
 		
-		this.attr.issues.on('filter', this.filterQuestions, this);
+		this.attr.issues.on('filter', this.render, this);
 	},
 	
 	render: function() {
 		var self = this;
+		this.filterQuestions();
+		
 		$(this.el).attr('id', 'questions');
 		$(this.el).children().remove();
 		
 		setTimeout(function() {
-			for (i = 0; i < self.questions.length; i++) {
-				self.appendQuestion(self.questions[i]);
+			for (q = 0; q < self.questions.length; q++) {
+				self.appendQuestion(self.questions[q]);
 			}
 		}, 0);
 		return this;
@@ -39,26 +40,16 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 		var current_user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		
 		this.attr.tasks.browseTask(question, current_user, this.attr.reputations);
+		this.issueShow(question.get('issue_id'));
 		Backbone.history.navigate('question' + $(element).attr('id'), true);
 	},
 	
-	getQuestions: function(array) {
-		var array = [];
-		var questions = _.toArray(this.attr.questions);
-		
-		for (i = 0; i < questions.length; i++) {
-			if (this.attr.facts.where({question_id: questions[i].get('id')}).length === 0) {
-				array.push(questions[i]);
-			}
-		}
-		
-		for (i = 0; i < questions.length; i++) {
-			if (this.attr.facts.where({question_id: questions[i].get('id')}).length === 1) {
-				array.push(questions[i]);
-			}
-		}
-		
-		return array;
+	issueShow: function(id) {
+		var view = new Gangnam.Views.IssuesShow({
+			attr: this.attr,
+			issue: this.attr.issues.where({id: id})[0]
+		});
+		$('#left_top').html(view.render().el);
 	},
 	
 	filterQuestions: function() {
@@ -85,11 +76,11 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 			return b.get('score') - a.get('score');
 		});
 		
-		for (i = 0; i < zero_questions.length; i++) {
-			this.questions.push(zero_questions[i]);
+		for (k = 0; k < zero_questions.length; k++) {
+			this.questions.push(zero_questions[k]);
 		}
-		for (i = 0; i < one_questions.length; i++) {
-			this.questions.push(one_questions[i]);
+		for (l = 0; l < one_questions.length; l++) {
+			this.questions.push(one_questions[l]);
 		}
 	},
 	

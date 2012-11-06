@@ -21,6 +21,7 @@ Gangnam.Views.UsersIssue = Backbone.View.extend({
 		}));
 		setTimeout(function() {
 			self.renderRank();
+			self.renderAchievements();
 		}, 0);
 		return this;
 	},
@@ -35,6 +36,11 @@ Gangnam.Views.UsersIssue = Backbone.View.extend({
 	},
 	
 	renderAchievements: function() {
-		
+		var view = new Gangnam.Views.AchievementsIndex({
+			attr: this.attr,
+			user: this.user,
+			issue: this.issue
+		});
+		$(this.el).find('#achievements').html(view.render().el);
 	}
 });

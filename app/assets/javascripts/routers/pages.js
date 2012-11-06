@@ -9,9 +9,10 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		'issue:id/cons' : 'questionsCons',
 		'question:id' : 'factsIndex',
 		'factory' : 'questionsFactory',
-		'profile' : 'usersProfile',
+		'profile' : 'currentUserProfile',
 		'about' : 'pagesAbout',
-		'quiz:id' : 'quizzesIndex'
+		'quiz:id' : 'quizzesIndex',
+		'users:id' : 'usersProfile'
 	},
 	
 	initialize: function(options) {
@@ -32,6 +33,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.reputations = options.reputations;
 		this.privileges = options.privileges;
 		this.achievements = options.achievements;
+		this.user_achievements = options.user_achievements;
 		this.users = options.users;
 		window.scroll_loc = 0;
 		window.factory = this.getFactory();
@@ -51,6 +53,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			reputations: this.reputations,
 			privileges: this.privileges,
 			achievements: this.achievements,
+			user_achievements: this.user_achievements,
 			users: this.users,
 			scroll_loc: this.scroll_loc,
 			factory: this.factory
@@ -77,6 +80,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.reputations.fetch();
 		this.privileges.fetch();
 		this.achievements.fetch();
+		this.user_achievements.fetch();
 		this.users.fetch();
 		
 		this.attr = {
@@ -94,6 +98,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			reputations: this.reputations,
 			privileges: this.privileges,
 			achievements: this.achievements,
+			user_achievements: this.user_achievements,
 			users: this.users
 		};
 	},
@@ -222,10 +227,20 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		$('.page').html(view.render().el);
 	},
 	
-	usersProfile: function() {
+	currentUserProfile: function() {
 		var view = new Gangnam.Views.UsersProfile({
 			attr: this.attr,
 			user: this.users.where({id: this.current_user.get('id')})[0]
+		});
+		$('.page').html(JST['pages/columns']);
+		this.setCurrentView(view);
+		$('#right').html(view.render().el);
+	},
+	
+	usersProfile: function(id) {
+		var view = new Gangnam.Views.UsersProfile({
+			attr: this.attr,
+			user: this.users.where({id: parseInt(id)})[0]
 		});
 		$('.page').html(JST['pages/columns']);
 		this.setCurrentView(view);
