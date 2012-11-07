@@ -13,8 +13,8 @@ Gangnam.Views.ReputationsIssue = Backbone.View.extend({
 	
 	render: function() {
 		$(this.el).html(this.template({
-			rank: this.attr.users.getIssueRank(this.current_user, this.issue, this.attr.reputations),
-			current_user: this.current_user
+			rank: this.attr.reputations.getIssueRank(this.current_user, this.issue),
+			user: this.attr.users.where({id: this.current_user.get('id')})[0]
 		}));
 		return this;
 	}
