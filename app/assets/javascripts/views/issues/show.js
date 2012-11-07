@@ -16,7 +16,7 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		$(this.el).addClass('panel issue active');
+		$(this.el).addClass('issue active');
 		$(this.el).html(this.template({
 			issue: this.issue
 		}));

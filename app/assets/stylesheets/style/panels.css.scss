@@ -11,10 +11,10 @@
 		background: #fff;
 		@include border-radius($radius);
 		position: relative;
-		border: 1px solid #9ca5bf;
-		@include box-shadow(rgba(#000, 0.1) 2px 0 2px, rgba(#000, 0.1) -2px 0 2px, rgba(#000, 0.1)  0 2px 2px);
+		/*@include box-shadow(rgba(#000, 0.1) 2px 0 2px, rgba(#000, 0.1) -2px 0 2px, rgba(#000, 0.1)  0 2px 2px);*/
 		
 		&.preview {
+			border: 1px solid #9ca5bf;
 			width: 16.25em;
 			height: 16.25em;
 			margin: 1.25em 0 0.625em 1.875em;
@@ -30,37 +30,32 @@
 		
 		&.active {
     	background: #fff;
-    	border-left: 1px solid darken(desaturate($backgroundcolor, 20%),10%);
+			
+    	/*border-left: 1px solid darken(desaturate($backgroundcolor, 20%),10%);
 			border-right: 1px solid darken(desaturate($backgroundcolor, 20%),10%);
 			@include border-top-radius(7px);
 			border-top: 1px solid darken(desaturate($backgroundcolor, 20%),10%);
 			@include border-bottom-radius(7px);
 			border-bottom: 1px solid darken(desaturate($backgroundcolor, 20%),10%);
-			@include box-shadow(rgb(210,210,210) 0 1px 1px);
+			@include box-shadow(rgb(210,210,210) 0 1px 1px);*/
     }
 		
 		&.preview {
-			cursor: pointer;
 			height: 9.5em;
 			background: #fff;
-			border-left: 1px solid rgb(180,180,180);
+			padding-bottom: 7px;
+			border-bottom: 1px solid rgb(210,210,210);
+			margin-bottom: 4px;
+			/*border-left: 1px solid rgb(180,180,180);
 			border-right: 1px solid rgb(180,180,180);
 			@include border-top-radius(7px);
 			border-top: 1px solid rgb(180,180,180);
 			@include border-bottom-radius(7px);
 			border-bottom: 1px solid rgb(180,180,180);
-			margin-bottom: 10px;
-			@include box-shadow(rgb(218,218,218) 0 1px 1px);
+			@include box-shadow(rgb(218,218,218) 0 1px 1px);*/
+
 
 			&:nth-child(even) {
-				border-left: 1px solid rgb(160,160,160);
-				border-right: 1px solid rgb(160,160,160);
-				@include border-top-radius(7px);
-				border-top: 1px solid rgb(155,155,155);
-				@include border-bottom-radius(7px);
-				border-bottom: 1px solid rgb(160,160,160);
-				@include box-shadow(rgb(210,210,210) 0 1px 1px);
-				
 				.bubble {
 					border: 2px solid darken(desaturate($questionbubblecolor, 15%),15%);
 				}
@@ -70,14 +65,15 @@
 			}
 
 			&:hover {
-				background: mix(#fff, #57BBD6, 95%);
 				.triangle-border:after {
-					border-color:rgb(246, 251, 252) transparent transparent transparent;
+					border-color: lighten($backgroundcolor, 30%) transparent transparent transparent;
 				}
+				border-bottom: 1px solid rgb(150,150,150);
 			}
 
 			&.top {
-				margin-top: 1px;
+				margin-top: 74px;
+				border-top: none;
 			}
 
 			&.bottom {
@@ -94,9 +90,9 @@
 		position: relative;
 		cursor: default;
 		min-height: 150px;
-		border: 1px solid #888;
-		margin-bottom: 10px;
-		@include box-shadow(rgb(200,200,200) 0 1px 1px);
+		border: 1px solid rgb(146,146,146);
+		margin-bottom: 11px;
+		@include box-shadow(rgb(190,190,190) 0 1px 1px);
 		
 		@include border-top-radius($radius);
 		@include border-bottom-radius($radius);
@@ -143,4 +139,75 @@
 		
 		@include border-radius(5px);
 	}
+}
+.issue_header_tabs {
+	position: absolute;
+	top: 30px;
+	left: 0px;
+	height: 14px;
+	color: rgb(110,110,110);
+	width: 100%;
+	font-size: 13px;
+
+	.basics {
+		height: 100%;
+		font-weight: bold;
+		text-align: left;
+		position: absolute;
+		padding: 4px 0 4px 11px;
+		left: 376px;
+		width: 76px;
+		background-color: lighten($questionbubblecolor, 18%);
+		@include border-radius(8px);
+		.basics-triangle-container {
+			position: absolute;
+			top: 6px;
+			left: 62px;
+			.triangle {
+				cursor: pointer;
+				content: "";
+				display: block; 
+				border-width: 12px 8px 0px 8px;
+				border-style: solid;
+				border-color: rgba(darken(desaturate($questionbubblecolor, 5%),10%), 1) rgba(#ccc, 0) rgba(#aaa, 0) rgba(#000, 0);
+				width: 0;
+				height: 0;
+			}
+		}
+	}
+	.advanced {
+		height: 100%;
+		text-align: center;
+		position: absolute;
+		padding: 4px 0 4px 0;
+		width: 94px;
+		left: 457px;
+		color: rgb(185,185,185);
+		/*
+		background-color: lighten($questionbubblecolor, 25%);
+		*/
+		@include border-radius(8px);
+	}
+	.question_count {
+		position: absolute;
+		padding: 4px 0 25px 0;
+		font-weight: bold;
+		font-size: 12px;
+		color: darken(desaturate($questionbubblecolor, 5%),20%);
+		top: 0px;
+		left: 252px;
+		width: 90px;
+	}
+}
+.issue-big-header-line {
+	position: absolute;
+	top: 65px;
+	border-bottom: 2px solid rgb(180,180,180);
+	width: 100%;
+}
+.issue-small-header-line {
+	position: absolute;
+	top: 69px;
+	border-bottom: 1px solid rgb(210,210,210);
+	width: 100%;
 }

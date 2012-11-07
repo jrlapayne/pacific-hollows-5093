@@ -1,30 +1,69 @@
-<div class = "title container">	
-	<div class = "title"><%= issue.get('title') %></div>
-</div>
-<div class = "thumbnail">
-	<% if (issue.get('thumbnail')) { %>
-		<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%"/>
-	<% } else { %>
-		<img src = "assets/logos/black.png" height = "100%" />
-	<% } %>
-</div>
-<div class = "browse"><button class = "active" id = "back">BACK</button></div>
-<div class = "quiz"><button class = "active" id = "quiz">QUIZ</button></div>
-<div class = "rank container">
-	<!-- <div class = "rank picture">
-		<img src = "assets/logos/blue.png" height = "100%" />
-	</div> -->
-	<div class = "rank text"></div>
-</div>
-<div class = "hover-container">
-	<div style = "position: absolute; top: 5%; left: 5%; width: 90%; height: 90%">
-		<div class = "spacer" style = "width: 0; height: 20%; display:block; float:right; clear:right"></div>
-		<div class = "spacer" style = "width: 50%; height: 55%; display:block; float:right; clear:right"></div>
-		<div class = "spacer" style = "width: 0; height: 25%; display:block; float:right; clear:right"></div>
-		<p style = "display:inline; color:#FFF">
-			<%= issue.get('description') %>
-		</p>
+<div class = "issue_title_container">
+	<div class = "issue_title">Software patent trolling in the United States </div>
+	<div class = "issue_header_picture ">
+		<div class = "issue_header_picture_wrapper">
+			<img src = "assets/troll.png" height = "100%" />
+		</div>
 	</div>
-	<div class = "browse"><button class = "active" id = "back">BACK</button></div>
-	<div class = "quiz"><button class = "active" id = "quiz">QUIZ</button></div>
+	<div class = "quizme">Quiz Me!</div>
+</div>
+<div class = "description-header">Description:</div>
+<div class = "description-text">
+A patent troll is a pejorative term used for a person or company who enforces patents against one or more alleged infringers in a manner considered aggressive or opportunistic with no intention to manufacture or market the patented invention.
+</div>
+<div class = "issue_current_user_container">
+	<div class = "current_user_title">Issue Rank: </div>
+	<div class = "current_user_display">
+		<span class = "leaderboard_rank">237. </span><span class = "leaderboard_name">Andrew Smith</span>
+		<div class = "leaderboard_user_picture">
+			<div class = "leaderboard_user_picture_wrapper">
+				<img src = "assets/troll.png" height = "100%" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class = "issue_leaderboard_container">
+	<div class = "leaderboard_title">
+		Top Ranked Fusers:
+	</div>
+	<div class = "leaderboard_user">
+		<span class = "leaderboard_rank">1. </span><span class = "leaderboard_name">Joanie Gentile</span>
+		<div class = "leaderboard_user_picture">
+			<div class = "leaderboard_user_picture_wrapper">
+				<img src = "assets/troll.png" height = "100%" />
+			</div>
+		</div>
+	</div>
+	<div class = "leaderboard_user">
+		<span class = "leaderboard_rank">2. </span><span class = "leaderboard_name">Aaron M Henning</span>
+		<div class = "leaderboard_user_picture">
+			<div class = "leaderboard_user_picture_wrapper">
+				<img src = "assets/microwave.png" height = "100%" />
+			</div>
+		</div>
+	</div>
+	<div class = "leaderboard_user">
+		<span class = "leaderboard_rank">3. </span><span class = "leaderboard_name">Cameron Okeke</span>
+		<div class = "leaderboard_user_picture">
+			<div class = "leaderboard_user_picture_wrapper">
+				<img src = "assets/fusegap.png" height = "100%" />
+			</div>
+		</div>
+	</div>
+	<div class = "leaderboard_user">
+		<span class = "leaderboard_rank">4. </span><span class = "leaderboard_name">Julian Adorney</span>
+		<div class = "leaderboard_user_picture">
+			<div class = "leaderboard_user_picture_wrapper">
+				<img src = "assets/money.png" height = "100%" />
+			</div>
+		</div>
+	</div>
+	<div class = "leaderboard_user">
+		<span class = "leaderboard_rank">5. </span><span class = "leaderboard_name">Jordan Serra</span>
+		<div class = "leaderboard_user_picture">
+			<div class = "leaderboard_user_picture_wrapper">
+				<img src = "assets/fries.png" height = "100%" />
+			</div>
+		</div>
+	</div>
 </div>
