@@ -18,7 +18,7 @@ textarea {
 }
 
 .page {
-	width: 56.25em;  /* default 900px */
+	width: 920px; 
 	height: 100%;
 	position: relative;
 	margin: 0 auto;
@@ -40,6 +40,7 @@ textarea {
 	&.left {
 		width: 20.125em;  /* default 322px */
 		left: 14px;
+
 		
 		&.side {
 			top: 0;
@@ -72,13 +73,13 @@ textarea {
 }
 
 .background {
-	width: 900px;
+	width: 920px;
 	height: 100%;
-	background: rgba(#fff, 0.6);
+	background: rgba(#fff, 1);
 	position: fixed;
 	top: 0;
 	z-index: -1000;
-	@include box-shadow(rgba(#000, 0.25) 0 5px 5px 0, rgba(#000, 0.25) 0 -5px 5px 0);
+	/*@include box-shadow(rgba(#000, 0.25) 0 5px 5px 0, rgba(#000, 0.25) 0 -5px 5px 0);*/
 
 	&.container {
 		background: none;

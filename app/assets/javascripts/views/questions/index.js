@@ -1,5 +1,7 @@
 Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	
+	template: JST['questions/index'],
+	
 	events: {
 		'click .question' : 'factsIndex'
 	},
@@ -15,6 +17,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$(this.el).attr('id', 'questions');
+		$(this.el).html(this.template());
 		this.renderIssue(this.issue, this.category);
 		setTimeout(function() {
 			for (i = 0; i < self.questions.length; i++) {

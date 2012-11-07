@@ -1,5 +1,5 @@
 .navigation {
-	width: 900px;
+	width: 920px;
 	margin: 0 auto;
 	position: relative;
 	height: 40px;
@@ -10,7 +10,7 @@
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 17px;
+		left: 10px;
 		width: 60px;
 		height: 100%;
 		.label {
@@ -31,7 +31,7 @@
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 106px;
+		left: 97px;
 		width: 60px;
 		height: 100%;
 		
@@ -51,7 +51,7 @@
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 190px;
+		left: 182px;
 		width: 60px;
 		height: 100%;
 		.label {
@@ -71,7 +71,7 @@
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 275px;
+		left: 266px;
 		width: 60px;
 		height: 100%;
 		
@@ -99,8 +99,8 @@
 	.autocomplete {
 		position: absolute;
 		top: 0;
-		right: 0;
-		width: 420px;
+		left: 490px;
+		width: 450px;
 		height: 40px;
 		
 		.autocom-result {
