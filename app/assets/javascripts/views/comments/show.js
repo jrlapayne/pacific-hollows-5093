@@ -9,6 +9,7 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.comment = this.attr.comments.where({id: options.comment.get('id')})[0];
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -30,6 +31,7 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 			attr: this.attr,
 			comment: this.comment
 		});
+		this.subviews.push(view);
 		$(this.el).find('#votes').html(view.render().el);
 	},
 	
@@ -38,6 +40,7 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 			attr: this.attr,
 			comment: comment
 		});
+		this.subviews.push(view);
 		$(this.el).find('#children' + this.comment.get('id')).append(view.render().el);
 	},
 	
@@ -64,4 +67,15 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 			}
 		}
 	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
+	}
 });

@@ -10,13 +10,14 @@ Gangnam.Views.VotesFact = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.fact = this.attr.facts.where({id: options.fact.get('id')})[0];
-		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		
 		this.attr.votes.on('change', this.render, this);
 		this.attr.votes.on('add', this.render, this);
+		this.attr.users.on('reset', this.render, this);
 	},
 	
 	render: function() {
+		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		$(this.el).html(this.template({
 			score: this.getScore()
 		}));
@@ -57,5 +58,6 @@ Gangnam.Views.VotesFact = Backbone.View.extend({
 	onClose: function() {
 		this.attr.votes.unbind("add", this.render);
 		this.attr.votes.unbind("change", this.render);
+		this.attr.users.unbind("reset", this.render);
 	}
 });

@@ -14,6 +14,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 		this.comments = this.attr.comments.where({question_id: this.question.get('id'), fact_id: null});
 		this.votes = this.attr.votes.where({question_id: this.question.get('id')});
 		this.upvotes = 0;
+		this.subviews = [];
 		
 		for (i = 0; i < this.votes.length; i++) {
 			this.upvotes = this.upvotes + this.votes[i].get('value');
@@ -43,6 +44,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
+		this.subviews.push(view);
 		$(this.el).find('#votes').html(view.render().el);
 	},
 	
@@ -56,6 +58,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 			issue: this.attr.issues.where({id: this.question.get('issue_id')})[0],
 			question: this.question
 		});
+		this.subviews.push(view);
 		$(this.el).find('#user_info').html(view.render().el);
 	},
 	
@@ -67,6 +70,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 				question: this.question,
 				fact: null
 			});
+			this.subviews.push(view);
 			$(element).addClass('active');
 			$(element).html(view.render().el);
 		}
@@ -78,6 +82,18 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
+		this.subviews.push(view);
 		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

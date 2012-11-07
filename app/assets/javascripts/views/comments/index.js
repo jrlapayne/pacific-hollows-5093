@@ -17,6 +17,7 @@ Gangnam.Views.CommentsIndex = Backbone.View.extend({
 		} else {
 			this.comments = this.attr.comments.where({question_id: this.fact.get('question_id'), fact_id: this.fact.get('id'), ancestry: null});
 		}
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -37,6 +38,7 @@ Gangnam.Views.CommentsIndex = Backbone.View.extend({
 			attr: this.attr,
 			comment: comment
 		});
+		this.subviews.push(view);
 		$('#comments').append(view.render().el);
 	},
 	
@@ -78,5 +80,16 @@ Gangnam.Views.CommentsIndex = Backbone.View.extend({
 		}
 		$(element).removeClass('active');
 		$(element).html(JST['comments/number']({comments: comments}));
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

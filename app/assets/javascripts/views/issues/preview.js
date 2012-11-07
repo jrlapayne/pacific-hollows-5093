@@ -10,6 +10,7 @@ Gangnam.Views.IssuesPreview = Backbone.View.extend({
 		this.attr = options.attr;
 		this.issue = this.attr.issues.where({id: options.issue.get('id')})[0];
 		this.current_user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
+		this.subviews = [];
 		
 		this.attr.issues.on('reset', this.render, this);
 		this.attr.users.on('add', this.render, this);
@@ -33,6 +34,18 @@ Gangnam.Views.IssuesPreview = Backbone.View.extend({
 			attr: this.attr,
 			issue: this.issue
 		});
+		this.subviews.push(view);
 		$(this.el).find('#rank').html(view.render().el); */
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

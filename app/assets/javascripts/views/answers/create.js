@@ -12,6 +12,7 @@ Gangnam.Views.AnswersCreate = Backbone.View.extend({
 		this.question = options.question;
 		this.answers = this.attr.answers.where({question_id: this.question.get('id'), is_correct: false});
 		this.correct = this.attr.answers.where({question_id: this.question.get('id'), is_correct: true})[0];
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -77,8 +78,19 @@ Gangnam.Views.AnswersCreate = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
-		
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).html(view.render().el);
 	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
+	}
 });

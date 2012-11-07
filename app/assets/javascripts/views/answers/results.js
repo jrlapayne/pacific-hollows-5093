@@ -10,6 +10,7 @@ Gangnam.Views.AnswersResults = Backbone.View.extend({
 		this.attr = options.attr;
 		this.answer = options.answer;
 		this.setCorrectAns(this.answer);
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -37,6 +38,18 @@ Gangnam.Views.AnswersResults = Backbone.View.extend({
 			attr: this.attr,
 			issue: this.attr.issues.where({id: this.attr.questions.where({id: this.answer.get('question_id')})[0].get('issue_id')})[0]
 		});
+		this.subviews.push(view);
 		$('#right').html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

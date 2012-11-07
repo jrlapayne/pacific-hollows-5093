@@ -46,5 +46,10 @@ Gangnam.Views.VotesComment = Backbone.View.extend({
 			this.attr.votes.addOrUpdate(this.user, this.comment.get('question_id'), this.comment.get('fact_id'), this.comment.get('id'), -1);
 			this.attr.comments.resetScores(this.attr.votes);
 		}
+	},
+	
+	onClose: function() {
+		this.attr.votes.unbind('change', this.render);
+		this.attr.votes.unbind('add', this.render);
 	}
 });

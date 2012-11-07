@@ -10,6 +10,7 @@ Gangnam.Views.AnswersIndex = Backbone.View.extend({
 		this.attr = options.attr;
 		this.question = options.question;
 		this.answers = _.shuffle(this.attr.answers.where({question_id: this.question.get('id')}));
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -27,6 +28,18 @@ Gangnam.Views.AnswersIndex = Backbone.View.extend({
 			attr: this.attr,
 			answer: answer
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

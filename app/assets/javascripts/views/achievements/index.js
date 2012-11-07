@@ -9,6 +9,7 @@ Gangnam.Views.AchievementsIndex = Backbone.View.extend({
 		this.user = options.user;
 		this.issue = options.issue;
 		this.achievements = _.toArray(this.attr.achievements);
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -29,6 +30,18 @@ Gangnam.Views.AchievementsIndex = Backbone.View.extend({
 			user: this.user,
 			issue: this.issue
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

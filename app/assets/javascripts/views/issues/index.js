@@ -9,6 +9,7 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -31,6 +32,7 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 			attr: this.attr,
 			issue: issue
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
 	},
 	
@@ -65,7 +67,7 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 		this.getLoc(element);
 		
 		setTimeout(function() {
-			Backbone.history.navigate('issue' + $(element).attr('id'), true);	
+			Backbone.history.navigate('issue' + $(element).attr('id') + '/basics', true);	
 		}, 500);
 	},
 	
@@ -77,5 +79,16 @@ Gangnam.Views.IssuesIndex = Backbone.View.extend({
 		setTimeout(function() {
 			Backbone.history.navigate('quiz' + $(element).attr('id'), true);
 		}, 500);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

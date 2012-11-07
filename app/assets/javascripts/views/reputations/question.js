@@ -6,13 +6,13 @@ Gangnam.Views.ReputationsQuestion = Backbone.View.extend({
 		this.attr = options.attr;
 		this.question = options.question;
 		this.issue = this.attr.issues.where({id: options.issue.get('id')})[0];
-		this.user = this.attr.users.where({id: this.question.get('user_id')})[0];
 		
 		this.attr.users.on('reset', this.render, this);
 		this.attr.users.on('add', this.render, this);
 	},
 	
 	render: function() {
+		this.user = this.attr.users.where({id: this.question.get('user_id')})[0];
 		$(this.el).html(this.template({
 			rank: this.attr.reputations.getIssueRank(this.user, this.issue, this.attr.reputations),
 			user: this.user,
@@ -75,5 +75,10 @@ Gangnam.Views.ReputationsQuestion = Backbone.View.extend({
 		}
 		
 		return {day: time[2], month: month, year: time[0]};
+	},
+	
+	onClose: function() {
+		this.attr.users.unbind('reset', this.render);
+		this.attr.users.unbind('add', this.render);
 	}
 });
