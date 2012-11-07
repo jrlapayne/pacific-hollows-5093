@@ -1,6 +1,6 @@
 <div class = "leaderboard_user">
 	<span class = "leaderboard_rank"><%= place + 1 %>. </span>
-	<span class = "leaderboard_name">
+	<span class = "leaderboard_name" id = "<%= user.get('id') %>">
 		<% if (!user || user.get('is_temp_user')) { %>
 			Anon
 		<% } else { %>

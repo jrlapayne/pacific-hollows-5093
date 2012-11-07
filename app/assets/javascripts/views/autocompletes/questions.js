@@ -227,7 +227,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
-		this.subview.push(view);
+		this.subviews.push(view);
 		$('#loading').html(view.render().el);
 	},
 	

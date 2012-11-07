@@ -5,7 +5,8 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	events: {
 		'click #back' : 'goBack',
 		'click .hover-container' : 'goBack',
-		'click #quiz' : 'issueQuiz'
+		'click #quiz' : 'issueQuiz',
+		'click .leaderboard_name' : 'userShow'
 	},
 	
 	initialize: function(options) {
@@ -59,5 +60,11 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	
 	issueQuiz: function(event) {
 		Backbone.history.navigate('quiz' + this.issue.get('id'), true);
+	},
+	
+	userShow: function(event) {
+		var element = $(event.target).closest('.leaderboard_name');
+		
+		Backbone.history.navigate('users' + parseInt($(element).attr('id')), true);
 	}
 });

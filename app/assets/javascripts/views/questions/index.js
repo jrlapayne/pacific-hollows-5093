@@ -3,7 +3,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	template: JST['questions/index'],
 	
 	events: {
-		'click .question' : 'factsIndex'
+		'click .bubble' : 'factsIndex'
 	},
 	
 	initialize: function(options) {
