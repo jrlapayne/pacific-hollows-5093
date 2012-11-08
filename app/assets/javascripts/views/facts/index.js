@@ -11,6 +11,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 		this.attr = options.attr;
 		this.question = options.question;
 		this.facts = [];
+		this.subviews = [];
 		
 		this.attr.facts.on('add', this.render, this);
 		this.attr.facts.on('reorder', this.render, this);
@@ -19,6 +20,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 
 	render: function() {
 		var self = this;
+		this.renderIssue(this.attr.issues.where({id: this.question.get('issue_id')})[0], 'basics');
 		this.facts = this.attr.facts.where({question_id: this.question.get('id')});
 		$(this.el).html(this.template({
 			facts: this.facts
@@ -33,11 +35,22 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 		return this;
 	},
 	
+	renderIssue: function(issue, category) {
+		var view = new Gangnam.Views.IssuesShow({
+			attr: this.attr,
+			issue: issue,
+			category: category
+		});
+		this.subviews.push(view);
+		$('#left_top').html(view.render().el);
+	},
+	
 	questionShow: function() {
 		var view = new Gangnam.Views.QuestionsShow({
 			attr: this.attr,
 			question: this.question
 		});
+		this.subviews.push(view);
 		$('#question').html(view.render().el);
 	},
 	
@@ -47,6 +60,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 			fact: fact,
 			facts: this.facts
 		});
+		this.subviews.push(view);
 		$('#facts').append(view.render().el);
 		this.renderActiveFact($('#facts').find('#' + fact.get('id')));
 	},
@@ -56,6 +70,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 			attr: this.attr,
 			fact: this.attr.facts.where({id: parseInt($(element).attr('id'))})[0]
 		});
+		this.subviews.push(view);
 		$(element).html(view.render().el);
 	},
 	
@@ -64,10 +79,20 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
+		this.subviews.push(view);
 		$('#create').html(view.render().el);
 	},
 	
 	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
+
 		this.attr.facts.unbind("add", this.render);
 		this.attr.facts.unbind("reorder", this.render);
 		this.attr.facts.unbind("destroy", this.render);

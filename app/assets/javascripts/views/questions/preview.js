@@ -10,6 +10,7 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 		this.attr = options.attr;
 		this.question = this.attr.questions.where({id: options.question.get('id')})[0];
 		this.questions = options.questions;
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -40,6 +41,7 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 			issue: this.attr.issues.where({id: this.question.get('issue_id')})[0],
 			question: this.question
 		});
+		this.subviews.push(view);
 		$(this.el).find('#user_info').html(view.render().el);
 	},
 	
@@ -48,6 +50,7 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
+		this.subviews.push(view);
 		$(this.el).find('#score').html(view.render().el);
 	},
 	

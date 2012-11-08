@@ -1,6 +1,6 @@
 <div class = "picture">
 	<div class = "picture-wrapper">
-		<% if (user.get('is_temp_user')) { %>
+		<% if (!user || user.get('is_temp_user')) { %>
 			<img src = "assets/logos/blue.png" height = "100%" />
 		<% } else { %>
 			<% if (user.get('provider') === 'facebook') { %>
@@ -15,7 +15,7 @@
 </div>
 <div class = "text">
 	<div class = "name">
-		<% if (user.get('is_temp_user')) { %>
+		<% if (!user || user.get('is_temp_user')) { %>
 			Anon
 		<% } else { %>
 			<%= user.get('name') %>

@@ -1,69 +1,21 @@
 <div class = "issue_title_container">
-	<div class = "issue_title">Software patent trolling in the United States </div>
+	<div class = "issue_title"><%= issue.get('title') %></div>
 	<div class = "issue_header_picture ">
 		<div class = "issue_header_picture_wrapper">
-			<img src = "assets/issues/troll.png" height = "100%" />
+			<img src = "assets/troll.png" height = "100%" />
 		</div>
 	</div>
 	<div class = "quizme">Quiz Me!</div>
 </div>
 <div class = "description-header">Description:</div>
-<div class = "description-text">
-A patent troll is a pejorative term used for a person or company who enforces patents against one or more alleged infringers in a manner considered aggressive or opportunistic with no intention to manufacture or market the patented invention.
-</div>
+<div class = "description-text"><%= issue.get('description') %></div>
 <div class = "issue_current_user_container">
 	<div class = "current_user_title">Issue Rank: </div>
-	<div class = "current_user_display">
-		<span class = "leaderboard_rank">237. </span><span class = "leaderboard_name">Andrew Smith</span>
-		<div class = "leaderboard_user_picture">
-			<div class = "leaderboard_user_picture_wrapper">
-				<img src = "assets/issues/troll.png" height = "100%" />
-			</div>
-		</div>
-	</div>
+	<div class = "current_user_display" id = "user_info"></div>
 </div>
 <div class = "issue_leaderboard_container">
 	<div class = "leaderboard_title">
 		Top Ranked Fusers:
 	</div>
-	<div class = "leaderboard_user">
-		<span class = "leaderboard_rank">1. </span><span class = "leaderboard_name">Joanie Gentile</span>
-		<div class = "leaderboard_user_picture">
-			<div class = "leaderboard_user_picture_wrapper">
-				<img src = "assets/issues/troll.png" height = "100%" />
-			</div>
-		</div>
-	</div>
-	<div class = "leaderboard_user">
-		<span class = "leaderboard_rank">2. </span><span class = "leaderboard_name">Aaron M Henning</span>
-		<div class = "leaderboard_user_picture">
-			<div class = "leaderboard_user_picture_wrapper">
-				<img src = "assets/issues/microwave.png" height = "100%" />
-			</div>
-		</div>
-	</div>
-	<div class = "leaderboard_user">
-		<span class = "leaderboard_rank">3. </span><span class = "leaderboard_name">Cameron Okeke</span>
-		<div class = "leaderboard_user_picture">
-			<div class = "leaderboard_user_picture_wrapper">
-				<img src = "assets/issues/flag.png" height = "100%" />
-			</div>
-		</div>
-	</div>
-	<div class = "leaderboard_user">
-		<span class = "leaderboard_rank">4. </span><span class = "leaderboard_name">Julian Adorney</span>
-		<div class = "leaderboard_user_picture">
-			<div class = "leaderboard_user_picture_wrapper">
-				<img src = "assets/issues/money.png" height = "100%" />
-			</div>
-		</div>
-	</div>
-	<div class = "leaderboard_user">
-		<span class = "leaderboard_rank">5. </span><span class = "leaderboard_name">Jordan Serra</span>
-		<div class = "leaderboard_user_picture">
-			<div class = "leaderboard_user_picture_wrapper">
-				<img src = "assets/issues/fries.png" height = "100%" />
-			</div>
-		</div>
-	</div>
+	<div id = "leaderboard"></div>
 </div>

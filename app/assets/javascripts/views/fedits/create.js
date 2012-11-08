@@ -13,6 +13,7 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 		this.attr = options.attr;
 		this.fact = this.attr.facts.where({id: options.fact.get('id')})[0];
 		this.sources = this.attr.sources.where({fact_id: this.fact.get('id')});
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -29,6 +30,7 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 			attr: this.attr,
 			fact: this.fact
 		});
+		this.subviews.push(view);
 		$(element).html(view.render().el);
 	},
 	
@@ -94,6 +96,7 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 			attr: this.attr,
 			fact: this.fact
 		});
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).html(view.render().el);
 	},
@@ -114,6 +117,18 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 	
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
+		this.subviews.push(view);
 		$('#loading').html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

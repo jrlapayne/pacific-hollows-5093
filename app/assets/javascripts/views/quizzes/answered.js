@@ -10,6 +10,7 @@ Gangnam.Views.QuizzesAnswered = Backbone.View.extend({
 		this.attr = options.attr;
 		this.issue = options.issue;
 		this.user = options.user;
+		this.subviews = [];
 		
 		this.attr.tasks.on('add', this.render, this);
 	},
@@ -32,6 +33,7 @@ Gangnam.Views.QuizzesAnswered = Backbone.View.extend({
 			attr: this.attr,
 			question: question
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
 	},
 	
@@ -48,6 +50,15 @@ Gangnam.Views.QuizzesAnswered = Backbone.View.extend({
 	},
 	
 	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
+		
 		this.attr.tasks.unbind('add', this.render);
 	}
 });

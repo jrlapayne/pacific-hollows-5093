@@ -6,6 +6,7 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.subviews = [];
 		
 		this.attr.issues.on('filter', this.render, this);
 	},
@@ -31,6 +32,7 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 			question: question,
 			questions: this.questions
 		});
+		this.subviews.push(view);
 		$('#questions').append(view.render().el);
 	},
 	
@@ -49,6 +51,7 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 			attr: this.attr,
 			issue: this.attr.issues.where({id: id})[0]
 		});
+		this.subviews.push(view);
 		$('#left_top').html(view.render().el);
 	},
 	
@@ -85,6 +88,15 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 	},
 	
 	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
+		
 		this.attr.issues.unbind('filter');
 	}
 });

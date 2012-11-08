@@ -10,6 +10,7 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 		this.attr = options.attr;
 		this.issue = options.issue;
 		this.questions = this.attr.questions.where({issue_id: this.issue.get('id'), has_quiz: true});
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -38,6 +39,7 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 			issue: this.issue,
 			category: null
 		});
+		this.subviews.push(view);
 		$('#left_top').html(view.render().el);
 	},
 	
@@ -46,6 +48,7 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 			attr: this.attr,
 			question: question
 		});
+		this.subviews.push(view);
 		$('#quizzes').html(view.render().el);
 	},
 	
@@ -54,6 +57,7 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 			attr: this.attr,
 			issue: this.issue
 		});
+		this.subviews.push(view);
 		$('#quizzes').html(view.render().el);
 	},
 	
@@ -63,6 +67,18 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 			issue: this.issue,
 			user: this.attr.users.where({id: this.attr.current_user.get('id')})[0]
 		});
+		this.subviews.push(view);
 		$('#left_bottom').html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

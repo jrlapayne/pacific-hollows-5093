@@ -3,7 +3,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	template: JST['questions/index'],
 	
 	events: {
-		'click .question' : 'factsIndex'
+		'click .bubble' : 'factsIndex'
 	},
 	
 	initialize: function(options) {
@@ -11,7 +11,9 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 		this.issue = options.issue;
 		this.category = options.category
 		this.questions = this.attr.questions.where({issue_id: this.issue.get('id'), category: this.category});
-		this.facts = this.attr.facts.where({issue_id: this.issue.get('id')});	
+		this.facts = this.attr.facts.where({issue_id: this.issue.get('id')});
+		
+		this.subviews = [];	
 	},
 	
 	render: function() {
@@ -33,6 +35,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 			question: question,
 			questions: this.questions
 		});
+		this.subviews.push(view);
 		$('#questions').append(view.render().el);
 	},
 	
@@ -42,6 +45,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 			issue: issue,
 			category: category
 		});
+		this.subviews.push(view);
 		$('#left_top').html(view.render().el);
 	},
 	
@@ -52,5 +56,16 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 		
 		this.attr.tasks.browseTask(question, current_user, this.attr.reputations, this.attr.achievements, this.attr.user_achievements);
 		Backbone.history.navigate('question' + $(element).attr('id'), true);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

@@ -12,6 +12,7 @@ Gangnam.Views.QueditsIndex = Backbone.View.extend({
 		this.attr = options.attr;
 		this.question = this.attr.questions.where({id: options.question.get('id')})[0];
 		this.quedits = this.attr.quedits.where({question_id: this.question.get('id')});
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -30,6 +31,7 @@ Gangnam.Views.QueditsIndex = Backbone.View.extend({
 			attr: this.attr,
 			quedit: quedit
 		});
+		this.subviews.push(view);
 		$('#quedits').append(view.render().el);
 		this.renderInactive($('#quedits').find('#' + quedit.get('id')));
 	},
@@ -56,7 +58,7 @@ Gangnam.Views.QueditsIndex = Backbone.View.extend({
 			attr: this.attr,
 			quedit: this.attr.quedits.where({id: quedit_id})[0]
 		});
-		
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).addClass('active');
 		$(element).html(view.render().el);
@@ -68,7 +70,7 @@ Gangnam.Views.QueditsIndex = Backbone.View.extend({
 			attr: this.attr,
 			quedit: this.attr.quedits.where({id: quedit_id})[0]
 		});	
-		
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).removeClass('active');
 		$(element).html(view.render().el);	
@@ -80,8 +82,19 @@ Gangnam.Views.QueditsIndex = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
-		
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

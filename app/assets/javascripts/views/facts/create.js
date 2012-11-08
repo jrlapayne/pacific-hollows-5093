@@ -17,6 +17,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 		this.attr = options.attr;
 		this.question = options.question;
 		this.posting = false;
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -123,6 +124,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 	
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
+		this.subviews.push(view);
 		$('#loading').html(view.render().el);
 	},
 	
@@ -178,5 +180,16 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 		$('#source').removeClass('dark-text');
 		$('#source').addClass('light-text');
 		$('#source').val('URL of the source');
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

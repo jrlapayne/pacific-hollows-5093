@@ -9,6 +9,7 @@ Gangnam.Views.UsersProfile = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.user = this.attr.users.where({id: options.user.get('id')})[0];
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -29,6 +30,7 @@ Gangnam.Views.UsersProfile = Backbone.View.extend({
 			issue: issue,
 			user: this.user
 		});
+		this.subviews.push(view);
 		$('#user_profile').append(view.render().el);
 	},
 	
@@ -50,6 +52,18 @@ Gangnam.Views.UsersProfile = Backbone.View.extend({
 			attr: this.attr,
 			user: this.user
 		});
+		this.subviews.push(view);
 		$('#left_top').html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

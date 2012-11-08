@@ -1,0 +1,25 @@
+<div class = "leaderboard_user">
+	<span class = "leaderboard_rank"><%= place + 1 %>. </span>
+	<span class = "leaderboard_name" id = "<%= user.get('id') %>">
+		<% if (!user || user.get('is_temp_user')) { %>
+			Anon
+		<% } else { %>
+			<%= user.get('name') %>
+		<% } %>
+	</span>
+	<div class = "leaderboard_user_picture">
+		<div class = "leaderboard_user_picture_wrapper">
+			<% if (!user || user.get('is_temp_user')) { %>
+				<img src = "assets/logos/blue.png" height = "100%" />
+			<% } else { %>
+				<% if (user.get('provider') === 'facebook') { %>
+					<img src = "https://graph.facebook.com/<%= user.get('uid') %>/picture" height = "100%" />
+				<% } else if (user.get('provider') === 'google') { %>
+					<img src = "assets/logos/blue.png" height = "100%" />
+				<% } else { %>
+					<img src = "http://api.twitter.com/1/users/profile_image/<%= user.get('uid') %>?size=bigger" height = "100%" />
+				<% } %>
+			<% } %>
+		</div>
+	</div>
+</div>

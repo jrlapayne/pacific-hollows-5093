@@ -17,6 +17,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 		this.hovered = null;
 		this.matches = null;
 		this.array = [];
+		this.subviews = [];
 		
 		this.attr.questions.on('auto', this.render, this);
 		this.attr.questions.on('reset', this.render, this);
@@ -88,6 +89,7 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 			title: object.title,
 			question: this.attr.questions.where({id: object.id})[0]
 		});
+		this.subviews.push(view);
 		$('#autocom').append(view.render().el);
 	},
 	
@@ -225,6 +227,18 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
+		this.subviews.push(view);
 		$('#loading').html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

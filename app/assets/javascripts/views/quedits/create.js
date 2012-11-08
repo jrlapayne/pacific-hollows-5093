@@ -13,6 +13,7 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.question = this.attr.questions.where({id: options.question.get('id')})[0];
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -28,7 +29,7 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
-		
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).html(view.render().el);
 	},
@@ -73,6 +74,7 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).html(view.render().el);
 	},
@@ -95,6 +97,7 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 	
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
+		this.subviews.push(view);
 		$('#loading').html(view.render().el);
 	},
 	
@@ -104,7 +107,19 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
+		this.subviews.push(view);
 		$(element).children().remove();
 		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

@@ -12,6 +12,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 		this.fact = this.attr.facts.where({id: options.fact.get('id')})[0];
 		this.comments = this.attr.comments.where({fact_id: this.fact.get('id')});
 		this.sources = this.attr.sources.where({fact_id: this.fact.get('id')});
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -36,6 +37,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 			attr: this.attr,
 			source: source
 		});
+		this.subviews.push(view);
 		$(this.el).find('#sources').append(view.render().el);
 	},
 	
@@ -44,6 +46,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 			attr: this.attr,
 			fact: this.fact
 		});
+		this.subviews.push(view);
 		$(this.el).find('#votes').html(view.render().el);
 	},
 	
@@ -57,6 +60,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 			issue: this.attr.issues.where({id: this.fact.get('issue_id')})[0],
 			fact: this.fact
 		});
+		this.subviews.push(view);
 		$(this.el).find('#user_info').html(view.render().el);
 	},
 	
@@ -68,6 +72,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 				question: this.attr.questions.where({id: this.fact.get('question_id')})[0],
 				fact: this.fact
 			});
+			this.subviews.push(view);
 			$(element).addClass('active');
 			$(element).html(view.render().el);
 		}
@@ -79,6 +84,18 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 			attr: this.attr,
 			fact: this.fact
 		});
+		this.subviews.push(view);
 		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

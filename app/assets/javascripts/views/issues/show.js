@@ -5,7 +5,8 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	events: {
 		'click #back' : 'goBack',
 		'click .hover-container' : 'goBack',
-		'click #quiz' : 'issueQuiz'
+		'click #quiz' : 'issueQuiz',
+		'click .leaderboard_name' : 'userShow'
 	},
 	
 	initialize: function(options) {
@@ -20,7 +21,30 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 		$(this.el).html(this.template({
 			issue: this.issue
 		}));
+		setTimeout(function() {
+			self.renderUserRank();
+			for(i = 0; i < 5; i++) {
+				self.appendLeaderboard(i);
+			}
+		}, 0);
 		return this;
+	},
+	
+	appendLeaderboard: function(loc) {
+		var view = new Gangnam.Views.ReputationsLeaderboard({
+			attr: this.attr,
+			issue: this.issue,
+			loc: loc
+		});
+		$('#leaderboard').append(view.render().el);
+	},
+	
+	renderUserRank: function() {
+		var view = new Gangnam.Views.ReputationsIssue({
+			attr: this.attr,
+			issue: this.issue
+		});
+		$(this.el).find('#user_info').html(view.render().el);
 	},
 	
 	goBack: function(event) {
@@ -36,5 +60,11 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	
 	issueQuiz: function(event) {
 		Backbone.history.navigate('quiz' + this.issue.get('id'), true);
+	},
+	
+	userShow: function(event) {
+		var element = $(event.target).closest('.leaderboard_name');
+		
+		Backbone.history.navigate('users' + parseInt($(element).attr('id')), true);
 	}
 });

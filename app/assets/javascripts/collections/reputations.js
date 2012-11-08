@@ -27,28 +27,32 @@ Gangnam.Collections.Reputations = Backbone.Collection.extend({
 		var rank = users.length;
 		var rep, loc = null;
 		
-		for (i = 0; i < users.length; i++) {
-			array.push({id: users[i].get('user_id'), rep: users[i].get('rep')});
-		}
+		if (user) {
+			for (i = 0; i < users.length; i++) {
+				array.push({id: users[i].get('user_id'), rep: users[i].get('rep')});
+			}
 		
-		array.sort(function(a, b) {
-			return b.rep - a.rep;
-		});
+			array.sort(function(a, b) {
+				return b.rep - a.rep;
+			});
 
-		for (i = 0; i < array.length; i++) {
-			if (array[i].id === user.get('id')) {
-				loc = i;
+			for (i = 0; i < array.length; i++) {
+				if (array[i].id === user.get('id')) {
+					loc = i;
+				}
+				if (loc !== null && array[loc].rep > array[i].rep) {
+					rank = i;
+					break;
+				}
 			}
-			if (loc !== null && array[loc].rep > array[i].rep) {
-				rank = i;
-				break;
+		
+			if (loc === null && rank === users.length) {
+				rank = null;
 			}
-		}
 		
-		if (loc === null && rank === users.length) {
-			rank = null;
+			return {rank: rank, users: users.length};
+		} else {
+			return {rank: null, users: null};
 		}
-		
-		return {rank: rank, users: users.length};
 	}
 });

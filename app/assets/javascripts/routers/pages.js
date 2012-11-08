@@ -130,6 +130,16 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		return !user.get('is_temp_user');
 	},
 	
+	prepPage: function(load_columns, load_navbar) {
+		if (load_columns) {
+			this.renderColumns();
+		}
+		
+		if (load_navbar) {
+			this.renderNavbar();
+		}
+	},
+	
 	pagesHeader: function() {
 		var view = new Gangnam.Views.PagesHeader({
 			attr: this.attr
@@ -162,6 +172,10 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		$('.page').html(view.render().el);
 	},
 	
+	renderColumns: function() {
+		$('.page').html(JST['pages/columns']);
+	},
+	
 	renderNavbar: function() {
 		var view = new Gangnam.Views.PagesNavbar();
 		$('#navbar').html(view.render().el);
@@ -185,6 +199,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			issue: issue,
 			category: category
 		});
+		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
 		this.autocomplete(issue);
@@ -195,7 +210,6 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			attr: this.attr,
 			issue: this.issues.where({id: parseInt(id)})[0]
 		});
-		$('.page').html(JST['pages/columns']);
 		$('#left_bottom').html(view.render().el);
 		Backbone.history.navigate('issue' + id + '/basics', true);
 	},
@@ -205,6 +219,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			attr: this.attr,
 			question: this.questions.where({id: parseInt(id)})[0]
 		});
+		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
 	},
@@ -213,7 +228,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		var view = new Gangnam.Views.QuestionsFactory({
 			attr: this.attr
 		});
-		$('.page').html(JST['pages/columns']);
+		this.prepPage(true, true);
 		this.setCurrentView(view);
 		this.issuesFactory();
 		$('#right').html(view.render().el);
@@ -223,6 +238,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		var view = new Gangnam.Views.PagesAbout({
 			attr: this.attr
 		});
+		this.prepPage(false, true);
 		this.setCurrentView(view);
 		$('.page').html(view.render().el);
 	},
@@ -232,7 +248,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			attr: this.attr,
 			user: this.users.where({id: this.current_user.get('id')})[0]
 		});
-		$('.page').html(JST['pages/columns']);
+		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
 	},
@@ -242,7 +258,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			attr: this.attr,
 			user: this.users.where({id: parseInt(id)})[0]
 		});
-		$('.page').html(JST['pages/columns']);
+		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
 	},
@@ -252,8 +268,8 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			attr: this.attr,
 			issue: this.issues.where({id: parseInt(id)})[0]
 		});
+		this.prepPage(true, true);
 		this.setCurrentView(view);
-		$('.page').html(JST['pages/columns']);
 		$('#right').html(view.render().el);
 	},
 	
