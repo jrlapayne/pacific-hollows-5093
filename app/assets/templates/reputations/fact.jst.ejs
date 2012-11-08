@@ -14,7 +14,7 @@
 	</div>
 </div>
 <div class = "text">
-	<div class = "name">
+	<div class = "name" id "<%= user.get('id') %>">
 		<% if (!user || user.get('is_temp_user')) { %>
 			Anon
 		<% } else { %>

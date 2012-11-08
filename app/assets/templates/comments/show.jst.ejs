@@ -1,6 +1,11 @@
-<%= comment.get('content') %>
-<div id = "votes"></div></br>
-<div id = "reply<%= comment.get('id') %>">
-	<button id = "comment_reply">Reply</button>
-</div></br>
-<div id = "children<%= comment.get('id') %>" />
+<div class = "title container">
+	<div class = "title text"><%= comment.get('content') %></div>
+</div>
+<div class = "stats">
+	<div class = "vote container" id = "votes"></div>
+	<div id = "user_info"></div>
+	<div class = "reply container">
+		<button class = "reply button" id = "<%= comment.get('id') %>">Reply</button>
+	</div>
+</div>
+<div class = "children" id = "<%= comment.get('id') %>"></div>

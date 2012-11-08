@@ -21,6 +21,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 		$(this.el).attr('id', 'questions');
 		$(this.el).html(this.template());
 		this.renderIssue(this.issue, this.category);
+		this.renderLeaderboard();
 		setTimeout(function() {
 			for (i = 0; i < self.questions.length; i++) {
 				self.appendQuestion(self.questions[i]);
@@ -47,6 +48,14 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$('#left_top').html(view.render().el);
+	},
+	
+	renderLeaderboard: function() {
+		var view = new Gangnam.Views.UsersLeaderboard({
+			attr: this.attr,
+			issue: this.issue
+		});
+		$('#left_bottom').html(view.render().el);
 	},
 	
 	factsIndex: function(event) {

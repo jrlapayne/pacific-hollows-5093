@@ -3,7 +3,7 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 	template: JST['comments/show'],
 	
 	events: {
-		
+		'click #comment_reply' : ''
 	},
 	
 	initialize: function(options) {
@@ -66,6 +66,58 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 				this.renderChild(children[j]);
 			}
 		}
+	},
+	
+	commentReply: function() {
+		$(this.el).find('#reply' + this.comment.get('id')).html(JST['comments/reply']);
+	},
+	
+	submitComment: function(event) {
+		var comment, ancestry;
+		event.preventDefault();
+		ancestry = this.comment.get('ancestry') + this.comment.get('id') + '/';
+		if ($('#comment_content').val() && $('#comment_content').val() !== "") {
+			comment = this.attr.comments.create({
+				content: $('#comment_content').val(),
+				user_id: this.attr.current_user.get('id'),
+				fact_id: this.comment.get('fact_id'),
+				ancestry: ancestry
+			});
+			this.appendComment(comment);
+		}
+		$(this.el).find('#reply' + this.comment.get('id')).html('<button id = "comment_reply">Reply</button>');
+	},
+	
+	appendComment: function(comment) {
+		var view = new Protogap0.Views.CommentsShow({
+			attr: this.attr,
+			comment: comment
+		});
+		$(this.el).find('#children' + this.comment.get('id')).append(view.render().el);
+	},
+	
+	upvote: function(event) {
+		var comment_id = parseInt($(event.target).closest('.commentpanel').attr('id'));
+		
+		this.attr.scores.addOrUpdate(
+			this.attr.comments.where({id: comment_id})[0],
+			this.attr.users.where({id: this.attr.current_user.get('id')})[0],
+			1
+		);
+		
+		this.attr.comments.resetScores(this.attr.scores);
+	},
+	
+	downvote: function(event) {
+		var comment_id = parseInt($(event.target).closest('.commentpanel').attr('id'));
+		
+		this.attr.scores.addOrUpdate(
+			this.attr.comments.where({id: comment_id})[0],
+			this.attr.users.where({id: this.attr.current_user.get('id')})[0],
+			-1
+		);
+		
+		this.attr.comments.resetScores(this.attr.scores);
 	},
 	
 	onClose: function() {
