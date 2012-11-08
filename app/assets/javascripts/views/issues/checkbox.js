@@ -11,8 +11,8 @@ Gangnam.Views.IssuesCheckbox = Backbone.View.extend({
 		this.issue = options.issue;
 		this.is_checked = false;
 		
-		for (i = 0; i < window.factory.length; i++) {
-			if (this.issue.get('id') === window.factory[i]) {
+		for (m = 0; m < window.factory.length; m++) {
+			if (this.issue.get('id') === window.factory[m]) {
 				this.is_checked = true;
 				break;
 			}
@@ -30,13 +30,13 @@ Gangnam.Views.IssuesCheckbox = Backbone.View.extend({
 	filterQuestions: function(event) {
 		window.factory = [];
 		var elements = $('.checkbox').get();
-		
-		for (j = 0; j < elements.length; j++) {
-			if ($(elements[j]).attr('checked')) {
-				window.factory.push(parseInt($(elements[j]).attr('id')));
+
+		for (n = 0; n < elements.length; n++) {
+			if ($(elements[n]).attr('checked')) {
+				window.factory.push(parseInt($(elements[n]).attr('id')));
 			}
 		}
-		
+		window.factory.length;
 		this.attr.issues.trigger('filter');
 	}
 });

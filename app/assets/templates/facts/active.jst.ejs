@@ -1,17 +1,13 @@
 <div class = "vote container" id = "votes"></div>
 <div class = "title container">
-	<div class = "title">
-		<%= fact.get('title') %>
-	</div>
+	<div class = "title"><%= fact.get('title') %></div>
 </div>
 <% if (fact.get('description') && fact.get('description') !== "") { %>
   <div class = "description container">
-    <div class = "description"><%= fact.get('description') %>
-		</div>
+    <div class = "description"><%= fact.get('description') %></div>
  </div>
 <% } %>
 <div class = "sources container" id = "sources"></div>
-<div class = "extras"></div>
 <div class = "stats">
 	<div id = "user_info"></div>
 	<div class = "actions">
@@ -22,3 +18,4 @@
 		<span class = "share" id = "share">share</span>
 	</div>
 </div>
+<div class = "fact-separator-line"></div>

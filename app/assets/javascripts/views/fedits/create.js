@@ -51,6 +51,13 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 				self.renderFact();
 			}
 		});
+		
+		this.attr.fedits.achievement(
+			this.attr.users.where({id: this.attr.current_user.get('id')})[0],
+			this.attr.achievements,
+			this.attr.user_achievements,
+			this.attr.issues.where({id: this.fact.get('issue_id')})[0]
+		);
 	},
 	
 	getUrls: function(sources) {

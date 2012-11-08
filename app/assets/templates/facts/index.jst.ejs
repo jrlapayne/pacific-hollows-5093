@@ -1,13 +1,24 @@
-<div id = "question" style = "margin: 0 0 10px 0"></div>
+<div class = "issue_header_tabs">
+	<div class = "question_count">14 Questions</div>
+	<div class = "basics">Basics
+		<div class = "basics-triangle-container">
+			<div class = "triangle"></div>
+		</div>
+	</div> 
+	<div class = "advanced">Advanced</div>
+</div>
+<div class = "issue-big-header-line"></div>
+<div class = "issue-small-header-line"></div>
+<div id = "question" style = "margin: 75px 0 10px 0"></div>
 <% if (facts.length > 0) { %>
 	<div class = "fact-header">
 		<% if (facts.length !== 1) { %>
-			<%= facts.length %> Facts
+			<%= facts.length %> Facts:
 		<% } else { %>
-			<%= facts.length %> Fact
+			<%= facts.length %> Fact:
 		<% } %>
 	</div>
 <% } %>
 <div id = "facts"></div>
-<div class = "fact-add">Add a Fact</div>
+<div class = "fact-add">Add a Fact:</div>
 <div id = "create"></div>

@@ -12,7 +12,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
-
+		this.time = 500;
 	},
 	
 	render: function() {
@@ -28,6 +28,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 	openBox: function(event) {
 		var new_ele = $(event.target).closest('.comparison');
 		var old_ele;
+
 		var elements = $('#monkeys').children().get();
 		
 		if ($(new_ele).hasClass('open')) {
@@ -39,45 +40,45 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 				$(old_ele).removeClass('open');
 				setTimeout(function() {
 					$(old_ele).find('.panels').css('display', 'none');
-				}, 1000);
+				}, this.time);
 			}
 		}
 		$(new_ele).addClass('open');
 		$(new_ele).find('.panels').css('display', 'block');
 		$(old_ele).find('.panels').animate({
 			height: "0px"
-		}, 1000);
+		}, this.time);
 		$(old_ele).find('#arrows').find('.down').animate({
 			opacity: "0"
-		}, 1000);
+		}, this.time);
 		$(old_ele).find('#arrows').find('.right').animate({
 			opacity: "1"
-		}, 1000);
+		}, this.time);
 		$(new_ele).find('.panels').animate({
 			height: "130px"
-		}, 1000);
+		}, this.time);
 		$(new_ele).find('#arrows').find('.down').animate({
 			opacity: "1"
-		}, 1000);
+		}, this.time);
 		$(new_ele).find('#arrows').find('.right').animate({
 			opacity: "0"
-		}, 1000);
+		}, this.time);
 	},
 	
 	openFirst: function() {
 		var element = $('#monkeys').children().get()[0];
-		
+
 		$(element).addClass('open');
 		$(element).find('.panels').css('display', 'block');
 		$(element).find('.panels').animate({
 			height: "130px"
-		}, 1000);
+		}, this.time);
 		$(element).find('#arrows').find('.down').animate({
 			opacity: "1"
-		}, 1000);
+		}, this.time);
 		$(element).find('#arrows').find('.right').animate({
 			opacity: "0"
-		}, 1000);
+		}, this.time);
 	},
 	
 	fadeIn: function(event) {
@@ -94,27 +95,28 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		
 		$(active).animate({
 			opacity: "1"
-		}, 1000);
+		}, this.time);
 		$(inactive).find('.portrait').animate({
 			right: "10px"
-		}, 1000);
+		}, this.time);
 		$(inactive).find('.logo').animate({
 			right: "10px"
-		}, 1000);
+		}, this.time);
 		$(active).find('.portrait').animate({
 			right: "10px"
-		}, 1000);
+		}, this.time);
 		$(active).find('.logo').animate({
 			right: "10px"
-		}, 1000);
+		}, this.time);
 		$(inactive).animate({
 			opacity: "0"
-		}, 1000);
+		}, this.time);
 	},
 	
 	fadeOut: function(event) {
 		var element = $(event.target).closest('.panel');
 		var active, inactive;
+
 		if ($(event.relatedTarget).closest('.panel').attr('id')) {
 			return;
 		}
@@ -128,22 +130,22 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		
 		$(active).animate({
 			opacity: "0"
-		}, 1000);
+		}, this.time);
 		$(inactive).find('.portrait').animate({
 			right: "171px"
-		}, 1000);
+		}, this.time);
 		$(inactive).find('.logo').animate({
 			right: "171px"
-		}, 1000);
+		}, this.time);
 		$(active).find('.portrait').animate({
 			right: "171px"
-		}, 1000);
+		}, this.time);
 		$(active).find('.logo').animate({
 			right: "171px"
-		}, 1000);
+		}, this.time);
 		$(inactive).animate({
 			opacity: "1"
-		}, 1000);
+		}, this.time);
 	},
 	
 	issuesIndex: function() {

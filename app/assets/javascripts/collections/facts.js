@@ -32,5 +32,9 @@ Gangnam.Collections.Facts = Backbone.Collection.extend({
 		if (order_changed) {
 			this.trigger('reorder');
 		}
+	},
+	
+	achievement: function(user, achievements, user_achievements, issue) {
+		user_achievements.addOrUpdate(user, achievements.where({id: 6})[0], issue.get('id'));
 	}
 });

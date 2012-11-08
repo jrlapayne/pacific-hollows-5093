@@ -19,6 +19,7 @@ window.Gangnam = {
 		this.reputations = new Gangnam.Collections.Reputations(data.reputations);
 		this.privileges = new Gangnam.Collections.Privileges(data.privileges);
 		this.achievements = new Gangnam.Collections.Achievements(data.achievements);
+		this.user_achievements = new Gangnam.Collections.UserAchievements(data.user_achievements);
 		this.users = new Gangnam.Collections.Users();
 		this.users.fetch();
 		
@@ -37,6 +38,7 @@ window.Gangnam = {
 			reputations: this.reputations,
 			privileges: this.privileges,
 			achievements: this.achievements,
+			user_achievements: this.user_achievements,
 			users: this.users
 		});
 		Backbone.history.start();
