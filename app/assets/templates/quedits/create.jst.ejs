@@ -3,17 +3,11 @@
 	<textarea id = "title"><%= question.get('title') %></textarea></br>
 	
 	<% if (question.get('category') === 'basic') { %>
-		<input type = "radio" name = "category" id = "intro" checked = "yes" /><span> Basic</span>
-		<input type = "radio" name = "category" id = "pro" /><span> Pro</span>
-		<input type = "radio" name = "category" id = "con" /><span> Con</span>
-	<% } else if (question.get('category') === 'pro') { %>
-		<input type = "radio" name = "category" id = "intro" /><span> Basic</span>
-		<input type = "radio" name = "category" id = "pro" checked = "yes" /><span> Pro</span>
-		<input type = "radio" name = "category" id = "con" /><span> Con</span>
+		<input type = "radio" name = "category" id = "basics" checked = "yes" /><span> Basics</span>
+		<input type = "radio" name = "category" id = "advanced" /><span> Advanced</span>
 	<% } else { %>
-		<input type = "radio" name = "category" id = "intro" /><span> Basic</span>
-		<input type = "radio" name = "category" id = "pro" /><span> Pro</span>
-		<input type = "radio" name = "category" id = "con" checked = "yes" /><span> Con</span>
+		<input type = "radio" name = "category" id = "basics" /><span> Basics</span>
+		<input type = "radio" name = "category" id = "advanced" checked = "yes" /><span> Advanced</span>
 	<% } %></br>
 	<input type = "submit" id = "submit" value = "Update Question" />
 </form>

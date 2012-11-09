@@ -5,8 +5,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		'issues' : 'issuesIndex',
 		'issue:id' : 'issuesCategories',
 		'issue:id/basics' : 'questionsBasics',
-		'issue:id/pros' : 'questionsPros',
-		'issue:id/cons' : 'questionsCons',
+		'issue:id/advanced' : 'questionsAdvanced',
 		'question:id' : 'factsIndex',
 		'factory' : 'questionsFactory',
 		'profile' : 'currentUserProfile',
@@ -200,12 +199,8 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.questionsIndex(this.issues.where({id: parseInt(id)})[0], 'basic');
 	},
 	
-	questionsPros: function(id) {
-		this.questionsIndex(this.issues.where({id: parseInt(id)})[0], 'pro');
-	},
-	
-	questionsCons: function(id) {
-		this.questionsIndex(this.issues.where({id: parseInt(id)})[0], 'con');
+	questionsAdvanced: function(id) {
+		this.questionsIndex(this.issues.where({id: parseInt(id)})[0], 'advance');
 	},
 	
 	questionsIndex: function(issue, category) {
