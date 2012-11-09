@@ -47,7 +47,7 @@
 	&.container {
 		position: absolute;
 		top: 0px;
-		right: 0;
+		right: 11px;
 		width: 210px;
 		height: 40px;
 	}
@@ -68,8 +68,8 @@
 		position: absolute;
 		bottom: 0;
 		right: 104px;
-		width: 50px;
-		height: 50px;
+		width: 30px;
+		height: 30px;
 	}
 	
 	&.google {
@@ -77,8 +77,8 @@
 		position: absolute;
 		bottom: 0;
 		right: 50px;
-		width: 50px;
-		height: 50px;
+		width: 30px;
+		height: 30px;
 	}
 	
 	&.twitter {
@@ -86,28 +86,30 @@
 		position: absolute;
 		bottom: 0;
 		right: -4px;
-		width: 50px;
-		height: 50px;
+		width: 30px;
+		height: 30px;
 	}
 	
 	&.picture {
 		position: absolute;
 		bottom: 5px;
-		right: 0;
-		width: 45px;
-		height: 45px;
+		right: 11px;
+		width: 30px;
+		height: 30px;
 		overflow: hidden;
-		@include border-radius(5px);
-		@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px);
+		@include border-radius(3px);
+		@include single-box-shadow(rgba(#000, 0.4), 0, 0, 1px, 1px);
 	}
 	
 	&.name {
+		color: rgb(70,70,70);
 		position: absolute;
-		bottom: 2px;
+		top: 12px;
 		right: 50px;
 		height: 18px;
-		font-size: 16px;
+		font-size: 13px;
 		line-height: 18px;
+		font-weight: bold;
 	}
 }
 
@@ -118,4 +120,11 @@
 		position: relative;
 		margin: 0 auto;
 	}
+}
+.login-pic-wrapper {
+	overflow: hidden;
+	position: static;
+	width: 100%;
+	height: 100%;
+	@include border-radius(3px);
 }

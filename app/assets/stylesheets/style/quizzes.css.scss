@@ -89,7 +89,7 @@
 	.completed {
 		
 		&.container {
-		
+			
 		}
 		
 		&.text {
@@ -110,19 +110,21 @@
 }
 
 #answered {
-	
+	margin: 10px 0 0 4px;
 	.symbol {
-		
 		.checkmark {
-			
+			color: rgb(87,204,0);
 		}
 		
 		.x-mark {
-			
+			color: rgb(255,71,88);
 		}
 	}
 	
 	.question {
-		
+		margin-bottom: 8px;
+		font-size: 13px;
+		line-height: 14px;
+		color: rgb(120,120,120);
 	}
 }

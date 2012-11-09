@@ -3,7 +3,7 @@
 		<img src = 'assets/logos/white.png' height = "100%" />
 		<span class = 'logo-text'>fuseGap</span>
 	</div>
-	<!-- <div class = "login container">
+	<div class = "login container">
 		<% if (current_user.get('is_temp_user')) { %>
 			<div class = "login signin">
 				Sign In:
@@ -19,18 +19,20 @@
 			</div>
 		<% } else { %>
 			<div class = "login picture">
-				<% if (current_user.get('provider') === 'facebook') { %>
-					<img src = "https://graph.facebook.com/<%= current_user.get('uid') %>/picture" width = "100%" />
-				<% } else if (current_user.get('provider') === 'google') { %>
-					<img src = "assets/logos/blue.png" height = "100%" style = "background: #fff" />
-				<% } else { %>
-					<img src = "http://api.twitter.com/1/users/profile_image/<%= current_user.get('uid') %>?size=bigger" width = "100%" />
-				<% } %>
+				<div class = "login-pic-wrapper">
+					<% if (current_user.get('provider') === 'facebook') { %>
+						<img src = "https://graph.facebook.com/<%= current_user.get('uid') %>/picture" width = "100%" />
+					<% } else if (current_user.get('provider') === 'google') { %>
+						<img src = "assets/logos/blue.png" height = "100%" style = "background: #fff" />
+					<% } else { %>
+						<img src = "http://api.twitter.com/1/users/profile_image/<%= current_user.get('uid') %>?size=bigger" width = "100%" />
+					<% } %>
+				</div>
 			</div>
 			<div class = "login name">
 				<%= current_user.get('name') %>
 			</div>
 		<% } %>
-	</div> -->
+	</div> 
 </div>
 <div class = "header navbar" id = "navbar"></div>
