@@ -1,5 +1,5 @@
-<div class = "picture">
-	<div class = "picture-wrapper">
+<div class = "profile-picture">
+	<div class = "profile-picture-wrapper">
 		<% if (user.get('is_temp_user')) { %>
 			<img src = "assets/logos/blue.png" height = "100%" />
 		<% } else { %>
@@ -13,19 +13,23 @@
 		<% } %>
 	</div>
 </div>
-<div class = "text">
-	<div class = "name">Profile: 
-		<% if (user.get('is_temp_user')) { %>
-			Anon
-		<% } else { %>
-			<%= user.get('name') %>
-		<% } %>
+<div class = "profile-text-container">
+	<div class = "profile-text">
+		Profile: 
+		<span class = "profile-name">
+			<% if (user.get('is_temp_user')) { %>
+				Anon
+			<% } else { %>
+				<%= user.get('name') %>
+			<% } %>
+		</span>
 	</div>
-	<div class = "rank">
+	<div class = "profile-text">Rank: 
 		<% if (rank.rank !== null) { %>
-			Rank: <span class = "label"><%= rank.rank %> of <%= rank.users %></span>
+			<span class = "profile-name"><%= rank.rank %> of <%= rank.users %></span>
 		<% } else { %>
 			Unranked
 		<% } %>
 	</div>
 </div>
+

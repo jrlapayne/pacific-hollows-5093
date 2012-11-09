@@ -19,10 +19,10 @@
 <div class = "ragecomic">
 	<% if (is_correct) { %>
 		<% var win_num = 1 + Math.floor(Math.random() * 16); %>
-		<img src = "assets/rage/win/<%= win_num %>.png" />
+		<img src = "assets/rage/win/<%= win_num %>.png", height: 100px/>
 	<% } else { %>
 		<% var fail_num = 1 + Math.floor(Math.random() * 23); %>
-		<img src = "assets/rage/fail/<%= fail_num %>.png" />	
+		<img src = "assets/rage/fail/<%= fail_num %>.png", height: 100px />	
 	<% } %>
 </div>
 <div class = "buttons">

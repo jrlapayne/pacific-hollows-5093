@@ -106,4 +106,47 @@
 		height: 22px;
 		background: rgba(#fff, 0);
 	}
+	.testimonial-container {
+		text-align: center;
+		width: 750px;
+		margin: 35px 0 35px 85px;
+		height: 60px;
+		.testimonial {
+			font-size: 18px;
+			font-style: italic;
+			color: rgb(55,55,55);
+		}	
+		.quotations {
+			color: rgb(153,153,153);
+			font-size: 21px;
+			margin: 0 2px 0 4px;
+		}
+		.quotename {
+			font-weight: bold;
+			margin-left: 6px;
+			color: rgb(163,163,163);
+			font-size: 13px;
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

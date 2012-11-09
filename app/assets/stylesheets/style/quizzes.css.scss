@@ -1,7 +1,8 @@
 .quiz {
 		
 	.title {
-	
+		font-weight: bold;
+		color: rgb(85,85,85);
 		&.container {
 
 		}
@@ -12,19 +13,36 @@
 	}
 	
 	.answers {
+		border: 1px solid;
+		cursor: default;
 		.answer {
-
+			margin-left: 117px;
 			&.container {
-
+				overflow: auto;
 			}
 
 			&.button {
-
+				cursor: pointer;
+				box-shadow: -1px -1px 2px rgba(darken($questionbubblecolor,40%), 0.99) inset,
+							1px 1px 2px rgba(darken($questionbubblecolor,40%), 0.99) inset;
+				@include border-radius(8px);
+				@include linear-gradient(darken($questionbubblecolor,1%), darken($questionbubblecolor,15%));
+				@include fonts;
+				float: left;
+				height: 33px;
+				width: 300px;
+				
+				margin-top: 8px;
+				color: #ffffff;
+				font-size: 80%;
+				border: none;
+				text-align: center;
+				@include text-shadow(0, 1px, 0, rgba(darken($questionbubblecolor,50%),0.99));	
+				font-weight: bold;
 			}
 		}
 		
 		.result {
-			
 			&.container {
 				
 			}
@@ -32,11 +50,11 @@
 			&.text {
 				
 				.correct {
-					
+					color: rgb(87,204,0);
 				}
 				
 				.wrong {
-					
+					color: rgb(255,71,88);
 				}
 			}
 		}
@@ -53,7 +71,7 @@
 		}
 		
 		.ragecomic {
-			
+			height: 100px;
 		}
 		
 		.buttons {
