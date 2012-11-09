@@ -23,7 +23,7 @@
 					<% if (current_user.get('provider') === 'facebook') { %>
 						<img src = "https://graph.facebook.com/<%= current_user.get('uid') %>/picture" width = "100%" />
 					<% } else if (current_user.get('provider') === 'google') { %>
-						<img src = "assets/logos/blue.png" height = "100%" style = "background: #fff" />
+						<img src = "assets/icons/user.png" height = "100%" style = "background: #fff" />
 					<% } else { %>
 						<img src = "http://api.twitter.com/1/users/profile_image/<%= current_user.get('uid') %>?size=bigger" width = "100%" />
 					<% } %>

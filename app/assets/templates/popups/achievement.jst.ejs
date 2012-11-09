@@ -1,1 +1,3 @@
-<div id = "popup" style = "height: 100%; width: 100%">Good job! You just <%= achievement.get('kind') %> <%= amount %> times.</div>
+<div id = "popup" style = "height: 100%; width: 100%">
+	Good job! You just <%= achievement.get('kind').split('amount')[0] %> <%= amount %> <%= achievement.get('kind').split('amount')[1] %>!
+</div>

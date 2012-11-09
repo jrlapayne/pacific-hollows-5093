@@ -22,6 +22,7 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 		}));
 		setTimeout(function() {
 			self.slider();
+			self.testimonials();
 		}, 0);
 		return this;
 	},
@@ -38,6 +39,15 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 		});
 	},
 	
+	testimonials: function() {
+		$('#testimonials').cycle('stop');
+		$('#testimonials').cycle({
+			fx: 'fade',
+			speed: '500',
+			timeout: '3500'
+		});
+	},
+	
 	image1: function() {
 
 	},
@@ -48,6 +58,7 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 	
 	image3: function() {
 		$('#slider').cycle('stop');
+		$('#testimonials').cycle('stop');
 		Backbone.history.navigate('about', true);
 	}
 });

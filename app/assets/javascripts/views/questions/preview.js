@@ -3,13 +3,15 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 	template: JST['questions/preview'],
 	
 	events: {
-		
+		'click #upvote' : 'upvote',
+		'click #downvote' : 'downvote'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.question = this.attr.questions.where({id: options.question.get('id')})[0];
 		this.questions = options.questions;
+		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		this.subviews = [];
 	},
 	
@@ -31,7 +33,7 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 		setTimeout(function() {
 			self.renderRank();
 			self.renderScore();
-		}, 0)
+		}, 0);
 		return this;
 	},
 	
@@ -60,5 +62,36 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 	
 	getComments: function() {
 		return this.attr.comments.where({question_id: this.question.get('id')});
+	},
+	
+	upvote: function() {
+		var vote;
+		var ids = {issue: this.question.get('issue_id'), question: this.question.get('id'), fact: null, comment: null};
+		
+		if (this.user.canVote()) {
+			vote = this.attr.votes.addOrUpdate(this.user, ids, 1, this.attr.achievements, this.attr.user_achievements);
+			this.question.updateScore(this.attr.votes);
+		}
+	},
+	
+	downvote: function() {
+		var vote;
+		var ids = {issue: this.question.get('issue_id'), question: this.question.get('id'), fact: null, comment: null};
+		
+		if (this.user.canVote()) {
+			vote = this.attr.votes.addOrUpdate(this.user, ids, -1, this.attr.achievements, this.attr.user_achievements);
+			this.question.updateScore(this.attr.votes);
+		}
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+			
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });
