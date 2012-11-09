@@ -10,10 +10,10 @@
 	&.wrapper {
 		z-index: 1000;
 		position: absolute;
-		top: -60px;
-		left: 225px;
+		top: 100px;
+		left: 255px;
 		width: 450px;
 		height: 60px;
-		background: #800;
+		background: lighten(desaturate($questionbubblecolor, 5%), 10%);
 	}
 }

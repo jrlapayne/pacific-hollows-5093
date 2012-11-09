@@ -1,9 +1,11 @@
 <div class = "thumbnail">
-	<% if (issue.get('thumbnail')) { %>
-		<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%"/>
-	<% } else { %>
-		<img src = "assets/logos/black.png" height = "100%" />
-	<% } %>
+	<div class = "thumbnail-wrapper">
+		<% if (issue.get('thumbnail')) { %>
+			<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%"/>
+		<% } else { %>
+			<img src = "assets/logos/black.png" height = "100%" />
+		<% } %>
+	</div>
 </div>
 <div class = "title container">
 	<div class = "title text"><%= issue.get('title') %></div>
