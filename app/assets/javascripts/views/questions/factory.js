@@ -19,6 +19,7 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 		$(this.el).children().remove();
 		
 		setTimeout(function() {
+			self.renderSearchbar(self.questions);
 			for (q = 0; q < self.questions.length; q++) {
 				self.appendQuestion(self.questions[q]);
 			}
@@ -36,12 +37,20 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 		$('#questions').append(view.render().el);
 	},
 	
+	renderSearchbar: function(questions) {
+		var view = new Gangnam.Views.AutocompletesFactory({
+			attr: this.attr,
+			questions: questions
+		});
+		$('#search_add').html(view.render().el);
+	},
+	
 	factsIndex: function(event) {
 		var element = $(event.target).closest('.question');
 		var question = this.attr.questions.where({id: parseInt($(element).attr('id'))})[0];
 		var current_user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		
-		this.attr.tasks.browseTask(question, current_user, this.attr.reputations);
+		this.attr.tasks.browseTask(question, current_user, this.attr.reputations, this.attr.achievements, this.attr.user_achievements);
 		this.issueShow(question.get('issue_id'));
 		Backbone.history.navigate('question' + $(element).attr('id'), true);
 	},

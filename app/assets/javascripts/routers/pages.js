@@ -161,13 +161,6 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		$('#search_add').html(view.render().el);
 	},
 	
-	autocompleteFactory: function() {
-		var view = new Gangnam.Views.AutocompletesQuestions({
-			attr: this.attr
-		});
-		$('#search_add').html(view.render().el);
-	},
-	
 	pagesHome: function() {
 		var view = new Gangnam.Views.PagesHome({
 			attr: this.attr
