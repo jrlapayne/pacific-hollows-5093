@@ -36,7 +36,7 @@ Gangnam.Collections.Questions = Backbone.Collection.extend({
 	},
 	
 	resetScore: function(vote) {
-		var score = 0, question;
+		var question;
 		question = this.where({id: vote.get('question_id')})[0];
 		
 		question.set({score: question.get('score') + vote.get('value')});

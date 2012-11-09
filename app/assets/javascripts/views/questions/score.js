@@ -5,6 +5,8 @@ Gangnam.Views.QuestionsScore = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.question = options.question;
+		
+		this.question.on('change:score', this.render, this);
 	},
 	
 	render: function() {
@@ -17,5 +19,9 @@ Gangnam.Views.QuestionsScore = Backbone.View.extend({
 	
 	getScore: function() {
 		return this.attr.questions.where({id: this.question.get('id')})[0].get('score');
+	},
+	
+	onClose: function() {
+		this.question.unbind('change:score', this.render);
 	}
 });

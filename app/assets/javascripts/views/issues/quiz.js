@@ -3,8 +3,6 @@ Gangnam.Views.IssuesQuiz = Backbone.View.extend({
 	template: JST['issues/quiz'],
 	
 	events: {
-		'click #back' : 'goBack',
-		'click .hover-container' : 'goBack',
 		'click #exit' : 'issueShow',
 		'click .leaderboard_name' : 'userShow'
 	},
