@@ -1,6 +1,13 @@
-<%= issue.get('title') %>
-<% if (is_checked) { %>
-	<input class = "checkbox" type = "checkbox" name = "issue" id = "<%= issue.get('id') %>" checked />
-<% } else { %>
-	<input class = "checkbox" type = "checkbox" name = "issue" id = "<%= issue.get('id') %>" />
-<% } %>
+<div class = "factory_issue_container">
+	<% if (is_checked) { %>
+		<input class = "checkbox" type = "checkbox" name = "issue" id = "<%= issue.get('id') %>" checked />
+	<% } else { %>
+		<input class = "checkbox" type = "checkbox" name = "issue" id = "<%= issue.get('id') %>" />
+	<% } %>
+	<%= issue.get('title') %>
+	<div class = "factory_image_container">
+		<div class = "factory_image_wrapper">
+			<img src = "assets/issues/troll.png" height = "100%" />
+		</div>
+	</div>
+</div>

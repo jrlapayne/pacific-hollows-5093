@@ -5,11 +5,17 @@
 			<img src = "assets/troll.png" height = "100%" />
 		</div>
 	</div>
-	<div class = "quizme" id = "quiz">Quiz Me!</div>
+	<div class = "quizme">Quiz Me!</div>
 </div>
 <div class = "description-header">Description:</div>
 <div class = "description-text"><%= issue.get('description') %></div>
 <div class = "issue_current_user_container">
 	<div class = "current_user_title">Issue Rank: </div>
 	<div class = "current_user_display" id = "user_info"></div>
+</div>
+<div class = "issue_leaderboard_container">
+	<div class = "leaderboard_title">
+		Top Ranked Fusers:
+	</div>
+	<div id = "leaderboard"></div>
 </div>

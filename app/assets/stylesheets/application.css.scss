@@ -72,9 +72,9 @@
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 0px 9px 12px 9px;
+	border-width: 0px 8px 11px 8px;
 	border-style: solid;
-	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 1) rgba(#fff, 0);
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($backgroundcolor, 1) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
@@ -87,9 +87,9 @@
 	cursor: pointer;
 	content: "";
 	display: block; 
-	border-width: 12px 9px 0px 9px;
+	border-width: 11px 8px 0px 8px;
 	border-style: solid;
-	border-color: rgba(#fff, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	border-color: rgba($backgroundcolor, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
@@ -104,7 +104,7 @@
 	display: block; 
 	border-width: 0px 7px 10px 7px;
 	border-style: solid;
-	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 1) rgba(#fff, 0);
+	border-color: rgba(#fff, 0) rgba(#fff, 0) rgba($black, 1) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
@@ -119,7 +119,7 @@
 	display: block; 
 	border-width: 10px 7px 0px 7px;
 	border-style: solid;
-	border-color: rgba(#fff, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
+	border-color: rgba($black, 1) rgba(#fff, 0) rgba(#fff, 0) rgba(#fff, 0);
 	width: 0;
 	height: 0;
 	
