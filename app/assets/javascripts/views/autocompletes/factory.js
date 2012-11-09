@@ -1,6 +1,6 @@
-Gangnam.Views.AutocompletesIssues = Backbone.View.extend({
+Gangnam.Views.AutocompletesFactory = Backbone.View.extend({
 	
-	template: JST['autocompletes/issues'],
+	template: JST['autocompletes/factory'],
 	
 	events: {
 		'keydown #auto' 		: 'getChar',
@@ -12,12 +12,13 @@ Gangnam.Views.AutocompletesIssues = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.questions = options.questions;
 		this.hovered = null;
 		this.matches = null;
 		this.array = [];
 		this.subviews = [];
 		
-		this.attr.issues.on('auto', this.render, this);
+		this.attr.questions.on('auto', this.render, this);
 	},
 	
 	render: function() {
@@ -26,14 +27,11 @@ Gangnam.Views.AutocompletesIssues = Backbone.View.extend({
 		return this;
 	},
 	
-	getArray: function() {
-		var self = this;
-		this.issues = _.toArray(this.attr.issues);
-		
-		for (i = 0; i < this.issues.length; i++) {
+	getArray: function() {		
+		for (i = 0; i < this.questions.length; i++) {
 			this.array.push({
-				id: this.issues[i].get('id'),
-				title: this.issues[i].get('title')
+				id: this.questions[i].get('id'),
+				title: this.questions[i].get('title')
 			});
 		}
 	},
@@ -70,9 +68,9 @@ Gangnam.Views.AutocompletesIssues = Backbone.View.extend({
 	},
 	
 	appendResult: function(object) {
-		var view = new Gangnam.Views.AutocompletesIssueResult({
+		var view = new Gangnam.Views.PagesResult({
 			title: object.title,
-			issue: this.attr.issues.where({id: object.id})[0]
+			question: this.attr.questions.where({id: object.id})[0]
 		});
 		this.subviews.push(view);
 		$('#autocom').append(view.render().el);
@@ -157,7 +155,7 @@ Gangnam.Views.AutocompletesIssues = Backbone.View.extend({
 		if ($('#auto').val() === "" || !/\S/.test($('#title').val())) {
 			$('#auto').removeClass('dark-text');
 			$('#auto').addClass('light-text');
-			$('#auto').val('Search Issues...');
+			$('#auto').val('Search Factory...');
 		}
 		setTimeout(function() {
 			self.hovered = null;
@@ -177,7 +175,7 @@ Gangnam.Views.AutocompletesIssues = Backbone.View.extend({
 	
 	goToResult: function(event) {
 		var element = $(event.target).closest('.autocom-result');
-		Backbone.history.navigate('issue' + $(element).attr('id') + '/basics', true);
+		Backbone.history.navigate('question' + $(element).attr('id'), true);
 	},
 	
 	loading: function() {
@@ -187,7 +185,7 @@ Gangnam.Views.AutocompletesIssues = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		this.attr.issues.unbind('auto', this.render);
+		this.attr.questions.unbind('auto', this.render);
 		
 		_.each(this.subviews, function(view) {
 			view.remove();

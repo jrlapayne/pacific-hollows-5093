@@ -38,12 +38,10 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 		event.preventDefault();
 		var self = this;
 		var category;
-		if($(this.el).find('#pro').attr('checked')) {
-			category = 'pro';
-		} else if ($(this.el).find('#con').attr('checked')) {
-			category = 'con';
-		} else {
+		if($(this.el).find('#basics').attr('checked')) {
 			category = 'basic';
+		} else {
+			category = 'advance';
 		}
 		
 		this.attr.quedits.create({

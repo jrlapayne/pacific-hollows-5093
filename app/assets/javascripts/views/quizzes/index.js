@@ -34,7 +34,7 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 	},
 	
 	renderIssue: function() {
-		var view = new Gangnam.Views.IssuesShow({
+		var view = new Gangnam.Views.IssuesQuiz({
 			attr: this.attr,
 			issue: this.issue,
 			category: null

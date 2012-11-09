@@ -20,7 +20,6 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 		this.subviews = [];
 		
 		this.attr.questions.on('auto', this.render, this);
-		this.attr.questions.on('reset', this.render, this);
 	},
 	
 	render: function() {
@@ -232,6 +231,8 @@ Gangnam.Views.AutocompletesQuestions = Backbone.View.extend({
 	},
 	
 	onClose: function() {
+		this.attr.questions.unbind('auto', this.render);
+		
 		_.each(this.subviews, function(view) {
 			view.remove();
 			view.unbind();
