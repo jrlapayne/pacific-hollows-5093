@@ -2,7 +2,11 @@
 	<div class = "issue_title"><%= issue.get('title') %></div>
 	<div class = "issue_header_picture ">
 		<div class = "issue_header_picture_wrapper">
-			<img src = "assets/troll.png" height = "100%" />
+			<% if (issue.get('thumbnail')) { %>
+				<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%"/>
+			<% } else { %>
+				<img src = "assets/logos/black.png" width = "100%" />
+			<% } %>
 		</div>
 	</div>
 	<div class = "quizme">Quiz Me!</div>

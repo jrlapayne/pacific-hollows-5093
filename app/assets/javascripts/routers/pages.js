@@ -147,10 +147,24 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		$('#header').html(view.render().el);
 	},
 	
-	autocomplete: function(issue) {
+	autocompleteQuestions: function(issue) {
 		var view = new Gangnam.Views.AutocompletesQuestions({
 			attr: this.attr,
 			issue: issue
+		});
+		$('#search_add').html(view.render().el);
+	},
+	
+	autocompleteIssues: function() {
+		var view = new Gangnam.Views.AutocompletesIssues({
+			attr: this.attr
+		});
+		$('#search_add').html(view.render().el);
+	},
+	
+	autocompleteFactory: function() {
+		var view = new Gangnam.Views.AutocompletesQuestions({
+			attr: this.attr
 		});
 		$('#search_add').html(view.render().el);
 	},
@@ -170,6 +184,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.renderNavbar();
 		this.setCurrentView(view);
 		$('.page').html(view.render().el);
+		this.autocompleteIssues();
 	},
 	
 	renderColumns: function() {
@@ -202,7 +217,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
-		this.autocomplete(issue);
+		this.autocompleteQuestions(issue);
 	},
 	
 	issuesCategories: function(id) {
@@ -215,13 +230,15 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 	},
 	
 	factsIndex: function(id) {
+		var question = this.questions.where({id: parseInt(id)})[0];
 		var view = new Gangnam.Views.FactsIndex({
 			attr: this.attr,
-			question: this.questions.where({id: parseInt(id)})[0]
+			question: question
 		});
 		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
+		this.autocompleteQuestions(this.issues.where({id: question.get('issue_id')})[0]);
 	},
 	
 	questionsFactory: function() {
