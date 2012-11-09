@@ -1,7 +1,11 @@
 Gangnam.Views.ReputationsQuestion = Backbone.View.extend({
 	
 	template: JST['reputations/question'],
-
+	
+	events: {
+		'click .name' : 'userShow'
+	},
+	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.question = options.question;
@@ -80,5 +84,11 @@ Gangnam.Views.ReputationsQuestion = Backbone.View.extend({
 	onClose: function() {
 		this.attr.users.unbind('reset', this.render);
 		this.attr.users.unbind('add', this.render);
+	},
+	
+	userShow: function() {
+		var element = $(event.target).closest('.name');
+		
+		Backbone.history.navigate('users' + parseInt($(element).attr('id')), true);		
 	}
 });

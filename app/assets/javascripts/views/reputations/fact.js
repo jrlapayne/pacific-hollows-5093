@@ -1,7 +1,11 @@
 Gangnam.Views.ReputationsFact = Backbone.View.extend({
 	
 	template: JST['reputations/fact'],
-
+	
+	events: {
+		'click .name' : 'userShow'
+	},
+	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.fact = options.fact;
@@ -74,5 +78,11 @@ Gangnam.Views.ReputationsFact = Backbone.View.extend({
 		}
 		
 		return {day: time[2], month: month, year: time[0]};
+	},
+	
+	userShow: function() {
+		var element = $(event.target).closest('.name');
+		
+		Backbone.history.navigate('users' + parseInt($(element).attr('id')), true);		
 	}
 });

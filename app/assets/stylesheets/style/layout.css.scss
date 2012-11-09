@@ -50,12 +50,16 @@ textarea {
 			padding: 0;
 			
 			&.top {
-				height: 17.5em;
-				margin-bottom: 0.625em;
+				height: auto;
 			}
 
 			&.bottom {
-				
+				overflow: hidden;
+			    height: 50%;
+
+				&:hover {
+					overflow-y: scroll;
+				}
 			}
 		}
 	}

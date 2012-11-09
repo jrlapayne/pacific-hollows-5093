@@ -23,20 +23,8 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 		}));
 		setTimeout(function() {
 			self.renderUserRank();
-			for(i = 0; i < 5; i++) {
-				self.appendLeaderboard(i);
-			}
 		}, 0);
 		return this;
-	},
-	
-	appendLeaderboard: function(loc) {
-		var view = new Gangnam.Views.ReputationsLeaderboard({
-			attr: this.attr,
-			issue: this.issue,
-			loc: loc
-		});
-		$('#leaderboard').append(view.render().el);
 	},
 	
 	renderUserRank: function() {
