@@ -54,7 +54,7 @@
 			
 			&.text {
 				text-align: center;
-				
+				font-weight: bold;
 				.correct {
 					color: rgb(87,204,0);
 				}
@@ -78,7 +78,7 @@
 		
 		.ragecomic {
 			width: 20%;
-			margin: 15px 0 50px 40%;
+			margin: 15px 0 35px 40%;
 			
 		}
 		
@@ -93,6 +93,26 @@
 				bottom: 0;
 				left: 10%;
 				height: 30px;
+				
+				cursor: pointer;
+				box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,5%), 0.99) inset,
+							1px 1px 1px rgba(darken($questionbubblecolor,5%), 0.99) inset;
+				@include border-radius(8px);
+				@include linear-gradient(lighten($questionbubblecolor,10%), lighten($questionbubblecolor,1%));
+				@include fonts;
+
+				color: rgb(110,110,110);
+				font-size: 12px;
+				border: none;
+				text-align: center;
+				font-weight: bold;
+			
+				&:hover {
+					box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset,
+								1px 1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset;
+					@include linear-gradient(lighten($questionbubblecolor,1%), lighten($questionbubblecolor,10%));
+					color: rgb(60,60,60);
+				};
 			}
 			
 			.next {
@@ -101,6 +121,42 @@
 				bottom: 0;
 				right: 10%;
 				height: 30px;
+				
+				cursor: pointer;
+				box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset,
+							1px 1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset;
+				@include border-radius(8px);
+				@include linear-gradient(darken($questionbubblecolor,1%), darken($questionbubblecolor,10%));
+				@include fonts;
+
+				color: rgb(40,40,40);
+				font-size: 13px;
+				border: none;
+				text-align: center;
+				font-weight: bold;
+				
+				.triangle-container {
+					position: absolute;
+					top: 7px;
+					left: 100px;
+					.triangle {
+						cursor: pointer;
+						content: "";
+						display: block; 
+						border-width: 0px 11px 7px 7px;
+						border-style: solid;
+						border-color: rgba(darken(desaturate($questionbubblecolor, 5%),10%), 1) rgba(#ccc, 0) rgba(#aaa, 0) rgba(#000, 0);
+						width: 0;
+						height: 0;
+					}
+				}
+				
+				&:hover {
+					box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset,
+								1px 1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset;
+					@include linear-gradient(darken($questionbubblecolor,10%), darken($questionbubblecolor,1%));
+					color: rgb(10,10,10);
+				};
 			}
 		}
 	}
