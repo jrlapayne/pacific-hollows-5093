@@ -132,7 +132,7 @@
 	&.quiz {
 		width: 100%;
 		background: #fff;
-		@include border-radius(5px);
+		padding: 0 0 1px 0;
 	}
 }
 .issue_header_tabs {

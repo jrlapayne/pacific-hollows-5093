@@ -1,24 +1,29 @@
 .quiz {
 		
 	.title {
-		font-weight: bold;
-		color: rgb(85,85,85);
-		&.container {
 
+		&.container {
+			margin-bottom: 15px;
 		}
 	
 		&.text {
-		
+			font-weight: bold;
+			color: rgb(85,85,85);
 		}
 	}
 	
 	.answers {
-		border: 1px solid;
+		margin-top: 15px;
+		padding: 20px 0 0 0;
+		border-top: 1px solid rgb(210,210,210);
 		cursor: default;
+		position: relative;
+		
 		.answer {
-			margin-left: 117px;
+
 			&.container {
-				overflow: auto;
+				width: 50%;
+				margin-left: 25%;
 			}
 
 			&.button {
@@ -30,7 +35,7 @@
 				@include fonts;
 				float: left;
 				height: 33px;
-				width: 300px;
+				width: 100%;
 				
 				margin-top: 8px;
 				color: #ffffff;
@@ -48,6 +53,7 @@
 			}
 			
 			&.text {
+				text-align: center;
 				
 				.correct {
 					color: rgb(87,204,0);
@@ -62,7 +68,7 @@
 		.correct-answer {
 			
 			&.container {
-				
+				text-align: center;
 			}
 			
 			&.text {
@@ -71,17 +77,30 @@
 		}
 		
 		.ragecomic {
-			height: 100px;
+			width: 20%;
+			margin: 15px 0 50px 40%;
+			
 		}
 		
 		.buttons {
+			position: relative;
+			height: 30px;
+			width: 100%;
 			
 			.dispute {
-				
+				width: 30%;
+				position: absolute;
+				bottom: 0;
+				left: 10%;
+				height: 30px;
 			}
 			
 			.next {
-				
+				width: 30%;
+				position: absolute;
+				bottom: 0;
+				right: 10%;
+				height: 30px;
 			}
 		}
 	}
@@ -127,4 +146,57 @@
 		line-height: 14px;
 		color: rgb(120,120,120);
 	}
+}
+
+.quiz_header_tabs {
+	position: absolute;
+	top: 30px;
+	left: 0px;
+	height: 14px;
+	color: rgb(110,110,110);
+	width: 100%;
+	font-size: 13px;
+
+	.quiz {
+		height: 100%;
+		font-weight: bold;
+		text-align: left;
+		position: absolute;
+		padding: 4px 0 4px 11px;
+		right: 0;
+		width: 76px;
+		background-color: lighten($questionbubblecolor, 18%);
+		@include border-radius(8px);
+		.quiz-triangle-container {
+			position: absolute;
+			top: 7px;
+			left: 63px;
+			.triangle {
+				cursor: pointer;
+				content: "";
+				display: block; 
+				border-width: 11px 7px 0px 7px;
+				border-style: solid;
+				border-color: rgba(darken(desaturate($questionbubblecolor, 5%),10%), 1) rgba(#ccc, 0) rgba(#aaa, 0) rgba(#000, 0);
+				width: 0;
+				height: 0;
+			}
+		}
+	}
+}
+.quiz-big-header-line {
+	position: absolute;
+	top: 65px;
+	border-bottom: 2px solid rgb(180,180,180);
+	width: 100%;
+}
+.quiz-small-header-line {
+	position: absolute;
+	top: 69px;
+	border-bottom: 1px solid rgb(210,210,210);
+	width: 100%;
+}
+
+.quizzes-wrapper {
+	margin-top: 89px;
 }
