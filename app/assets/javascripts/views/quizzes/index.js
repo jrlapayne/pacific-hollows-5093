@@ -1,6 +1,6 @@
 Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 	
-	id: 'quizzes',
+	template: JST['quizzes/index'],
 	
 	events: {
 		
@@ -16,7 +16,7 @@ Gangnam.Views.QuizzesIndex = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		var new_question = false;
-		
+		$(this.el).html(this.template());
 		setTimeout(function() {
 			self.renderIssue();
 			self.renderAnsweredQuestions();
