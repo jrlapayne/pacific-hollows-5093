@@ -65,7 +65,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	},
 	
 	commentsIndex: function(event) {
-		var element = $(event.target).closest('.fact-comments');
+		/* var element = $(event.target).closest('.fact-comments');
 		if (!$(element).hasClass('active')) {
 			var view = new Gangnam.Views.CommentsIndex({
 				attr: this.attr,
@@ -75,7 +75,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 			this.subviews.push(view);
 			$(element).addClass('active');
 			$(element).html(view.render().el);
-		}
+		} */
 	},
 	
 	feditsCreate: function(event) {

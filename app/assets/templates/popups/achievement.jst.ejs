@@ -1,3 +1,14 @@
-<div id = "popup" style = "height: 100%; width: 100%">
-	Good job! You just <%= achievement.get('kind').split('amount')[0] %> <%= amount %> <%= achievement.get('kind').split('amount')[1] %>!
+<div class = "popup wrapper">
+	<div id = "popup" class = "pops-container">
+		<div class = "pops-text">
+			Good job! You just <%= achievement.get('kind').split('amount')[0] %> <%= amount %> <%= achievement.get('kind').split('amount')[1] %>!
+		</div>
+		<div class = "pops-thumbnail">
+			<div class = "amount"><%= amount %></div>
+			<img src = "assets/achievements/<%= achievement.get('thumbnail') %>" height = "100%" />
+		</div>
+		<div class = "pops-clickme">
+			(click to dismiss)
+		</div>
+	</div>
 </div>

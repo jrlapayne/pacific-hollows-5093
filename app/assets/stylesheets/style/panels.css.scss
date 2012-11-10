@@ -4,7 +4,7 @@
 	cursor: pointer;
 	
 	&.issue {
-		z-index: 3;
+		z-index: 0;
 		cursor: default;
 		width: 250px;
 		height: 250px;
@@ -145,6 +145,7 @@
 	font-size: 13px;
 
 	.basics-active {
+		cursor: default;
 		height: 100%;
 		font-weight: bold;
 		text-align: left;
@@ -159,7 +160,6 @@
 			top: 7px;
 			left: 63px;
 			.triangle {
-				cursor: pointer;
 				content: "";
 				display: block; 
 				border-width: 11px 7px 0px 7px;
@@ -171,6 +171,7 @@
 		}
 	}
 	.advanced-active {
+		cursor: default;
 		height: 100%;
 		font-weight: bold;
 		text-align: left;
@@ -185,7 +186,6 @@
 			top: 7px;
 			left: 80px;
 			.triangle {
-				cursor: pointer;
 				content: "";
 				display: block; 
 				border-width: 11px 7px 0px 7px;
@@ -197,6 +197,7 @@
 		}
 	}
 	.basics-inactive {
+		cursor: pointer;
 		height: 100%;
 		text-align: center;
 		position: absolute;
@@ -206,6 +207,7 @@
 		color: rgb(185,185,185);
 	}
 	.advanced-inactive {
+		cursor: pointer;
 		height: 100%;
 		text-align: center;
 		position: absolute;

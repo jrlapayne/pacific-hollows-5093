@@ -49,7 +49,11 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 	},
 	
 	image1: function() {
-
+		var view = new Gangnam.Views.PopupsAchievement({
+			achievement: this.attr.achievements.where({id: 1})[0],
+			amount: 10
+		});
+		$('.page').find('.popup').html(view.render().el);
 	},
 	
 	image2: function() {

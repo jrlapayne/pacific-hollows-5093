@@ -13,7 +13,7 @@ Gangnam.Views.PopupsAchievement = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		$(this.el).addClass('popup wrapper');
+		$(this.el).addClass('popup outer');
 		$(this.el).html(this.template({
 			achievement: this.achievement,
 			amount: this.amount
@@ -27,14 +27,14 @@ Gangnam.Views.PopupsAchievement = Backbone.View.extend({
 	
 	slideDown: function() {
 		$(this.el).animate({
-			top: '0'
+			top: '80px'
 		}, 500);
 	},
 	
 	slideUp: function() {
 		var self = this;
 		$(this.el).animate({
-			top: '-60px'
+			top: '0'
 		}, 500);
 		
 		setTimeout(function() {

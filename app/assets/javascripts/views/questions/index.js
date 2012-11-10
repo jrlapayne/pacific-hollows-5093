@@ -3,7 +3,9 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	template: JST['questions/index'],
 	
 	events: {
-		'click .bubble' : 'factsIndex'
+		'click .bubble' : 'factsIndex',
+		'click #basics' : 'questionsBasics',
+		'click #advanced' : 'questionsAdvanced'
 	},
 	
 	initialize: function(options) {
@@ -19,15 +21,28 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$(this.el).attr('id', 'questions');
-		$(this.el).html(this.template());
+		$(this.el).html(this.template({
+			questions: this.questions
+		}));
 		this.renderIssue(this.issue, this.category);
 		this.renderLeaderboard();
 		setTimeout(function() {
+			self.setTabs();
 			for (i = 0; i < self.questions.length; i++) {
 				self.appendQuestion(self.questions[i]);
 			}
 		}, 0);
 		return this;
+	},
+	
+	setTabs: function() {
+		if (this.category === 'basic') {
+			$(this.el).find('#basics').addClass('basics-active');
+			$(this.el).find('#advanced').addClass('advanced-inactive');
+		} else {
+			$(this.el).find('#basics').addClass('basics-inactive');
+			$(this.el).find('#advanced').addClass('advanced-active');
+		}
 	},
 	
 	appendQuestion: function(question) {
@@ -65,6 +80,22 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 		
 		this.attr.tasks.browseTask(question, current_user, this.attr.reputations, this.attr.achievements, this.attr.user_achievements);
 		Backbone.history.navigate('question' + $(element).attr('id'), true);
+	},
+	
+	questionsBasics: function() {
+		if ($('#basics').hasClass('basics-active')) {
+			return;
+		}
+		
+		Backbone.history.navigate('issue' + this.issue.get('id') + '/basics', true);
+	},
+	
+	questionsAdvanced: function() {
+		if ($('#advanced').hasClass('advanced-active')) {
+			return;
+		}
+		
+		Backbone.history.navigate('issue' + this.issue.get('id') + '/advanced', true);
 	},
 	
 	onClose: function() {

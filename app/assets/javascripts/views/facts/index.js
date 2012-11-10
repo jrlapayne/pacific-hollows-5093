@@ -4,7 +4,8 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	id: 'index',
 	
 	events: {
-		
+		'click #basics' : 'questionsBasics',
+		'click #advanced' : 'questionsAdvanced'
 	},
 	
 	initialize: function(options) {
@@ -90,6 +91,22 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$('#create').html(view.render().el);
+	},
+	
+	questionsBasics: function() {
+		if ($('#basics').hasClass('basics-active')) {
+			return;
+		}
+		
+		Backbone.history.navigate('issue' + this.question.get('issue_id') + '/basics', true);
+	},
+	
+	questionsAdvanced: function() {
+		if ($('#advanced').hasClass('advanced-active')) {
+			return;
+		}
+		
+		Backbone.history.navigate('issue' + this.question.get('issue_id') + '/advanced', true);
 	},
 	
 	onClose: function() {

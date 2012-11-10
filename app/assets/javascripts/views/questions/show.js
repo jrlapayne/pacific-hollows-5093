@@ -63,7 +63,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	},
 	
 	commentsIndex: function(event) {
-		var element = $(event.target).closest('.question');
+		/* var element = $(event.target).closest('.question');
 		var view = new Gangnam.Views.CommentsIndex({
 			attr: this.attr,
 			question: this.question,
@@ -71,7 +71,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(element).addClass('active');
-		$(element).html(view.render().el);
+		$(element).html(view.render().el); */
 	},
 	
 	queditCreate: function(event) {
