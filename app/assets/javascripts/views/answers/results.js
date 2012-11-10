@@ -3,7 +3,8 @@ Gangnam.Views.AnswersResults = Backbone.View.extend({
 	template: JST['answers/results'],
 	
 	events: {
-		'click #next' : 'nextQuestion'
+		'click #next' : 'nextQuestion',
+		'click #dispute' : 'questionShow'
 	},
 	
 	initialize: function(options) {
@@ -40,6 +41,10 @@ Gangnam.Views.AnswersResults = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$('#right').html(view.render().el);
+	},
+	
+	questionShow: function() {
+		Backbone.history.navigate('question' + this.answer.get('question_id'), true);
 	},
 	
 	onClose: function() {
