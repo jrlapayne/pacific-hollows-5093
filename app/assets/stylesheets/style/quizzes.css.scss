@@ -112,7 +112,7 @@
 								1px 1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset;
 					@include linear-gradient(lighten($questionbubblecolor,1%), lighten($questionbubblecolor,10%));
 					color: rgb(60,60,60);
-				};
+				}
 			}
 			
 			.next {
@@ -129,23 +129,24 @@
 				@include linear-gradient(darken($questionbubblecolor,1%), darken($questionbubblecolor,10%));
 				@include fonts;
 
-				color: rgb(40,40,40);
+				color: rgb(60,60,60);
 				font-size: 13px;
 				border: none;
-				text-align: center;
+				padding: 0 0 0 30px;
+				text-align: left;
 				font-weight: bold;
 				
 				.triangle-container {
 					position: absolute;
-					top: 7px;
-					left: 100px;
+					top: 8px;
+					left: 133px;
 					.triangle {
 						cursor: pointer;
 						content: "";
 						display: block; 
-						border-width: 0px 11px 7px 7px;
+						border-width: 7px 0px 7px 11px;
 						border-style: solid;
-						border-color: rgba(darken(desaturate($questionbubblecolor, 5%),10%), 1) rgba(#ccc, 0) rgba(#aaa, 0) rgba(#000, 0);
+						border-color: rgba(#ccc, 0) rgba(#ccc, 0) rgba(#aaa, 0) rgb(50,50,50);
 						width: 0;
 						height: 0;
 					}
@@ -154,9 +155,12 @@
 				&:hover {
 					box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset,
 								1px 1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset;
-					@include linear-gradient(darken($questionbubblecolor,10%), darken($questionbubblecolor,1%));
+					@include linear-gradient(darken($questionbubblecolor,10%), darken($questionbubblecolor,5%));
 					color: rgb(10,10,10);
-				};
+					.triangle {
+						border-color: rgba(#ccc, 0) rgba(#ccc, 0) rgba(#aaa, 0) lighten($questionbubblecolor, 20%);
+					}
+				}
 			}
 		}
 	}
