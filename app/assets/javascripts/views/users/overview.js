@@ -14,6 +14,7 @@ Gangnam.Views.UsersOverview = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
+		$('#left_bottom').remove();
 		$(this.el).html(this.template());
 		setTimeout(function() {
 			self.renderRank();

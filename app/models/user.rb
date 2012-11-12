@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :privileges, dependent: :destroy
   has_many :reputations, dependent: :destroy
   has_many :user_achievements, dependent: :destroy
+  has_many :user_privileges, dependent: :destroy
   
   def self.create_with_omniauth(auth, user)
       user.provider = auth["provider"]

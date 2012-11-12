@@ -26,7 +26,7 @@ Gangnam.Collections.Tasks = Backbone.Collection.extend({
 			
 			if (answer.get('is_correct')) {
 				reputations.addOrUpdate(user, question.get('issue_id'), 10);
-				user_achievements.addOrUpdate(user, achievements.where({id: 8})[0], question.get('issue_id'));
+				user_achievements.addOrUpdate(user, achievements.where({id: 2})[0], question.get('issue_id'));
 			}
 		}
 	}
