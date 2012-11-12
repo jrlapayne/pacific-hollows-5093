@@ -158,6 +158,24 @@
 	}
 	
 	&.button {
-		
+		top: 5px;
+		left: 15px;
+		height: 25px;
+		font-size: 11px;
+		text-align: center;
+		padding: 3px 0 3px 0;
+		width: 95px;
+		margin-bottom: 10px;
+		color: rgb(120,120,120);
+		font-weight: bold;
+		background-color: lighten($questionbubblecolor, 25%);
+		border: 2px solid lighten($questionbubblecolor, 5%);
+		@include border-radius(8px);
+		&:hover {
+			color: rgb(75,75,75);
+			background-color: lighten($questionbubblecolor, 20%);
+			border: 2px solid lighten($questionbubblecolor, 1%);
+			cursor: pointer;
+		}
 	}
 }

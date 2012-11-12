@@ -33,6 +33,7 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 		$('#nav').children().remove();
 		$('#slider').cycle({
 			fx: 'scrollLeft',
+			timeout: '7500',
 			pager: '#nav',
 			easeIn: 'easeInExpo',
 			easeOut: 'easeInExpo',
@@ -44,7 +45,7 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 		$('#testimonials').cycle({
 			fx: 'fade',
 			speed: '500',
-			timeout: '3500'
+			timeout: '4500'
 		});
 	},
 	

@@ -2,7 +2,7 @@
 	cursor: pointer;
 	
 	.upvote-arrow {
-		top: 0;
+		top: -30px;
 		left: 0;
 		width: 100px;
 		height: 20px;
@@ -11,7 +11,7 @@
 	}
 	
 	.downvote-arrow {
-		top: 0;
+		top: -30px;
 		left: 0;
 		width: 100px;
 		height: 20px;
@@ -20,7 +20,7 @@
 	}
 	
 	.upvote-box {
-		top: 0;
+		top: -20px;
 		left: 0;
 		width: 100px;
 		height: 20px;
@@ -29,7 +29,7 @@
 	}
 	
 	.fact-box {
-		top: 0;
+		top: -20px;
 		left: 0;
 		width: 100px;
 		height: 20px;
@@ -38,7 +38,7 @@
 	}
 	
 	.comment-box {
-		top: 0;
+		top: -20px;
 		left: 0;
 		width: 100px;
 		height: 20px;
@@ -47,19 +47,19 @@
 	}
 	
 	.issue-rank {
-		top: 0;
+		top: -25px;
 		left: 0;
-		width: 100px;
-		height: 20px;
+		width: 200px;
+		height: 35px;
 		background: $black;
 		color: #fff;
 	}
 	
 	.top-ranked-fusers {
-		top: 0;
+		top: -35px;
 		left: 0;
-		width: 100px;
-		height: 20px;
+		width: 200px;
+		height: 35px;
 		background: $black;
 		color: #fff;
 	}
@@ -83,9 +83,9 @@
 	}
 	
 	.achievables {
+		top: -30px;
 		
 		&.learned {
-			top: 0;
 			left: 0;
 			width: 200px;
 			height: 40px;
@@ -98,7 +98,6 @@
 		}
 		
 		&.commented {
-			top: 0;
 			left: 0;
 			width: 200px;
 			height: 40px;
@@ -111,7 +110,6 @@
 		}
 		
 		&.upvoted {
-			top: 0;
 			left: 0;
 			width: 200px;
 			height: 40px;
@@ -124,7 +122,6 @@
 		}
 		
 		&.downvoted {
-			top: 0;
 			left: 0;
 			width: 200px;
 			height: 40px;
@@ -137,7 +134,6 @@
 		}
 		
 		&.edited {
-			top: 0;
 			left: 0;
 			width: 200px;
 			height: 40px;
@@ -150,7 +146,6 @@
 		}
 		
 		&.added {
-			top: 0;
 			left: 0;
 			width: 200px;
 			height: 40px;
@@ -163,7 +158,6 @@
 		}
 		
 		&.asked {
-			top: 0;
 			left: 0;
 			width: 200px;
 			height: 40px;
@@ -176,9 +170,9 @@
 		}
 		
 		&.answered {
-			top: 0;
+			top: -30px;
 			left: 0;
-			width: 200px;
+			width: 220px;
 			height: 40px;
 			background: $black;
 			color: #fff;
@@ -211,7 +205,7 @@
 	-webkit-transition: opacity 1s;
 	-o-transition: opacity 1s; */
 	
-	@include single-transition(opacity, 1s, false, 1s);
+	@include single-transition(opacity, 400ms, false, 400ms);
 }
 
 .tooltip:hover span {
@@ -219,6 +213,6 @@
 	@include opacity(1);
 	z-index: 9999;
 	margin: 0;
-	padding: 0;
+	padding: 3px 0 0 5px;
 	@include border-radius($radius);
 }
