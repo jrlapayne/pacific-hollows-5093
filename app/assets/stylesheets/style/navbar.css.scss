@@ -38,13 +38,16 @@
 		.label {
 			color: rgb(187,187,187);
 		}
+		.factoryFACT {
+			color: rgb(215,215,215);
+		}
 		&:hover {
 			.label {
+				color: rgb(230,230,230);
+			}
+			.factoryFACT {
 				color: rgb(255,255,255);
 			}
-		}
-		.factoryFACT {
-			color: rgb(210,210,210);
 		}
 	}
 	
