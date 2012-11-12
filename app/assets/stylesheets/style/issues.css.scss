@@ -156,7 +156,7 @@
 		left: 0;
 		width: 100%;
 		height: 210px;
-		background: rgba(#fff, 0.78);
+		background: rgba(#fff, 0.85);
 		z-index: 1;
 		opacity: 0;
 	
@@ -169,10 +169,23 @@
 			opacity: 1;
 		}	
 		.description {
-			background: none;
-			position: relative;
-			display:inline;
-			color:#FFF;
+			position: absolute; 
+			top: 5%; 
+			left: 5%; 
+			width: 90%; 
+			height: 160px; 
+			overflow: hidden;
+			
+		}
+		.showmore {
+			position: absolute;
+			top: 182px;
+			text-align: center;
+			left: 0px;
+			width: 100%;
+			color: darken($questionbubblecolor, 20%);
+			font-size: 12px;
+			font-weight: bold;
 		}
 	}
 }
@@ -392,10 +405,10 @@
 		position: absolute;
 		padding: 3px 0 4px 0;
 		width: 63px;
-		color: rgb(190,190,190);
+		color: rgb(120,120,120);
 		font-weight: bold;
-		background-color: lighten($questionbubblecolor, 30%);
-		border: 2px solid lighten($questionbubblecolor, 20%);
+		background-color: lighten($questionbubblecolor, 25%);
+		border: 2px solid lighten($questionbubblecolor, 5%);
 		@include border-radius(8px);
 		&:hover {
 			color: rgb(75,75,75);
