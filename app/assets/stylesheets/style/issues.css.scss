@@ -519,6 +519,7 @@
 	}
 }
 .factory_issue_container {
+	cursor: pointer;
 	position: relative;
 	font-size: 14px;
 	height: 23px;
@@ -527,6 +528,11 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+	
 	.factory_image_container {
 		position: absolute;
 		top: 3px;

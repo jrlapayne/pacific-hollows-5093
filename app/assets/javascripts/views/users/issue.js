@@ -3,7 +3,7 @@ Gangnam.Views.UsersIssue = Backbone.View.extend({
 	template: JST['users/issue'],
 	
 	events: {
-		
+		'click #issue_show' : 'issueShow'
 	},
 	
 	initialize: function(options) {
@@ -45,6 +45,10 @@ Gangnam.Views.UsersIssue = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(this.el).find('#achievements').html(view.render().el);
+	},
+	
+	issueShow: function() {
+		Backbone.history.navigate('issue' + this.issue.get('id') + '/basics', true);
 	},
 	
 	onClose: function() {

@@ -4,8 +4,8 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	
 	events: {
 		'click .bubble' : 'factsIndex',
-		'click #basics' : 'questionsBasics',
-		'click #advanced' : 'questionsAdvanced'
+		'click #basic_questions' : 'questionsBasics',
+		'click #advanced_questions' : 'questionsAdvanced'
 	},
 	
 	initialize: function(options) {
@@ -37,11 +37,11 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	
 	setTabs: function() {
 		if (this.category === 'basic') {
-			$(this.el).find('#basics').addClass('basics-active');
-			$(this.el).find('#advanced').addClass('advanced-inactive');
+			$(this.el).find('#basic_questions').addClass('basics-active');
+			$(this.el).find('#advanced_questions').addClass('advanced-inactive');
 		} else {
-			$(this.el).find('#basics').addClass('basics-inactive');
-			$(this.el).find('#advanced').addClass('advanced-active');
+			$(this.el).find('#basic_questions').addClass('basics-inactive');
+			$(this.el).find('#advanced_questions').addClass('advanced-active');
 		}
 	},
 	
@@ -83,7 +83,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	},
 	
 	questionsBasics: function() {
-		if ($('#basics').hasClass('basics-active')) {
+		if ($('#basic_questions').hasClass('basics-active')) {
 			return;
 		}
 		
@@ -91,7 +91,7 @@ Gangnam.Views.QuestionsIndex = Backbone.View.extend({
 	},
 	
 	questionsAdvanced: function() {
-		if ($('#advanced').hasClass('advanced-active')) {
+		if ($('#advanced_questions').hasClass('advanced-active')) {
 			return;
 		}
 		

@@ -13,13 +13,15 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 		this.attr = options.attr;
 		this.fact = this.attr.facts.where({id: options.fact.get('id')})[0];
 		this.sources = this.attr.sources.where({fact_id: this.fact.get('id')});
+		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		this.subviews = [];
 	},
 	
 	render: function() {
 		$(this.el).html(this.template({
 			fact: this.fact,
-			sources: this.sources
+			sources: this.sources,
+			user: this.user
 		}));
 		return this;
 	},

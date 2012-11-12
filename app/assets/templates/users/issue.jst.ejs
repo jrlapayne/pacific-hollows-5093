@@ -1,4 +1,4 @@
-<div class = "thumbnail">
+<div id = "issue_show" class = "thumbnail">
 	<div class = "thumbnail-wrapper">
 		<% if (issue.get('thumbnail')) { %>
 			<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%"/>
@@ -7,7 +7,7 @@
 		<% } %>
 	</div>
 </div>
-<div class = "title container">
+<div id = "issue_show" class = "title container">
 	<div class = "title text"><%= issue.get('title') %></div>
 </div>
 <div id = "user_info"></div>

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105171635) do
+ActiveRecord::Schema.define(:version => 20121112160342) do
 
   create_table "achievements", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "kind"
-    t.string   "levels"
-    t.string   "thumbnail"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+    t.string    "kind"
+    t.string    "levels"
+    t.string    "thumbnail"
   end
 
   create_table "answers", :force => true do |t|
@@ -93,15 +93,15 @@ ActiveRecord::Schema.define(:version => 20121105171635) do
   end
 
   create_table "questions", :force => true do |t|
-    t.integer  "issue_id"
-    t.string   "title"
-    t.integer  "user_id"
-    t.string   "category"
-    t.boolean  "has_quiz",   :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.integer  "edit_id"
-    t.integer  "score",      :default => 0
+    t.integer   "issue_id"
+    t.string    "title"
+    t.integer   "user_id"
+    t.string    "category"
+    t.boolean   "has_quiz",   :default => false
+    t.timestamp "created_at",                    :null => false
+    t.timestamp "updated_at",                    :null => false
+    t.integer   "edit_id"
+    t.integer   "score",      :default => 0
   end
 
   create_table "reputations", :force => true do |t|
@@ -129,13 +129,13 @@ ActiveRecord::Schema.define(:version => 20121105171635) do
   end
 
   create_table "user_achievements", :force => true do |t|
-    t.integer  "achievement_id"
-    t.integer  "user_id"
-    t.integer  "amount",         :default => 0
-    t.integer  "level",          :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.integer  "issue_id"
+    t.integer   "achievement_id"
+    t.integer   "user_id"
+    t.integer   "amount",         :default => 0
+    t.integer   "level",          :default => 0
+    t.timestamp "created_at",                    :null => false
+    t.timestamp "updated_at",                    :null => false
+    t.integer   "issue_id"
   end
 
   create_table "users", :force => true do |t|
@@ -145,8 +145,9 @@ ActiveRecord::Schema.define(:version => 20121105171635) do
     t.string    "token"
     t.boolean   "is_temp_user", :default => true
     t.integer   "rep",          :default => 0
-    t.timestamp "created_at",                     :null => false
-    t.timestamp "updated_at",                     :null => false
+    t.timestamp "created_at",                      :null => false
+    t.timestamp "updated_at",                      :null => false
+    t.boolean   "is_admin",     :default => false
   end
 
   create_table "votes", :force => true do |t|

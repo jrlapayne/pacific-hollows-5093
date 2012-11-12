@@ -54,12 +54,7 @@ textarea {
 			}
 
 			&.bottom {
-				overflow: hidden;
-			    height: 50%;
-
-				&:hover {
-					overflow-y: scroll;
-				}
+				height: auto;
 			}
 		}
 	}
@@ -67,12 +62,6 @@ textarea {
 	&.right {
 		width: 33.375em;  /* default 534px */
 		right: 14px;
-	}
-
-	&.container {
-		position: fixed;
-		width: 20.125em;
-		height: 100%;		
 	}
 }
 

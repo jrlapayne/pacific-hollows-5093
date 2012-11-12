@@ -3,7 +3,8 @@ Gangnam.Views.IssuesCheckbox = Backbone.View.extend({
 	template: JST['issues/checkbox'],
 	
 	events: {
-		'click .checkbox' : 'filterQuestions'
+		'click .checkbox' : 'filterQuestions',
+		'click .factory_issue_container' : 'issueShow'
 	},
 	
 	initialize: function(options) {
@@ -38,5 +39,13 @@ Gangnam.Views.IssuesCheckbox = Backbone.View.extend({
 		}
 		window.factory.length;
 		this.attr.issues.trigger('filter');
+	},
+	
+	issueShow: function(event) {
+		if ($(event.target).hasClass('checkbox')) {
+			return;
+		}
+		var id = $(event.target).closest('.factory_issue_container').attr('id');
+		Backbone.history.navigate('issue' + id + '/basics', true);
 	}
 });

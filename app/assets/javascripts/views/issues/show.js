@@ -35,8 +35,15 @@ Gangnam.Views.IssuesShow = Backbone.View.extend({
 	},
 	
 	goBack: function(event) {
+		var id = parseInt(window.location.hash.slice(9));
+		var question = this.attr.questions.where({id: id})[0];
+		
 		if (window.location.hash.slice(1, 9) === 'question') {
-			parent.history.back();
+			if (question.get('category') === 'basic') {
+				Backbone.history.navigate('issue' + this.issue.get('id') + '/basics', true);
+			} else {
+				Backbone.history.navigate('issue' + this.issue.get('id') + '/advanced', true);
+			}
 		}
 	},
 	

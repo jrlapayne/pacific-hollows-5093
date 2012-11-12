@@ -13,12 +13,14 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.question = this.attr.questions.where({id: options.question.get('id')})[0];
+		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		this.subviews = [];
 	},
 	
 	render: function() {
 		$(this.el).html(this.template({
-			question: this.question
+			question: this.question,
+			user: this.user
 		}));
 		return this;
 	},

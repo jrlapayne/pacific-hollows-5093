@@ -14,7 +14,7 @@ Gangnam.Views.AchievementsShow = Backbone.View.extend({
 	},
 	
 	render: function() {
-		$(this.el).addClass('achievement');
+		$(this.el).addClass('achievement tooltip');
 		$(this.el).html(this.template({
 			amount: this.getAmount(),
 			achievement: this.achievement

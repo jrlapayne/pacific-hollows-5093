@@ -6,24 +6,29 @@
 	</div>
 </div>
 <div class = "stats">
-	<div class = "small-upvoting-container" id = "upvote">
+	<div class = "small-upvoting-container tooltip" id = "upvote">
+		<span class = "upvote-arrow">Upvote this question</span>
 		<div class = "really-small-arrow"></div>
 	</div>
-	<div class = "small-downvoting-container" id = "downvote">
+	<div class = "small-downvoting-container tooltip" id = "downvote">
+		<span class = "downvote-arrow">Downvote this question</span>
 		<div class = "really-small-darrow"></div>
 	</div>
 	<div id = "user_info"></div>
-	<div class = "comments container">
+	<div class = "comments container tooltip">
+		<span class = "comment-box"># comments for this question</span>
 		<div class = "comments label">COMMENTS</div>
 		<div class = "comments box">
 			<div class = "comments number"><%= comments.length %></div>
 		</div>
 	</div>
-	<div class = "votes container">
+	<div class = "votes container tooltip">
+		<span class = "upvote-box"># upvotes for this question</span>
 		<div class = "votes label">UPVOTES</div>
 		<div class = "votes box" id = "score"></div>
 	</div>
-	<div class = "facts container">
+	<div class = "facts container tooltip">
+		<span class = "fact-box"># facts for this question</span>
 		<div class = "facts label">FACTS</div>
 		<div class = "facts box">
 			<div class = "facts number"><%= facts.length %></div>

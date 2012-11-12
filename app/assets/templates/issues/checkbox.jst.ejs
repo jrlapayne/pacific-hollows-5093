@@ -1,4 +1,4 @@
-<div class = "factory_issue_container">
+<div class = "factory_issue_container" id = "<%= issue.get('id') %>">
 	<% if (is_checked) { %>
 		<input class = "checkbox" type = "checkbox" name = "issue" id = "<%= issue.get('id') %>" checked />
 	<% } else { %>

@@ -4,8 +4,8 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	id: 'index',
 	
 	events: {
-		'click #basics' : 'questionsBasics',
-		'click #advanced' : 'questionsAdvanced'
+		'click #basic_questions' : 'questionsBasics',
+		'click #advanced_questions' : 'questionsAdvanced'
 	},
 	
 	initialize: function(options) {
@@ -94,7 +94,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	},
 	
 	questionsBasics: function() {
-		if ($('#basics').hasClass('basics-active')) {
+		if ($('#basic_questions').hasClass('basics-active')) {
 			return;
 		}
 		
@@ -102,7 +102,7 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	},
 	
 	questionsAdvanced: function() {
-		if ($('#advanced').hasClass('advanced-active')) {
+		if ($('#advanced_questions').hasClass('advanced-active')) {
 			return;
 		}
 		

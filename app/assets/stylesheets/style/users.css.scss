@@ -1,6 +1,8 @@
 .user {
+	cursor: default;
 	
 	.thumbnail {
+		cursor: pointer;
 		width: 70px;
 		height: 70px;
 		@include border-radius(5px);
@@ -20,6 +22,11 @@
 			position: absolute;
 			left: 90px;
 			top: 42px;
+			cursor: pointer;
+			
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 		
 	}

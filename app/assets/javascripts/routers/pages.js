@@ -165,6 +165,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		var view = new Gangnam.Views.PagesHome({
 			attr: this.attr
 		});
+		this.prepPage(false, true);
 		this.setCurrentView(view);
 		$('.page').html(view.render().el);
 	},
@@ -173,7 +174,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		var view = new Gangnam.Views.IssuesIndex({
 			attr: this.attr
 		});
-		this.renderNavbar();
+		this.prepPage(false, true);
 		this.setCurrentView(view);
 		$('.page').html(view.render().el);
 		this.autocompleteIssues();
