@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(:version => 20121112213511) do
 
   create_table "achievements", :force => true do |t|
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
-    t.string    "kind"
-    t.string    "levels"
-    t.string    "thumbnail"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "kind"
+    t.string   "levels"
+    t.string   "thumbnail"
   end
 
   create_table "answers", :force => true do |t|
@@ -94,15 +94,15 @@ ActiveRecord::Schema.define(:version => 20121112213511) do
   end
 
   create_table "questions", :force => true do |t|
-    t.integer   "issue_id"
-    t.string    "title"
-    t.integer   "user_id"
-    t.string    "category"
-    t.boolean   "has_quiz",   :default => false
-    t.timestamp "created_at",                    :null => false
-    t.timestamp "updated_at",                    :null => false
-    t.integer   "edit_id"
-    t.integer   "score",      :default => 0
+    t.integer  "issue_id"
+    t.string   "title"
+    t.integer  "user_id"
+    t.string   "category"
+    t.boolean  "has_quiz",   :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "edit_id"
+    t.integer  "score",      :default => 0
   end
 
   create_table "reputations", :force => true do |t|
