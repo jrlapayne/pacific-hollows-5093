@@ -13,6 +13,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 		this.facts = this.attr.facts.where({question_id: this.question.get('id')});
 		this.comments = this.attr.comments.where({question_id: this.question.get('id'), fact_id: null});
 		this.votes = this.attr.votes.where({question_id: this.question.get('id')});
+		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		this.upvotes = 0;
 		this.subviews = [];
 		
@@ -63,25 +64,59 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	},
 	
 	commentsIndex: function(event) {
-		/* var element = $(event.target).closest('.question');
-		var view = new Gangnam.Views.CommentsIndex({
-			attr: this.attr,
-			question: this.question,
-			fact: null
-		});
-		this.subviews.push(view);
-		$(element).addClass('active');
-		$(element).html(view.render().el); */
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
+			var element = $(event.target).closest('.question');
+			var view = new Gangnam.Views.CommentsIndex({
+				attr: this.attr,
+				question: this.question,
+				fact: null
+			});
+			this.subviews.push(view);
+			$(element).addClass('active');
+			$(element).html(view.render().el);
+		} else {
+			if (!this.user.signedInUser()) {
+				var view = new Gangnam.Views.PopupsSignin({
+					attr: this.attr,
+					user: this.user
+				});
+				$('.popup').html(view.render().el);
+			} else {
+				var view = new Gangnam.Views.PopupsNeedPrivilege({
+					attr: this.attr,
+					user: this.user,
+					privilege: this.attr.privileges.where({id: 3})[0]
+				});
+				$('.popup').html(view.render().el);
+			}
+		}
 	},
 	
 	queditCreate: function(event) {
-		var element = $(event.target).closest('.question');
-		var view = new Gangnam.Views.QueditsCreate({
-			attr: this.attr,
-			question: this.question
-		});
-		this.subviews.push(view);
-		$(element).html(view.render().el);
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 4})[0])) {
+			var element = $(event.target).closest('.question');
+			var view = new Gangnam.Views.QueditsCreate({
+				attr: this.attr,
+				question: this.question
+			});
+			this.subviews.push(view);
+			$(element).html(view.render().el);
+		} else {
+			if (!this.user.signedInUser()) {
+				var view = new Gangnam.Views.PopupsSignin({
+					attr: this.attr,
+					user: this.user
+				});
+				$('.popup').html(view.render().el);
+			} else {
+				var view = new Gangnam.Views.PopupsNeedPrivilege({
+					attr: this.attr,
+					user: this.user,
+					privilege: this.attr.privileges.where({id: 4})[0]
+				});
+				$('.popup').html(view.render().el);
+			}
+		}
 	},
 	
 	onClose: function() {

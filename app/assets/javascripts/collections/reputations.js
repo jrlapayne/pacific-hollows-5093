@@ -17,8 +17,6 @@ Gangnam.Collections.Reputations = Backbone.Collection.extend({
 				rep: amount
 			});
 		}
-		
-		user.updateRep(amount);
 	},
 	
 	getIssueRank: function(user, issue) {

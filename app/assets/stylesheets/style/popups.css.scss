@@ -28,7 +28,7 @@
 }
 	
 .pops-container {
-	cursor: pointer;
+	cursor: default;
 	position: relative;
 	width: 260px;
 	margin: 5px 0 0 5px;
@@ -37,6 +37,13 @@
 
 .pops-text {
 	
+	.learn-more {
+		cursor: pointer;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 .pops-thumbnail {
@@ -53,9 +60,18 @@
 		color: #fff;
 		font-size: 9px;
 	}
+	
+	.big-x {
+		position: absolute;
+		top: -5px;
+		left: 10px;
+		color: #AB2915;
+		font-size: 40px;
+	}
 }
 
 .pops-clickme {
+	cursor: pointer;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -65,4 +81,8 @@
 	line-height: 11px;
 	color: rgb(150,150,150);
 	text-align: center;
+	
+	&:hover {
+		text-decoration: underline;
+	}
 }

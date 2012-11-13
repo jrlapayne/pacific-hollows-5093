@@ -12,6 +12,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 		this.fact = this.attr.facts.where({id: options.fact.get('id')})[0];
 		this.comments = this.attr.comments.where({fact_id: this.fact.get('id')});
 		this.sources = this.attr.sources.where({fact_id: this.fact.get('id')});
+		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		this.subviews = [];
 	},
 	
@@ -65,27 +66,61 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	},
 	
 	commentsIndex: function(event) {
-		/* var element = $(event.target).closest('.fact-comments');
-		if (!$(element).hasClass('active')) {
-			var view = new Gangnam.Views.CommentsIndex({
-				attr: this.attr,
-				question: this.attr.questions.where({id: this.fact.get('question_id')})[0],
-				fact: this.fact
-			});
-			this.subviews.push(view);
-			$(element).addClass('active');
-			$(element).html(view.render().el);
-		} */
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
+			var element = $(event.target).closest('.fact-comments');
+			if (!$(element).hasClass('active')) {
+				var view = new Gangnam.Views.CommentsIndex({
+					attr: this.attr,
+					question: this.attr.questions.where({id: this.fact.get('question_id')})[0],
+					fact: this.fact
+				});
+				this.subviews.push(view);
+				$(element).addClass('active');
+				$(element).html(view.render().el);
+			}
+		} else {
+			if (!this.user.signedInUser()) {
+				var view = new Gangnam.Views.PopupsSignin({
+					attr: this.attr,
+					user: this.user
+				});
+				$('.popup').html(view.render().el);
+			} else {
+				var view = new Gangnam.Views.PopupsNeedPrivilege({
+					attr: this.attr,
+					user: this.user,
+					privilege: this.attr.privileges.where({id: 3})[0]
+				});
+				$('.popup').html(view.render().el);
+			}
+		}
 	},
 	
 	feditsCreate: function(event) {
-		var element = $(event.target).closest('.fact');
-		var view = new Gangnam.Views.FeditsCreate({
-			attr: this.attr,
-			fact: this.fact
-		});
-		this.subviews.push(view);
-		$(element).html(view.render().el);
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 4})[0])) {
+			var element = $(event.target).closest('.fact');
+			var view = new Gangnam.Views.FeditsCreate({
+				attr: this.attr,
+				fact: this.fact
+			});
+			this.subviews.push(view);
+			$(element).html(view.render().el);
+		} else {
+			if (!this.user.signedInUser()) {
+				var view = new Gangnam.Views.PopupsSignin({
+					attr: this.attr,
+					user: this.user
+				});
+				$('.popup').html(view.render().el);
+			} else {
+				var view = new Gangnam.Views.PopupsNeedPrivilege({
+					attr: this.attr,
+					user: this.user,
+					privilege: this.attr.privileges.where({id: 4})[0]
+				});
+				$('.popup').html(view.render().el);
+			}
+		}
 	},
 	
 	onClose: function() {

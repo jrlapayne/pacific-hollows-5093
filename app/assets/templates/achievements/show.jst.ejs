@@ -1,4 +1,6 @@
 <span class = "achievables <%= achievement.get('kind').split(' ')[0] %>"></span>
-<!-- <div class = "cover"></div> -->
-<img src = "assets/achievements/<%= achievement.get('thumbnail') %>" width = "100%"/>
+<% if (!user_unlocked) { %>
+	<div class = "cover"></div>
+<% } %>
+<img src = "assets/achievements/<%= achievement.get('thumbnail') %>" width = "100%" style = "z-index: 999"/>
 <div class = "amount"><%= amount %></div>

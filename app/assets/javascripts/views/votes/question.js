@@ -39,9 +39,24 @@ Gangnam.Views.VotesQuestion = Backbone.View.extend({
 		var vote;
 		var ids = {issue: this.question.get('issue_id'), question: this.question.get('id'), fact: null, comment: null};
 		
-		if (this.user.canVote()) {
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 1})[0])) {
 			vote = this.attr.votes.addOrUpdate(this.user, ids, 1, this.attr.achievements, this.attr.user_achievements);
 			this.attr.questions.resetScore(vote);
+		} else {
+			if (!this.user.signedInUser()) {
+				var view = new Gangnam.Views.PopupsSignin({
+					attr: this.attr,
+					user: this.user
+				});
+				$('.popup').html(view.render().el);
+			} else {
+				var view = new Gangnam.Views.PopupsNeedPrivilege({
+					attr: this.attr,
+					user: this.user,
+					privilege: this.attr.privileges.where({id: 1})[0]
+				});
+				$('.popup').html(view.render().el);
+			}
 		}
 	},
 	
@@ -49,9 +64,24 @@ Gangnam.Views.VotesQuestion = Backbone.View.extend({
 		var vote;
 		var ids = {issue: this.question.get('issue_id'), question: this.question.get('id'), fact: null, comment: null};
 		
-		if (this.user.canVote()) {
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 2})[0])) {
 			vote = this.attr.votes.addOrUpdate(this.user, ids, -1, this.attr.achievements, this.attr.user_achievements);
 			this.attr.questions.resetScore(vote);
+		} else {
+			if (!this.user.signedInUser()) {
+				var view = new Gangnam.Views.PopupsSignin({
+					attr: this.attr,
+					user: this.user
+				});
+				$('.popup').html(view.render().el);
+			} else {
+				var view = new Gangnam.Views.PopupsNeedPrivilege({
+					attr: this.attr,
+					user: this.user,
+					privilege: this.attr.privileges.where({id: 2})[0]
+				});
+				$('.popup').html(view.render().el);
+			}
 		}
 	},
 	
