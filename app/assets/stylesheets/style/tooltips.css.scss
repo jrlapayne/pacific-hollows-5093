@@ -65,19 +65,21 @@
 	}
 	
 	.basics {
-		top: 0;
-		left: 0;
-		width: 100px;
-		height: 20px;
+		top: -35px;
+		left: -40px;
+		width: 200px;
+		height: 30px;
+		padding: 2px;
 		background: $black;
 		color: #fff;
 	}
 	
 	.advanced {
-		top: 0;
-		left: 0;
-		width: 100px;
-		height: 20px;
+		top: -35px;
+		left: -120px;
+		width: 202px;
+		height: 30px;
+		padding: 1px;
 		background: $black;
 		color: #fff;
 	}
@@ -98,7 +100,7 @@
 		}
 		
 		&.commented {
-			left: 0;
+			left: -30px;
 			width: 200px;
 			height: 40px;
 			background: $black;
@@ -134,7 +136,7 @@
 		}
 		
 		&.edited {
-			left: 0;
+			left: -110px;
 			width: 200px;
 			height: 40px;
 			background: $black;
@@ -158,7 +160,7 @@
 		}
 		
 		&.asked {
-			left: 0;
+			left: 0px;
 			width: 200px;
 			height: 40px;
 			background: $black;
@@ -171,7 +173,7 @@
 		
 		&.answered {
 			top: -30px;
-			left: 0;
+			left: 0px;
 			width: 220px;
 			height: 40px;
 			background: $black;

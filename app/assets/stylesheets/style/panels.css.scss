@@ -227,7 +227,6 @@
 			background-color: lighten($questionbubblecolor, 20%);
 		}
 	}
-
 	.question_count {
 		position: absolute;
 		padding: 4px 0 25px 0;
@@ -236,6 +235,100 @@
 		top: 0px;
 		left: 276px;
 		width: 90px;
+	}
+	.previous-button {
+		font-size: 12px;
+		cursor: pointer;
+		height: 100%;
+		text-align: left;
+		position: absolute;
+		padding: 5px 0 4px 25px;
+		top: -2px;
+		left: 300px;
+		width: 40px;
+		color: rgb(120,120,120);
+		background-color: lighten($questionbubblecolor, 25%);
+		border: 2px solid lighten($questionbubblecolor, 5%);
+		@include border-radius(9px);
+		.triangle-container {
+			position: absolute;
+			top: 6px;
+			left: 8px;
+			.triangle {
+				content: "";
+				display: block; 
+				border-width: 6px 10px 6px 0px;
+				border-style: solid;
+				border-color: rgba(#ccc, 0) rgba(darken(desaturate($questionbubblecolor, 5%),2%), 1) rgba(#aaa, 0) rgba(#000, 0);
+				width: 0;
+				height: 0;
+			}
+		}
+		&:hover {
+			color: rgb(75,75,75);
+			background-color: lighten($questionbubblecolor, 20%);
+			border: 2px solid lighten($questionbubblecolor, 1%);
+			.triangle {
+				border-color: rgba(#ccc, 0) rgba(darken(desaturate($questionbubblecolor, 5%),10%), 1) rgba(#aaa, 0) rgba(#000, 0);
+			}
+		}
+	}
+	.next-button {
+		font-size: 12px;
+		cursor: pointer;
+		height: 100%;
+		text-align: left;
+		position: absolute;
+		padding: 5px 0 4px 12px;
+		top: -2px;
+		left: 464px;
+		width: 54px;
+		color: rgb(120,120,120);
+		background-color: lighten($questionbubblecolor, 25%);
+		border: 2px solid lighten($questionbubblecolor, 5%);
+		@include border-radius(9px);
+		.triangle-container {
+			position: absolute;
+			top: 6px;
+			left: 47px;
+			.triangle {
+				content: "";
+				display: block; 
+				border-width: 6px 0px 6px 10px;
+				border-style: solid;
+				border-color: rgba(#ccc, 0) rgba(#aaa, 0) rgba(#000, 0) rgba(darken(desaturate($questionbubblecolor, 5%),2%), 1);
+				width: 0;
+				height: 0;
+			}
+		}
+		&:hover {
+			color: rgb(75,75,75);
+			background-color: lighten($questionbubblecolor, 20%);
+			border: 2px solid lighten($questionbubblecolor, 1%);
+			.triangle {
+				border-color: rgba(#ccc, 0) rgba(#aaa, 0) rgba(#000, 0) rgba(darken(desaturate($questionbubblecolor, 5%),10%), 1);
+			}
+		}
+	}
+	.index-button {
+		font-size: 12px;
+		cursor: pointer;
+		height: 100%;
+		text-align: left;
+		position: absolute;
+		padding: 5px 0 4px 13px;
+		top: -2px;
+		left: 387px;
+		width: 42px;
+		color: rgb(130,130,130);
+		background-color: lighten($questionbubblecolor, 30%);
+		border: 2px solid lighten(desaturate($questionbubblecolor, 10%),12%);
+		@include border-radius(9px);
+		&:hover {
+			color: rgb(75,75,75);
+			background-color: lighten($questionbubblecolor, 20%);
+			border: 2px solid lighten($questionbubblecolor, 1%);
+		}
 	}
 }
 .issue-big-header-line {

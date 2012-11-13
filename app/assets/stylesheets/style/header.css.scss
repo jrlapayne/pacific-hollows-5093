@@ -129,3 +129,25 @@
 	height: 100%;
 	@include border-radius(3px);
 }
+.signin-button {
+	position: absolute;
+	right: 0;
+	top: 12px;
+	font-weight: bold;
+	height: 14px;
+	font-size: 13px;
+	cursor: pointer;
+	text-align: left;
+	text-align: center;
+	padding: 4px 0 4px 0;
+	width: 65px;
+	color: rgb(100,100,100);
+	background-color: lighten($questionbubblecolor, 25%);
+	border: 2px solid desaturate(lighten($questionbubblecolor, 5%),10%);
+	@include border-radius(9px);
+	&:hover {
+		color: rgb(75,75,75);
+		background-color: lighten($questionbubblecolor, 20%);
+		border: 2px solid lighten($questionbubblecolor, 1%);
+	}
+}

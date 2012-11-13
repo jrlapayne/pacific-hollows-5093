@@ -31,7 +31,7 @@
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 102px;
+		left: 104px;
 		width: 60px;
 		height: 100%;
 		
@@ -51,15 +51,16 @@
 		}
 	}
 	
-	.about {
+	.profile {
 		font-weight: bold;
 		font-size: 80%;
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 193px;
+		left: 198px;
 		width: 60px;
 		height: 100%;
+		
 		.label {
 			color: rgb(187,187,187);
 		}
@@ -71,16 +72,15 @@
 		}
 	}
 	
-	.profile {
+	.about {
 		font-weight: bold;
 		font-size: 80%;
 		cursor: pointer;
 		position: absolute;
 		top: 0;
-		left: 284px;
+		left: 288px;
 		width: 60px;
 		height: 100%;
-		
 		.label {
 			color: rgb(187,187,187);
 		}

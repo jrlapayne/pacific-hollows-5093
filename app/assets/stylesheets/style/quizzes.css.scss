@@ -44,6 +44,11 @@
 				text-align: center;
 				@include text-shadow(0, 1px, 0, rgba(darken($questionbubblecolor,50%),0.99));	
 				font-weight: bold;
+				&:hover {
+					@include linear-gradient(lighten($questionbubblecolor,3%), darken($questionbubblecolor,10%));
+					box-shadow: -1px -1px 2px rgba(darken($questionbubblecolor,30%), 0.99) inset,
+								1px 1px 2px rgba(darken($questionbubblecolor,30%), 0.99) inset;
+				}
 			}
 		}
 		

@@ -5,6 +5,10 @@
 	</div>
 	<div class = "login container">
 		<% if (current_user.get('is_temp_user')) { %>
+			<div class = "signin-button">
+				Log In
+			</div>
+			<!--
 			<div class = "login signin">
 				Sign In:
 			</div>
@@ -17,6 +21,7 @@
 			<div id = "twitter" class = "login twitter">
 				<img src = "assets/login/twitter64.png" height = "100%" />
 			</div>
+			-->
 		<% } else { %>
 			<div class = "login picture">
 				<div class = "login-pic-wrapper">
