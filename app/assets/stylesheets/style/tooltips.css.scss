@@ -1,6 +1,15 @@
 .tooltip {
 	cursor: pointer;
 	
+	.progress {
+		top: 10px;
+		left: 0;
+		width: 220px;
+		height: 37px;
+		background: $black;
+		color: #fff;	
+	}
+	
 	.upvote-arrow {
 		top: -30px;
 		left: 0;

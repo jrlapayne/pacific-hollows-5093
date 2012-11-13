@@ -4,7 +4,8 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	
 	events: {
 		'click .fact-comments' : 'commentsIndex',
-		'click #fedit' : 'feditsCreate'
+		'click #fedit' : 'feditsCreate',
+		'click #fact_share' : 'factShare'
 	},
 	
 	initialize: function(options) {
@@ -120,6 +121,33 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 				});
 				$('.popup').html(view.render().el);
 			}
+		}
+	},
+	
+	factShare: function() {
+		if (this.user.signedInUser()) {
+			if (this.user.get('provider') === 'facebook') {
+				var obj = { 
+					method: 'feed', 
+					link: 'http://www.fusegap.org/#question' + this.fact.get('question_id'), 
+					name: 'fuseGap', 
+					to: this.user.get('uid'), 
+					description: "fuseGap: Informing Society"
+				};
+				function callback(response) 
+				{
+					
+		        }
+				FB.ui(obj, callback);
+			} else {
+				alert('This feature is currently only available for fusers signed in with facebook');
+			}
+		} else {
+			var view = new Gangnam.Views.PopupsSignin({
+				attr: this.attr,
+				user: this.user
+			});
+			$('.popup').html(view.render().el);
 		}
 	},
 	

@@ -40,12 +40,17 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 				$(old_ele).removeClass('open');
 				setTimeout(function() {
 					$(old_ele).find('.panels').css('display', 'none');
+					$(old_ele).find('.what-to-do').css('display', 'block');
 				}, this.time);
 			}
 		}
 		$(new_ele).addClass('open');
 		$(new_ele).find('.panels').css('display', 'block');
+		$(new_ele).find('.what-to-do').css('display', 'block');
 		$(old_ele).find('.panels').animate({
+			height: "0px"
+		}, this.time);
+		$(old_ele).find('.what-to-do').animate({
 			height: "0px"
 		}, this.time);
 		$(old_ele).find('#arrows').find('.down').animate({
@@ -56,6 +61,9 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		}, this.time);
 		$(new_ele).find('.panels').animate({
 			height: "130px"
+		}, this.time);
+		$(new_ele).find('.what-to-do').animate({
+			height: "500px"
 		}, this.time);
 		$(new_ele).find('#arrows').find('.down').animate({
 			opacity: "1"

@@ -12,9 +12,13 @@ Gangnam.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	render: function() {
+		var self = this;
 		$(this.el).html(this.template({
 			current_user: this.attr.current_user
 		}));
+		setTimeout(function() {
+			self.slider();
+		}, 0)
 		return this;
 	},
 	
@@ -27,5 +31,15 @@ Gangnam.Views.PagesHeader = Backbone.View.extend({
 			attr: this.attr
 		});
 		$('#login_popup').html(view.render().el);
+	},
+	
+	slider: function() {
+		$('#interesting').cycle('stop');
+		$('#interesting').cycle({
+			fx: 'fade',
+			timeout: 0,
+			prev: '#int_prev',
+			next: '#int_next'
+		});
 	}
 });

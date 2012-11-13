@@ -151,3 +151,40 @@
 		border: 2px solid lighten($questionbubblecolor, 1%);
 	}
 }
+
+.interesting-facts {
+	width: 700px;
+	margin: 0 0 0 110px;
+	height: 40px;
+	
+	.fact {
+		&.container {
+			
+		}
+			
+		&.text {
+			
+		}
+	}
+}
+
+.interesting-buttons {
+	
+	.previous {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 10px;
+		height: 10px;
+		background: #f00;
+	}
+	
+	.next {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 10px;
+		height: 10px;
+		background: #0f0;
+	}
+}

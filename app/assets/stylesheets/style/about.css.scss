@@ -35,7 +35,15 @@
 			display: none;
 		}
 	}
-
+	
+	.what-to-do {
+		position: relative;
+		width: 100%;
+		height: 0px; /* 200px */
+		overflow: hidden;
+		display: none;
+	}
+	
 	.question {
 	
 		&.container {

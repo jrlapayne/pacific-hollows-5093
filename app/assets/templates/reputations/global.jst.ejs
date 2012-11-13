@@ -32,7 +32,8 @@
 		<% } %>
 	</div>
 </div>
-<div class = "progress-bar-container">
+<div class = "progress-bar-container tooltip">
+	<span class = "progress">how much more reputation you need to unlock this ability</span>
 	<div class = "progress-bar" style = "width: <%= width %>%" />
 	<div class = "progress-bar-text"><%= privilege.get('kind').split(' ')[1] %></div>
 </div>
