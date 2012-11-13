@@ -4,9 +4,7 @@ Gangnam.Views.PagesHeader = Backbone.View.extend({
 	
 	events: {
 		'click #top_logo' : 'pagesHome',
-		'click #facebook' : 'facebookLogin',
-		'click #google' : 'googleLogin',
-		'click #twitter' : 'twitterLogin'
+		'click #login' : 'loginPopup'
 	},
 	
 	initialize: function(options) {
@@ -24,18 +22,10 @@ Gangnam.Views.PagesHeader = Backbone.View.extend({
 		Backbone.history.navigate('', true);
 	},
 	
-	facebookLogin: function() {
-		//window.location = "http://localhost:3000/auth/facebook";
-		window.location = "http://pacific-hollows-5093.herokuapp.com/auth/facebook";
-	},
-	
-	googleLogin: function() {
-		//window.location = "http://localhost:3000/auth/google";
-		window.location = "http://pacific-hollows-5093.herokuapp.com/auth/google";
-	},
-	
-	twitterLogin: function() {
-		//window.location = "http://localhost:3000/auth/twitter";
-		window.location = "http://pacific-hollows-5093.herokuapp.com/auth/twitter";
+	loginPopup: function() {
+		var view = new Gangnam.Views.PopupsLogin({
+			attr: this.attr
+		});
+		$('#login_popup').html(view.render().el);
 	}
 });

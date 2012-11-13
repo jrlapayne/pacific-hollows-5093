@@ -4,8 +4,9 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	id: 'index',
 	
 	events: {
-		'click #basic_questions' : 'questionsBasics',
-		'click #advanced_questions' : 'questionsAdvanced'
+		'click #previous_question' : 'questionsPrevious',
+		'click #next_question' : 'questionsNext',
+		'click #question_index' : 'issueShow'
 	},
 	
 	initialize: function(options) {
@@ -93,20 +94,50 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 		$('#create').html(view.render().el);
 	},
 	
-	questionsBasics: function() {
-		if ($('#basic_questions').hasClass('basics-active')) {
-			return;
+	issueShow: function() {
+		if (this.question.get('category') === 'basic') {
+			Backbone.history.navigate('issue' + this.question.get('issue_id') + '/basics', true);
+		} else {
+			Backbone.history.navigate('issue' + this.question.get('issue_id') + '/advanced', true);
 		}
-		
-		Backbone.history.navigate('issue' + this.question.get('issue_id') + '/basics', true);
 	},
 	
-	questionsAdvanced: function() {
-		if ($('#advanced_questions').hasClass('advanced-active')) {
-			return;
+	questionsPrevious: function() {
+		var loc = this.getLocation();
+		
+		if (loc === 0) {
+			Backbone.history.navigate('question' + this.questions[this.questions.length - 1].get('id'), true);
+		} else {
+			Backbone.history.navigate('question' + this.questions[i - 1].get('id'), true);
+		}
+	},
+	
+	questionsNext: function() {
+		var loc = this.getLocation();
+		
+		if (loc === this.questions.length - 1) {
+			Backbone.history.navigate('question' + this.questions[0].get('id'), true);
+		} else {
+			Backbone.history.navigate('question' + this.questions[i + 1].get('id'), true);
+		}
+	},
+	
+	getLocation: function() {
+		this.questions = this.attr.questions.where({issue_id: this.question.get('issue_id'), category: this.question.get('category')});
+		var loc;
+		
+		this.questions.sort(function(a, b) {
+			return b.get('score') - a.get('score');
+		});
+		
+		for (i = 0; i < this.questions.length; i++) {
+			if (this.question.get('id') === this.questions[i].get('id')) {
+				loc = i;
+				break;
+			}
 		}
 		
-		Backbone.history.navigate('issue' + this.question.get('issue_id') + '/advanced', true);
+		return loc;
 	},
 	
 	onClose: function() {
