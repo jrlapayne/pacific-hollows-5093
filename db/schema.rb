@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112160342) do
+ActiveRecord::Schema.define(:version => 20121112213511) do
 
   create_table "achievements", :force => true do |t|
     t.timestamp "created_at", :null => false
@@ -75,10 +75,11 @@ ActiveRecord::Schema.define(:version => 20121112160342) do
   end
 
   create_table "privileges", :force => true do |t|
-    t.integer   "privilege_id"
-    t.integer   "user_id"
-    t.timestamp "created_at",   :null => false
-    t.timestamp "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "rep"
+    t.string   "kind"
+    t.string   "thumbnail"
   end
 
   create_table "quedits", :force => true do |t|
@@ -129,13 +130,19 @@ ActiveRecord::Schema.define(:version => 20121112160342) do
   end
 
   create_table "user_achievements", :force => true do |t|
-    t.integer   "achievement_id"
-    t.integer   "user_id"
-    t.integer   "amount",         :default => 0
-    t.integer   "level",          :default => 0
-    t.timestamp "created_at",                    :null => false
-    t.timestamp "updated_at",                    :null => false
-    t.integer   "issue_id"
+    t.integer  "achievement_id"
+    t.integer  "user_id"
+    t.integer  "amount",         :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "issue_id"
+  end
+
+  create_table "user_privileges", :force => true do |t|
+    t.integer  "privilege_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

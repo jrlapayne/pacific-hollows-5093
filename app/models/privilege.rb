@@ -1,5 +1,5 @@
 class Privilege < ActiveRecord::Base
-  attr_accessible :privilege_id, :user_id
+  attr_accessible :rep, :kind, :thumbnail
   
-  belongs_to :user
+  has_many :user_privileges, dependent: :destroy
 end

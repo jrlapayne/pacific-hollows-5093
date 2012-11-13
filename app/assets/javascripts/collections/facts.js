@@ -35,6 +35,6 @@ Gangnam.Collections.Facts = Backbone.Collection.extend({
 	},
 	
 	achievement: function(user, achievements, user_achievements, issue) {
-		user_achievements.addOrUpdate(user, achievements.where({id: 6})[0], issue.get('id'));
+		user_achievements.addOrUpdate(user, achievements.where({id: 3})[0], issue.get('id'));
 	}
 });

@@ -33,6 +33,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.privileges = options.privileges;
 		this.achievements = options.achievements;
 		this.user_achievements = options.user_achievements;
+		this.user_privileges = options.user_privileges;
 		this.users = options.users;
 		window.scroll_loc = 0;
 		window.factory = this.getFactory();
@@ -53,9 +54,8 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			privileges: this.privileges,
 			achievements: this.achievements,
 			user_achievements: this.user_achievements,
-			users: this.users,
-			scroll_loc: this.scroll_loc,
-			factory: this.factory
+			user_privileges: this.user_privileges,
+			users: this.users
 		};
 		
 		this.pagesHeader();
@@ -80,6 +80,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.privileges.fetch();
 		this.achievements.fetch();
 		this.user_achievements.fetch();
+		this.user_privileges.fetch();
 		this.users.fetch();
 		
 		this.attr = {
@@ -98,6 +99,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			privileges: this.privileges,
 			achievements: this.achievements,
 			user_achievements: this.user_achievements,
+			user_privileges: this.user_privileges,
 			users: this.users
 		};
 	},

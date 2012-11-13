@@ -4,6 +4,6 @@ Gangnam.Collections.Quedits = Backbone.Collection.extend({
 	url: 'quedits',
 	
 	achievement: function(user, achievements, user_achievements, issue) {
-		user_achievements.addOrUpdate(user, achievements.where({id: 5})[0], issue.get('id'));
+		user_achievements.addOrUpdate(user, achievements.where({id: 8})[0], issue.get('id'));
 	}
 });

@@ -1,5 +1,7 @@
 Gangnam::Application.routes.draw do
   
+  resources :user_privileges
+
   resources :user_achievements
 
   resources :privileges

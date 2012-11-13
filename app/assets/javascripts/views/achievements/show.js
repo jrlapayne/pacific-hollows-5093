@@ -17,7 +17,8 @@ Gangnam.Views.AchievementsShow = Backbone.View.extend({
 		$(this.el).addClass('achievement tooltip');
 		$(this.el).html(this.template({
 			amount: this.getAmount(),
-			achievement: this.achievement
+			achievement: this.achievement,
+			user_unlocked: this.hasPrivilege()
 		}));
 		return this;
 	},
@@ -39,5 +40,19 @@ Gangnam.Views.AchievementsShow = Backbone.View.extend({
 		}
 
 		return amount;
+	},
+	
+	hasPrivilege: function() {
+		if (this.achievement.get('id') < 5) {
+			return true;
+		}
+		
+		var user_privilege = this.attr.user_privileges.where({user_id: this.user.get('id'), privilege_id: this.achievement.get('id') - 4})[0];
+		
+		if (!user_privilege) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 });

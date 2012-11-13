@@ -29,7 +29,16 @@ Gangnam.Views.AnswersShow = Backbone.View.extend({
 		this.subviews.push(view);
 		var question = this.attr.questions.where({id: this.answer.get('question_id')})[0];
 		var user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
-		this.attr.tasks.quizTask(question, this.answer, user, this.attr.reputations, this.attr.achievements, this.attr.user_achievements);
+		this.attr.tasks.quizTask(
+			question, 
+			this.answer, 
+			user, 
+			this.attr.reputations, 
+			this.attr.achievements, 
+			this.attr.user_achievements,
+			this.attr.user_privileges,
+			this.attr.privileges
+		);
 		$('.answers').html(view.render().el);
 	},
 	
