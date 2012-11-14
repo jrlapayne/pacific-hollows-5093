@@ -153,27 +153,30 @@
 }
 
 .interesting-facts {
-	width: 700px;
-	margin: 0 0 0 110px;
+	display: none;
+	width: 600px;
+	margin: 0px 0 0 160px;
 	height: 40px;
 	
 	.fact {
 		&.container {
-			
+			padding-top: 5px;
+			line-height: 14px;
 		}
 			
 		&.text {
-			
+			color: rgb(130,130,130);
+			font-size: 13px;
 		}
 	}
 }
 
 .interesting-buttons {
-	
+	display: none;
 	.previous {
 		position: absolute;
 		top: 0;
-		left: 0;
+		right: 20px;
 		width: 10px;
 		height: 10px;
 		background: #f00;
