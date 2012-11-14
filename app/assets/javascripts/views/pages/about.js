@@ -40,7 +40,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 				$(old_ele).removeClass('open');
 				setTimeout(function() {
 					$(old_ele).find('.panels').css('display', 'none');
-					$(old_ele).find('.what-to-do').css('display', 'block');
+					$(old_ele).find('.what-to-do').css('display', 'none');
 				}, this.time);
 			}
 		}
