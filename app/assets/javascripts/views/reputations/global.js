@@ -55,7 +55,7 @@ Gangnam.Views.ReputationsGlobal = Backbone.View.extend({
 		var prev_rep = null, next_rep = next_privilege.get('rep'), user_rep = this.user.get('rep');
 		
 		for (i = 0; i < privileges.length; i++) {
-			if (privileges[i] === next_privilege) {
+			if (privileges[i] === next_privilege && next_privilege !== null) {
 				if (i === 0) {
 					prev_rep = 0;
 				} else {

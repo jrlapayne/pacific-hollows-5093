@@ -133,20 +133,32 @@
 		top: 150px;
 		left: 300px;
 		width: 320px;
-		height: 115px;
+		height: 155px;
 		background: rgb(252,252,252);
 		@include border-radius(8px);
 		@include box-shadow(-1px -1px 3px 5px #fcfcfc);
 		.signin-text {
 			margin-top: 10px;
-			font-size: 15px;
-			color: rgb(51,51,51);
+			font-size: 16px;
+			color: rgb(41,41,41);
 			font-weight: bold;	
 		}
 		.spam-text {
 			margin-top: 5px;
 			font-size: 14px;
 			color: rgb(120,120,120);
+		}
+		.exit-text {
+			border-top: 1px solid rgb(210,210,210);
+			margin-top: 73px;
+			padding-top: 9px;
+			font-size: 13px;
+			width: 95%;
+			margin-left: 2%;
+			color: rgb(160,160,160);
+			span {
+				cursor: pointer;
+			}
 		}
 	}
 }

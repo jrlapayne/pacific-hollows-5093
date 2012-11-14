@@ -40,17 +40,17 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 				$(old_ele).removeClass('open');
 				setTimeout(function() {
 					$(old_ele).find('.panels').css('display', 'none');
-					$(old_ele).find('.what-to-do').css('display', 'none');
+					$(old_ele).find('.alt-about-panel').css('display', 'none');
 				}, this.time);
 			}
 		}
 		$(new_ele).addClass('open');
 		$(new_ele).find('.panels').css('display', 'block');
-		$(new_ele).find('.what-to-do').css('display', 'block');
+		$(new_ele).find('.alt-about-panel').css('display', 'block');
 		$(old_ele).find('.panels').animate({
 			height: "0px"
 		}, this.time);
-		$(old_ele).find('.what-to-do').animate({
+		$(old_ele).find('.alt-about-panel').animate({
 			height: "0px"
 		}, this.time);
 		$(old_ele).find('#arrows').find('.down').animate({
@@ -64,6 +64,39 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		}, this.time);
 		$(new_ele).find('.what-to-do').animate({
 			height: "80px"
+		}, this.time);
+		$(new_ele).find('.disagree').animate({
+			height: "47px"
+		}, this.time);
+		$(new_ele).find('.factory').animate({
+			height: "80px"
+		}, this.time);
+		$(new_ele).find('.good-question').animate({
+			height: "695px"
+		}, this.time);
+		$(new_ele).find('.contact').animate({
+			height: "47px"
+		}, this.time);
+		$(new_ele).find('.how-to-help').animate({
+			height: "95px"
+		}, this.time);
+		$(new_ele).find('.opinion').animate({
+			height: "47px"
+		}, this.time);
+		$(new_ele).find('.hate-facts').animate({
+			height: "47px"
+		}, this.time);
+		$(new_ele).find('.grey-out').animate({
+			height: "65px"
+		}, this.time);
+		$(new_ele).find('.ranking-system').animate({
+			height: "80px"
+		}, this.time);
+		$(new_ele).find('.facts-important').animate({
+			height: "150px"
+		}, this.time);
+		$(new_ele).find('.who-are-you').animate({
+			height: "220px"
 		}, this.time);
 		$(new_ele).find('#arrows').find('.down').animate({
 			opacity: "1"

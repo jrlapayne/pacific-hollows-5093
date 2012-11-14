@@ -50,7 +50,6 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 			issue_id: this.question.get('issue_id'),
 			question_id: this.question.get('id'),
 			title: $('#title').val(),
-			description: $('#description').val(),
 			category: category,
 			user_id: this.attr.current_user.get('id')
 		}, { 

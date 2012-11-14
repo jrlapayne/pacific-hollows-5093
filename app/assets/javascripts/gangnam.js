@@ -43,6 +43,43 @@ window.Gangnam = {
 			user_privileges: this.user_privileges,
 			users: this.users
 		});
+		this.preLoad();
 		Backbone.history.start();
+	},
+	
+	preLoad: function() {
+		$('<img />').attr('src', 'assets/logos/white.png');
+		$('<img />').attr('src', 'assets/logos/blue.png');
+		$('<img />').attr('src', 'assets/logos/black.png');
+		
+		$('<img />').attr('src', 'assets/slides/1.png');
+		$('<img />').attr('src', 'assets/slides/2.png');
+		$('<img />').attr('src', 'assets/slides/3.png');
+		
+		setTimeout(function() {
+			$('<img />').attr('src', 'assets/people/A.png');
+			$('<img />').attr('src', 'assets/people/JFK.png');
+			$('<img />').attr('src', 'assets/people/MLK.png');
+			$('<img />').attr('src', 'assets/people/TJ.png');
+			$('<img />').attr('src', 'assets/people/WLSC.png');
+			
+			this.issues.each(function(i) {
+				$('<img />').attr('src', 'assets/issues/' + i.get('thumbnail'));
+			});
+			
+			$('<img />').attr('src', 'assets/misc/magnify.png');
+			$('<img />').attr('src', 'assets/misc/user.png');
+			
+			this.achievements.each(function(e) {
+				$('<img />').attr('src', 'assets/achievements/' + e.get('thumbnail'));
+			});
+			
+			for (w = 0; w < 16; w++) {
+				$('<img />').attr('src', 'assets/rage/win/' + (w + 1) + '.png');
+			}
+			for (f = 0; w < 23; w++) {
+				$('<img />').attr('src', 'assets/rage/fail/' + (f + 1) + '.png');
+			}
+		}, 0);
 	}
 };
