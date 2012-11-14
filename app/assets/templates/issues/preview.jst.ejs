@@ -2,11 +2,13 @@
 	<div class = "title"><%= issue.get('title') %></div>
 </div>
 <div class = "thumbnail">
-	<% if (issue.get('thumbnail')) { %>
-		<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%"/>
-	<% } else { %>
-		<img src = "assets/logos/black.png" width = "100%" />
-	<% } %>
+	<div class = "wrapper">
+		<% if (issue.get('thumbnail')) { %>
+			<img src = "assets/issues/<%= issue.get('thumbnail') %>" height = "100%" width = "100%"/>
+		<% } else { %>
+			<img src = "assets/logos/black.png" width = "100%" />
+		<% } %>
+	</div>
 </div>
 
 <div class = "hover-container">

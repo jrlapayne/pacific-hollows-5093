@@ -33,6 +33,28 @@
 	width: 260px;
 	margin: 5px 0 0 5px;
 	height: 69px;
+	
+	.signin-button {
+		position: relative;
+		font-weight: bold;
+		margin: -5px 0 0 98px;
+		height: 14px;
+		font-size: 13px;
+		cursor: pointer;
+		text-align: left;
+		text-align: center;
+		padding: 4px 0 4px 0;
+		width: 64px;
+		color: rgb(100,100,100);
+		background-color: lighten($questionbubblecolor, 25%);
+		border: 2px solid desaturate(lighten($questionbubblecolor, 5%),10%);
+		@include border-radius(9px);
+		&:hover {
+			color: rgb(75,75,75);
+			background-color: lighten($questionbubblecolor, 20%);
+			border: 2px solid lighten($questionbubblecolor, 1%);
+		}
+	}
 }
 
 .pops-text {
@@ -88,9 +110,6 @@
 }
 
 .login-popup {
-	position: relative;
-	margin: 0 auto;
-	width: 920px;
 	
 	.backdrop {
 		z-index: 9999;
@@ -103,6 +122,11 @@
 		margin: 0 auto;
 	}
 	
+	.wrapper {
+		position: relative;
+		margin: 0 auto;
+		width: 920px;
+	}
 	.signin-box {
 		text-align: center;
 		position: absolute;
