@@ -128,7 +128,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 					link: 'http://www.fusegap.org/#question' + this.question.get('id'), 
 					name: 'fuseGap', 
 					to: this.user.get('uid'), 
-					description: "fuseGap: Informing Society"
+					description: this.question.get('title')
 				};
 				function callback(response) 
 				{

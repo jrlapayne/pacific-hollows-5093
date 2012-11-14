@@ -12,10 +12,10 @@ Gangnam.Models.Question = Backbone.Model.extend({
 	
 	updateScore: function(votes) {
 		var score = 0;
-		this.votes = votes.where({question_id: this.get('id'), fact_id: null, comment_id: null});
+		var question_votes = votes.where({question_id: this.get('id'), fact_id: null, comment_id: null});
 		
-		for (i = 0; i < this.votes.length; i++) {
-			score = score + this.votes[i].get('value');
+		for (i = 0; i < question_votes.length; i++) {
+			score = score + question_votes[i].get('value');
 		}
 		
 		this.set({score: score});

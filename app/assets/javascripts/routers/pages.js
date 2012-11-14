@@ -61,25 +61,21 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		
 		this.pagesHeader();
 		
-		/* setInterval(function() {
+		setInterval(function() {
 			self.updateCollections();
-		}, 120000); */
+		}, 60000);
 	},
 	
 	updateCollections: function() {
-		this.issues.fetch();
 		this.questions.fetch();
 		this.quedits.fetch();
 		this.answers.fetch();
 		this.facts.fetch();
 		this.fedits.fetch();
 		this.sources.fetch();
-		this.comments.fetch();
 		this.tasks.fetch();
 		this.votes.fetch();
 		this.reputations.fetch();
-		this.privileges.fetch();
-		this.achievements.fetch();
 		this.user_achievements.fetch();
 		this.user_privileges.fetch();
 		this.users.fetch();

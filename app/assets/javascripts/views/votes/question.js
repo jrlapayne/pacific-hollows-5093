@@ -41,7 +41,7 @@ Gangnam.Views.VotesQuestion = Backbone.View.extend({
 		
 		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 1})[0])) {
 			vote = this.attr.votes.addOrUpdate(this.user, ids, 1, this.attr.achievements, this.attr.user_achievements);
-			this.attr.questions.resetScore(vote);
+			this.question.updateScore(this.attr.votes);
 		} else {
 			if (!this.user.signedInUser()) {
 				var view = new Gangnam.Views.PopupsSignin({
@@ -66,7 +66,7 @@ Gangnam.Views.VotesQuestion = Backbone.View.extend({
 		
 		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 2})[0])) {
 			vote = this.attr.votes.addOrUpdate(this.user, ids, -1, this.attr.achievements, this.attr.user_achievements);
-			this.attr.questions.resetScore(vote);
+			this.question.updateScore(this.attr.votes);
 		} else {
 			if (!this.user.signedInUser()) {
 				var view = new Gangnam.Views.PopupsSignin({

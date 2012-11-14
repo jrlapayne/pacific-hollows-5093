@@ -132,7 +132,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 					link: 'http://www.fusegap.org/#question' + this.fact.get('question_id'), 
 					name: 'fuseGap', 
 					to: this.user.get('uid'), 
-					description: "fuseGap: Informing Society"
+					description: this.fact.get('title')
 				};
 				function callback(response) 
 				{

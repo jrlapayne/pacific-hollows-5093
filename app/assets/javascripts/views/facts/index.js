@@ -105,20 +105,40 @@ Gangnam.Views.FactsIndex = Backbone.View.extend({
 	questionsPrevious: function() {
 		var loc = this.getLocation();
 		
+		this.attr.tasks.browseTask(
+			this.question, 
+			this.attr.users.where({id: this.attr.current_user.get('id')})[0], 
+			this.attr.reputations, 
+			this.attr.achievements, 
+			this.attr.user_achievements,
+			this.attr.user_privileges,
+			this.attr.privileges
+		);
+		
 		if (loc === 0) {
 			Backbone.history.navigate('question' + this.questions[this.questions.length - 1].get('id'), true);
 		} else {
-			Backbone.history.navigate('question' + this.questions[i - 1].get('id'), true);
+			Backbone.history.navigate('question' + this.questions[loc - 1].get('id'), true);
 		}
 	},
 	
 	questionsNext: function() {
 		var loc = this.getLocation();
 		
+		this.attr.tasks.browseTask(
+			this.question, 
+			this.attr.users.where({id: this.attr.current_user.get('id')})[0], 
+			this.attr.reputations, 
+			this.attr.achievements, 
+			this.attr.user_achievements,
+			this.attr.user_privileges,
+			this.attr.privileges
+		);
+		
 		if (loc === this.questions.length - 1) {
 			Backbone.history.navigate('question' + this.questions[0].get('id'), true);
 		} else {
-			Backbone.history.navigate('question' + this.questions[i + 1].get('id'), true);
+			Backbone.history.navigate('question' + this.questions[loc + 1].get('id'), true);
 		}
 	},
 	

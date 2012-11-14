@@ -37,6 +37,7 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 			pager: '#nav',
 			easeIn: 'easeInExpo',
 			easeOut: 'easeInExpo',
+			next: '.next_slide'
 		});
 	},
 	
