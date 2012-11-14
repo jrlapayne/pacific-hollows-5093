@@ -63,7 +63,7 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 			height: "130px"
 		}, this.time);
 		$(new_ele).find('.what-to-do').animate({
-			height: "500px"
+			height: "80px"
 		}, this.time);
 		$(new_ele).find('#arrows').find('.down').animate({
 			opacity: "1"
