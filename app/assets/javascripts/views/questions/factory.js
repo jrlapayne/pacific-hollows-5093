@@ -1,5 +1,7 @@
 Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 	
+	id: 'questions',
+	
 	events: {
 		'click .question' : 'factsIndex'
 	},
@@ -15,7 +17,7 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 		var self = this;
 		this.filterQuestions();
 		
-		$(this.el).attr('id', 'questions');
+		$(this.el).addClass('factory');
 		$(this.el).children().remove();
 		
 		setTimeout(function() {
@@ -23,6 +25,7 @@ Gangnam.Views.QuestionsFactory = Backbone.View.extend({
 			for (q = 0; q < self.questions.length; q++) {
 				self.appendQuestion(self.questions[q]);
 			}
+			$('#loading').children().remove();
 		}, 0);
 		return this;
 	},

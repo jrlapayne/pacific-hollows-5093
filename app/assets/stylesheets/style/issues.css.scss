@@ -170,13 +170,10 @@
 		@include opacity(0);
 		@include border-bottom-radius(7px);
 		
-		transition: opacity 1s;
-		-moz-transition: opacity 1s; /* Firefox 4 */
-		-webkit-transition: opacity 1s; /* Safari and Chrome */
-		-o-transition: opacity 1s; /* Opera */
+		@include single-transition(opacity, 1s, false, 0s);
 	
 		&:hover {
-			opacity: 1;
+			@include opacity(1);
 		}	
 		.description {
 			position: absolute; 

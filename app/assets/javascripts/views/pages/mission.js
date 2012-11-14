@@ -1,6 +1,6 @@
-Gangnam.Views.PagesAbout = Backbone.View.extend({
+Gangnam.Views.PagesMission = Backbone.View.extend({
 	
-	template: JST['pages/about'],
+	template: JST['pages/mission'],
 	id: 'about',
 	
 	events: {
@@ -22,8 +22,23 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		setTimeout(function() {
 			self.openFirst();
 		}, 200);
-		$('body').scrollTop(0);
 		return this;
+	},
+	
+	openFirst: function() {
+		var element = $('#monkeys').children().get()[0];
+
+		$(element).addClass('open');
+		$(element).find('.panels').css('display', 'block');
+		$(element).find('.panels').animate({
+			height: "130px"
+		}, this.time);
+		$(element).find('#arrows').find('.down').animate({
+			opacity: "1"
+		}, this.time);
+		$(element).find('#arrows').find('.right').animate({
+			opacity: "0"
+		}, this.time);
 	},
 	
 	openBox: function(event) {
@@ -67,39 +82,6 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		$(new_ele).find('.what-to-do').animate({
 			height: "80px"
 		}, this.time);
-		$(new_ele).find('.disagree').animate({
-			height: "47px"
-		}, this.time);
-		$(new_ele).find('.factory').animate({
-			height: "80px"
-		}, this.time);
-		$(new_ele).find('.good-question').animate({
-			height: "695px"
-		}, this.time);
-		$(new_ele).find('.contact').animate({
-			height: "47px"
-		}, this.time);
-		$(new_ele).find('.how-to-help').animate({
-			height: "95px"
-		}, this.time);
-		$(new_ele).find('.opinion').animate({
-			height: "47px"
-		}, this.time);
-		$(new_ele).find('.hate-facts').animate({
-			height: "47px"
-		}, this.time);
-		$(new_ele).find('.grey-out').animate({
-			height: "65px"
-		}, this.time);
-		$(new_ele).find('.ranking-system').animate({
-			height: "80px"
-		}, this.time);
-		$(new_ele).find('.facts-important').animate({
-			height: "150px"
-		}, this.time);
-		$(new_ele).find('.who-are-you').animate({
-			height: "220px"
-		}, this.time);
 		$(new_ele).find('#arrows').find('.down').animate({
 			opacity: "1"
 		}, this.time);
@@ -127,22 +109,6 @@ Gangnam.Views.PagesAbout = Backbone.View.extend({
 		}, this.time);
 		$(element).find('#arrows').find('.right').animate({
 			opacity: "1"
-		}, this.time);
-	},
-	
-	openFirst: function() {
-		var element = $('#monkeys').children().get()[0];
-
-		$(element).addClass('open');
-		$(element).find('.alt-about-panel').css('display', 'block');
-		$(element).find('.what-to-do').animate({
-			height: "80px"
-		}, this.time);
-		$(element).find('#arrows').find('.down').animate({
-			opacity: "1"
-		}, this.time);
-		$(element).find('#arrows').find('.right').animate({
-			opacity: "0"
 		}, this.time);
 	},
 	

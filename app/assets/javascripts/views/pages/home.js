@@ -64,6 +64,6 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 	image3: function() {
 		$('#slider').cycle('stop');
 		$('#testimonials').cycle('stop');
-		Backbone.history.navigate('about', true);
+		Backbone.history.navigate('mission', true);
 	}
 });

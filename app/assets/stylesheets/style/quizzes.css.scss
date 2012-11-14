@@ -28,11 +28,7 @@
 
 			&.button {
 				cursor: pointer;
-				box-shadow: -1px -1px 2px rgba(darken($questionbubblecolor,40%), 0.99) inset,
-							1px 1px 2px rgba(darken($questionbubblecolor,40%), 0.99) inset;
-				@include border-radius(8px);
-				@include linear-gradient(darken($questionbubblecolor,1%), darken($questionbubblecolor,15%));
-				@include fonts;
+				background: darken($questionbubblecolor,8%);
 				float: left;
 				height: 33px;
 				width: 100%;
@@ -41,11 +37,17 @@
 				color: #ffffff;
 				font-size: 80%;
 				border: none;
-				text-align: center;
-				@include text-shadow(0, 1px, 0, rgba(darken($questionbubblecolor,50%),0.99));	
+				text-align: center;	
 				font-weight: bold;
+				
+				@include box-shadow(-1px -1px 2px rgba(darken($questionbubblecolor,40%), 0.99) inset, 1px 1px 2px rgba(darken($questionbubblecolor,40%), 0.99) inset);
+				@include border-radius(8px);
+				@include linear-gradient(darken($questionbubblecolor,1%), darken($questionbubblecolor,15%));
+				@include fonts;
+				
 				&:hover {
 					@include linear-gradient(lighten($questionbubblecolor,3%), darken($questionbubblecolor,10%));
+					background: lighten($questionbubblecolor,6.5%);
 					box-shadow: -1px -1px 2px rgba(darken($questionbubblecolor,30%), 0.99) inset,
 								1px 1px 2px rgba(darken($questionbubblecolor,30%), 0.99) inset;
 				}
@@ -98,24 +100,22 @@
 				bottom: 0;
 				left: 10%;
 				height: 30px;
-				
 				cursor: pointer;
-				box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,5%), 0.99) inset,
-							1px 1px 1px rgba(darken($questionbubblecolor,5%), 0.99) inset;
-				@include border-radius(8px);
-				@include linear-gradient(lighten($questionbubblecolor,10%), lighten($questionbubblecolor,1%));
-				@include fonts;
-
+				background: lighten($questionbubblecolor,5.5%);
 				color: rgb(110,110,110);
 				font-size: 12px;
 				border: none;
 				text-align: center;
 				font-weight: bold;
-			
+				@include box-shadow(-1px -1px 1px rgba(darken($questionbubblecolor,5%), 0.99) inset, 1px 1px 1px rgba(darken($questionbubblecolor,5%), 0.99) inset);
+				@include border-radius(8px);
+				@include linear-gradient(lighten($questionbubblecolor,10%), lighten($questionbubblecolor,1%));
+				@include fonts;
+				
 				&:hover {
-					box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset,
-								1px 1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset;
+					@include box-shadow(-1px -1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset, 1px 1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset);
 					@include linear-gradient(lighten($questionbubblecolor,1%), lighten($questionbubblecolor,10%));
+					background: lighten($questionbubblecolor,5.5%);
 					color: rgb(60,60,60);
 				}
 			}
@@ -126,20 +126,18 @@
 				bottom: 0;
 				right: 10%;
 				height: 30px;
-				
 				cursor: pointer;
-				box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset,
-							1px 1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset;
-				@include border-radius(8px);
-				@include linear-gradient(darken($questionbubblecolor,1%), darken($questionbubblecolor,10%));
-				@include fonts;
-
+				background: lighten($questionbubblecolor,5.5%);
 				color: rgb(60,60,60);
 				font-size: 13px;
 				border: none;
 				padding: 0 0 0 30px;
 				text-align: left;
 				font-weight: bold;
+				@include box-shadow(-1px -1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset, 1px 1px 1px rgba(darken($questionbubblecolor,15%), 0.99) inset);
+				@include border-radius(8px);
+				@include linear-gradient(darken($questionbubblecolor,1%), darken($questionbubblecolor,10%));
+				@include fonts;
 				
 				.triangle-container {
 					position: absolute;
@@ -158,10 +156,10 @@
 				}
 				
 				&:hover {
-					box-shadow: -1px -1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset,
-								1px 1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset;
+					@include box-shadow(-1px -1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset, 1px 1px 1px rgba(darken($questionbubblecolor,25%), 0.99) inset);
 					@include linear-gradient(darken($questionbubblecolor,10%), darken($questionbubblecolor,5%));
 					color: rgb(10,10,10);
+					background: lighten($questionbubblecolor,5.5%);
 					.triangle {
 						border-color: rgba(#ccc, 0) rgba(#ccc, 0) rgba(#aaa, 0) lighten($questionbubblecolor, 20%);
 					}

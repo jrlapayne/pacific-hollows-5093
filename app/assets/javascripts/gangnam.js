@@ -48,6 +48,7 @@ window.Gangnam = {
 	},
 	
 	preLoad: function() {
+		var self = this;
 		$('<img />').attr('src', 'assets/logos/white.png');
 		$('<img />').attr('src', 'assets/logos/blue.png');
 		$('<img />').attr('src', 'assets/logos/black.png');
@@ -63,14 +64,14 @@ window.Gangnam = {
 			$('<img />').attr('src', 'assets/people/TJ.png');
 			$('<img />').attr('src', 'assets/people/WLSC.png');
 			
-			this.issues.each(function(i) {
+			self.issues.each(function(i) {
 				$('<img />').attr('src', 'assets/issues/' + i.get('thumbnail'));
 			});
 			
 			$('<img />').attr('src', 'assets/misc/magnify.png');
 			$('<img />').attr('src', 'assets/misc/user.png');
 			
-			this.achievements.each(function(e) {
+			self.achievements.each(function(e) {
 				$('<img />').attr('src', 'assets/achievements/' + e.get('thumbnail'));
 			});
 			

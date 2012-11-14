@@ -343,3 +343,11 @@
 	border-bottom: 1px solid rgb(210,210,210);
 	width: 100%;
 }
+
+.factory {
+	
+	.panel.question.preview.top {
+		margin-top: 0px;
+		border-top: none;
+	}
+}

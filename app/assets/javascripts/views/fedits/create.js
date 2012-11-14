@@ -79,7 +79,7 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 				if (i === 0 || urls === "") {
 					urls = $(sources[i]).val();
 				} else {
-					urls = " " + $(sources[i]).val();
+					urls = urls + " " + $(sources[i]).val();
 				}	
 			} else {
 				if (this.attr.sources.where({id: parseInt($(sources[i]).attr('id'))})[0]) {

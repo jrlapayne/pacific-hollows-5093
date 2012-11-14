@@ -10,6 +10,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		'factory' : 'questionsFactory',
 		'profile' : 'currentUserProfile',
 		'about' : 'pagesAbout',
+		'mission' : 'pagesMission',
 		'quiz:id' : 'quizzesIndex',
 		'users:id' : 'usersProfile'
 	},
@@ -238,6 +239,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		});
 		this.prepPage(true, true);
 		this.setCurrentView(view);
+		this.loading();
 		this.issuesFactory();
 		$('#right').html(view.render().el);
 	},
@@ -286,5 +288,19 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 			attr: this.attr
 		});
 		$('#left_top').html(view.render().el);
+	},
+	
+	pagesMission: function() {
+		var view = new Gangnam.Views.PagesMission({
+			attr: this.attr
+		});
+		this.prepPage(false, true);
+		this.setCurrentView(view);
+		$('.page').html(view.render().el);
+	},
+	
+	loading: function() {
+		var view = new Gangnam.Views.PagesLoading();
+		$('#loading').html(view.render().el);
 	}
 });
