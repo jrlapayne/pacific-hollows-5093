@@ -169,9 +169,10 @@
 	}
 	
 	.completed {
+		text-align: center;
 		
 		&.container {
-			
+			margin-top: 20px;
 		}
 		
 		&.text {
@@ -180,13 +181,17 @@
 	}
 	
 	.score {
+		text-align: center;
 		
 		&.container {
-			
+			margin-top: 10px;
 		}
 		
 		&.text {
-			
+			span {
+				font-weight: bold;
+				color: desaturate(darken($questionbubblecolor, 10%), 10%);
+			}
 		}
 	}
 }

@@ -193,26 +193,26 @@
 				cursor: pointer;
 				text-align: center;
 				width: 56px;
-				height: 34px;
-				font-size: 16px;
+				height: 32px;
+				font-size: 15px;
 				line-height: 18px;
 				margin:2px 2px 0 2px;
 				float: right;
 				color: #fff;
 				background: $backgroundcolor;
-				border: 1px solid darken($backgroundcolor, 15%);
+				border: 1px solid darken($questionbubblecolor, 15%);
 				@include border-radius(5px);
-				@include gradient($backgroundcolor);
+				@include gradient($questionbubblecolor);
 				@include single-box-shadow(rgba(#000, 0.3), 0, 0, 2px, 2px, inset);
 				
 				&:hover {
-					background: lighten($backgroundcolor, 10%);
-					@include gradient(lighten($backgroundcolor, 10%));
+					background: lighten($questionbubblecolor, 10%);
+					@include gradient(lighten($questionbubblecolor, 10%));
 				}
 				
 				&:active {
-					background: darken($backgroundcolor, 10%);
-					@include reverse-gradient(darken($backgroundcolor, 10%));
+					background: darken($questionbubblecolor, 10%);
+					@include reverse-gradient(darken($questionbubblecolor, 10%));
 				}
 			}
 		}

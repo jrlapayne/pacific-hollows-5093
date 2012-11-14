@@ -233,27 +233,28 @@
 	}
 	
 	input[type = submit] {
+		font-size: 13px;
 		font-weight: bold;
 		cursor: pointer;
 		color: #fff;
-		margin: 0 0 1em 2.5%;
+		margin: 0 0 70px 385px;
 		width: 25%;
 		height: 3em;
 		border: 1px solid darken($backgroundcolor, 30%);
 		background: darken($backgroundcolor, 20%);
 		@include border-radius($radius);
-		@include gradient(darken($backgroundcolor, 20%));
+		@include gradient(darken($questionbubblecolor, 20%));
 		@include single-box-shadow(inset, rgba(#000, 0.5), 0, 0, 5px, 5px);
 		&:hover {
-			border: 1px solid darken($backgroundcolor, 20%); 
-			background: darken($backgroundcolor, 10%);
-			@include gradient(darken($backgroundcolor, 10%));
+			border: 1px solid darken($questionbubblecolor, 20%); 
+			background: darken($questionbubblecolor, 10%);
+			@include gradient(darken($questionbubblecolor, 10%));
 		}
 		
 		&:active {
-			border: 1px solid darken($backgroundcolor, 40%); 
-			background: darken($backgroundcolor, 30%);
-			@include reverse-gradient(darken($backgroundcolor, 30%));
+			border: 1px solid darken($questionbubblecolor, 40%); 
+			background: darken($questionbubblecolor, 30%);
+			@include reverse-gradient(darken($questionbubblecolor, 30%));
 		}
 	}
 	
