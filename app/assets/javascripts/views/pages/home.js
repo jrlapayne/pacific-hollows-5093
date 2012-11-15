@@ -23,8 +23,6 @@ Gangnam.Views.PagesHome = Backbone.View.extend({
 		setTimeout(function() {
 			self.slider();
 			self.testimonials();
-			var view = new Gangnam.Views.PagesLoading();
-			$('#loading').html(view.render().el);s
 		}, 0);
 		return this;
 	},
