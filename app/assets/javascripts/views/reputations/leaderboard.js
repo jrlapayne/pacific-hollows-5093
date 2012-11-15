@@ -24,12 +24,15 @@ Gangnam.Views.ReputationsLeaderboard = Backbone.View.extend({
 	},
 	
 	getUser: function(issue, place) {
-		var users = this.attr.users, reps = this.attr.reputations.where({issue_id: issue.get('id')});
+		reps = this.attr.reputations.where({issue_id: issue.get('id')});
 		
-		reps.sort(function(a, b) {
-			return b.get('rep') - a.get('rep');
-		});
-		
-		return users.where({id: reps[place].get('user_id')})[0];
+		if (reps[place]) {
+			reps.sort(function(a, b) {
+				return b.get('rep') - a.get('rep');
+			});
+			return this.attr.users.where({id: reps[place].get('user_id')})[0];
+		} else {
+			return null;
+		}
 	}
 });

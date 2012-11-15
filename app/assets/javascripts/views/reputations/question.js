@@ -86,7 +86,7 @@ Gangnam.Views.ReputationsQuestion = Backbone.View.extend({
 		this.attr.users.unbind('add', this.render);
 	},
 	
-	userShow: function() {
+	userShow: function(event) {
 		var element = $(event.target).closest('.name');
 		
 		Backbone.history.navigate('users' + parseInt($(element).attr('id')), true);		
