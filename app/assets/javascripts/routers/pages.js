@@ -61,9 +61,9 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		
 		this.pagesHeader();
 		
-		setInterval(function() {
+		/* setInterval(function() {
 			self.updateCollections();
-		}, 60000);
+		}, 60000); */
 	},
 	
 	updateCollections: function() {
