@@ -97,7 +97,7 @@ Gangnam.Views.QuestionsPreview = Backbone.View.extend({
 			vote = this.attr.votes.addOrUpdate(this.user, ids, -1, this.attr.achievements, this.attr.user_achievements);
 			this.question.updateScore(this.attr.votes);
 		} else {
-			if (this.user.signedInUser()) {
+			if (!this.user.signedInUser()) {
 				var view = new Gangnam.Views.PopupsSignin({
 					attr: this.attr,
 					user: this.user

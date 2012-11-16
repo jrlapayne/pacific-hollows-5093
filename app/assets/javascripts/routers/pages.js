@@ -160,6 +160,13 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		$('#search_add').html(view.render().el);
 	},
 	
+	autocompleteUsers: function() {
+		var view = new Gangnam.Views.AutocompletesUsers({
+			attr: this.attr
+		});
+		$('#search_add').html(view.render().el);
+	},
+	
 	pagesHome: function() {
 		var view = new Gangnam.Views.PagesHome({
 			attr: this.attr
@@ -257,6 +264,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
+		this.autocompleteUsers();
 	},
 	
 	usersProfile: function(id) {
@@ -267,6 +275,7 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		this.prepPage(true, true);
 		this.setCurrentView(view);
 		$('#right').html(view.render().el);
+		this.autocompleteUsers();
 	},
 	
 	quizzesIndex: function(id) {
