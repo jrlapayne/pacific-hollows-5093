@@ -41,7 +41,7 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 			this.posting = true;
 			
 			if (this.checkValues(title, source)) {
-				this.loading();
+				this.startLoading();
 				
 				this.attr.facts.create({
 					issue_id: this.question.get('issue_id'),
@@ -52,13 +52,24 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 				}, {
 					wait: true,
 					success: function(fact, response1) {
+						self.attr.facts.achievement(
+							self.attr.users.where({id: self.attr.current_user.get('id')})[0], 
+							self.attr.achievements, 
+							self.attr.user_achievements, 
+							self.attr.issues.where({id: self.question.get('issue_id')})[0]
+						);
 						self.attr.sources.create({
 							fact_id: fact.get('id'),
 							url: source
 						}, {
 							success: function(source, response2) {
-								$('#loading').children().remove();
+								self.endLoading();
 								self.posting = false;
+							},
+							error: function(source, response2) {
+								self.endLoading();
+								self.posting = false;
+								alert(response2.responseText);
 							}
 						});
 						self.attr.fedits.create({
@@ -74,15 +85,13 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 								fact.save();
 							}
 						});
+					},
+					error: function(fact, response1) {
+						self.endLoading();
+						self.posting = false;
+						alert(response1.responseText);
 					}
 				});
-				
-				this.attr.facts.achievement(
-					this.attr.users.where({id: this.attr.current_user.get('id')})[0], 
-					this.attr.achievements, 
-					this.attr.user_achievements, 
-					this.attr.issues.where({id: this.question.get('issue_id')})[0]
-				);
 			} else {
 				alert("Invalid Entry");
 				this.posting = false;
@@ -122,10 +131,17 @@ Gangnam.Views.FactsCreate = Backbone.View.extend({
 		}
 	},
 	
-	loading: function() {
+	startLoading: function() {
 		var view = new Gangnam.Views.PagesLoading();
-		this.subviews.push(view);
+		$('#loading').removeClass('inactive');
+		$('#loading').addClass('active');
 		$('#loading').html(view.render().el);
+	},
+	
+	 endLoading: function() {
+		$('#loading').removeClass('active');
+		$('#loading').addClass('inactive');
+		$('#loading').children().remove();
 	},
 	
 	focusTitle: function() {

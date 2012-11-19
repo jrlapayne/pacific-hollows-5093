@@ -1,0 +1,36 @@
+<div class = "picture">
+	<div class = "picture-wrapper">
+		<% if (!user || user.get('is_temp_user')) { %>
+			<img src = "assets/misc/user.png" height = "100%" />
+		<% } else { %>
+			<% if (user.get('provider') === 'facebook') { %>
+				<img src = "https://graph.facebook.com/<%= user.get('uid') %>/picture" height = "100%" />
+			<% } else if (user.get('provider') === 'google') { %>
+				<img src = "assets/misc/user.png" height = "100%" />
+			<% } else { %>
+				<img src = "http://api.twitter.com/1/users/profile_image/<%= user.get('uid') %>?size=bigger" height = "100%" />
+			<% } %>
+		<% } %>
+	</div>
+</div>
+<div class = "text">
+	<% if (user) { %>
+		<div class = "name" id = "<%= user.get('id') %>">
+	<% } else { %>
+		<div class = "name">
+	<% } %>
+		<% if (!user || user.get('is_temp_user')) { %>
+			Anon
+		<% } else { %>
+			<%= user.get('name') %>
+		<% } %>
+		<span class = "date">on <%= date.month + " " + date.day + ", " + date.year %></span>
+	</div>
+	<div class = "rank">
+		<% if (rank.rank !== null) { %>
+			Rank: <span class = "label"><%= rank.rank %> of <%= rank.users %></span>
+		<% } else { %>
+			Unranked
+		<% } %>
+	</div>
+</div>

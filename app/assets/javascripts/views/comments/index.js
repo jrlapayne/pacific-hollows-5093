@@ -3,15 +3,14 @@ Gangnam.Views.CommentsIndex = Backbone.View.extend({
 	template: JST['comments/index'],
 	
 	events: {
-		'click #new_comment' : 'createComment',
-		'submit #newcomment' : 'submitComment',
-		'click #hide-comments' : 'hideComments'
+		'submit #new' : 'createComment'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.question = options.question;
 		this.fact = options.fact;
+		this.user = this.attr.users.where({id: this.attr.current_user.get('id')})[0];
 		if (this.fact === null) {
 			this.comments = this.attr.comments.where({question_id: this.question.get('id'), fact_id: null, ancestry: null});
 		} else {
@@ -25,10 +24,10 @@ Gangnam.Views.CommentsIndex = Backbone.View.extend({
 		
 		$(this.el).html(this.template());
 		setTimeout(function() {
-			$(self.el).find('#add_comment').html(JST['comments/add']);
-			for (i = 0; i < self.comments.length; i++) {
-				self.appendComment(self.comments[i]);
-			}
+			self.renderCreate();
+			_.each(self.comments, function(comment) {
+				self.appendComment(comment);
+			});
 		}, 0);
 		return this;
 	}, 
@@ -42,44 +41,60 @@ Gangnam.Views.CommentsIndex = Backbone.View.extend({
 		$('#comments').append(view.render().el);
 	},
 	
-	createComment: function() {
-		$(this.el).find('#add_comment').html(JST['comments/create']);
+	renderCreate: function() {
+		var view = new Gangnam.Views.CommentsCreate({
+			attr: this.attr
+		});
+		this.subviews.push(view);
+		$('#new_comment').html(view.render().el);
 	},
 	
-	submitComment: function(event) {
-		event.preventDefault();		
-		var comment, question_id, fact_id;
-		if (this.fact === null) {
-			question_id = this.question.get('id');
-			fact_id = null;
-		} else {
-			question_id = this.fact.get('question_id');
-			fact_id = this.fact.get('id');
-		}
+	createComment: function(event) {
+		event.preventDefault();
+		var question_id, fact_id, self = this, content = $('#new').find('#content').val();
 		
-		if ($('#comment_content').val() && $('#comment_content').val() !== "" && /\S/.test($('#comment_content').val())) {
-			comment = this.attr.comments.create({
-				content: $('#comment_content').val(),
-				user_id: this.attr.current_user.get('id'),
-				question_id: question_id,
-				fact_id: fact_id
-			});
-			this.appendComment(comment);
-		}
-		$(this.el).find('#add_comment').html(JST['comments/add']);
-	},
-	
-	hideComments: function(event) {
-		var comments, element;
-		if (this.fact === null) {
-			comments = this.attr.comments.where({question_id: this.question.get('id'), fact_id: null});
-			element = $(event.target).closest('.comments');
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
+			if (this.fact === null) {
+				question_id = this.question.get('id');
+				fact_id = null;
+			} else {
+				question_id = this.fact.get('question_id');
+				fact_id = this.fact.get('id');
+			}
+
+			if (content && content !== "" && /\S/.test(content)) {
+				this.attr.comments.create({
+					content: content,
+					user_id: this.user.get('id'),
+					question_id: question_id,
+					fact_id: fact_id
+				}, {
+					success: function(comment, response) {
+						self.appendComment(comment);
+						self.renderCreate();
+					},
+					error: function(comment, response) {
+						self.renderCreate();
+						alert(response.responseText);
+					}
+				});
+			}
 		} else {
-			comments = this.attr.comments.where({fact_id: this.fact.get('id')});
-			element = $(event.target).closest('.fact-comments');
+			if (!this.user.signedInUser()) {
+				var view = new Gangnam.Views.PopupsSignin({
+					attr: this.attr,
+					user: this.user
+				});
+				$('.popup').html(view.render().el);
+			} else {
+				var view = new Gangnam.Views.PopupsNeedPrivilege({
+					attr: this.attr,
+					user: this.user,
+					privilege: this.attr.privileges.where({id: 3})[0]
+				});
+				$('.popup').html(view.render().el);
+			}
 		}
-		$(element).removeClass('active');
-		$(element).html(JST['comments/number']({comments: comments}));
 	},
 	
 	onClose: function() {

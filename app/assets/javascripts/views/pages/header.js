@@ -4,7 +4,8 @@ Gangnam.Views.PagesHeader = Backbone.View.extend({
 	
 	events: {
 		'click #top_logo' : 'pagesHome',
-		'click #login' : 'loginPopup'
+		'click #login' : 'loginPopup',
+		'click #user_name' : 'userProfile'
 	},
 	
 	initialize: function(options) {
@@ -34,12 +35,16 @@ Gangnam.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	slider: function() {
-		$('#interesting').cycle('stop');
+		/* $('#interesting').cycle('stop');
 		$('#interesting').cycle({
 			fx: 'fade',
 			timeout: 0,
 			prev: '#int_prev',
 			next: '#int_next'
-		});
+		}); */
+	},
+	
+	userProfile: function() {
+		Backbone.history.navigate('profile', true);
 	}
 });

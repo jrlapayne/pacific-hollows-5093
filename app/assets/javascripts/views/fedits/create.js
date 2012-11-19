@@ -41,6 +41,7 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 		var self = this;
 		var urls = this.getUrls($('.editsource').get());
 		
+		this.startLoading();
 		this.attr.fedits.create({
 			issue_id: this.fact.get('issue_id'),
 			question_id: this.fact.get('question_id'),
@@ -51,17 +52,21 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 			urls: urls
 		}, { 
 			success: function(model, response) {
+				self.endLoading();
 				self.fact.updateFromFedit(model);
 				self.renderFact();
+				self.attr.fedits.achievement(
+					self.attr.users.where({id: self.attr.current_user.get('id')})[0],
+					self.attr.achievements,
+					self.attr.user_achievements,
+					self.attr.issues.where({id: self.fact.get('issue_id')})[0]
+				);
+			},
+			error: function(model, response) {
+				self.endLoading();
+				alert(response.responseText);
 			}
 		});
-		
-		this.attr.fedits.achievement(
-			this.attr.users.where({id: this.attr.current_user.get('id')})[0],
-			this.attr.achievements,
-			this.attr.user_achievements,
-			this.attr.issues.where({id: this.fact.get('issue_id')})[0]
-		);
 	},
 	
 	getUrls: function(sources) {
@@ -104,23 +109,32 @@ Gangnam.Views.FeditsCreate = Backbone.View.extend({
 	},
 	
 	deleteFact: function() {
+		var self = this;
 		if (confirm('Are you sure?')) {
-			this.loading();
+			this.startLoading();
 			this.fact.destroy({
 				success: function(model, response) {
-					$('#loading').children().remove();
+					self.endLoading();
 				},
 				error: function(model, response) {
-					$('#loading').children().remove();
+					self.endLoading();
+					alert(response.responseText);
 				}
 			});
 		}
 	},
 	
-	loading: function() {
+	startLoading: function() {
 		var view = new Gangnam.Views.PagesLoading();
-		this.subviews.push(view);
+		$('#loading').removeClass('inactive');
+		$('#loading').addClass('active');
 		$('#loading').html(view.render().el);
+	},
+	
+	 endLoading: function() {
+		$('#loading').removeClass('active');
+		$('#loading').addClass('inactive');
+		$('#loading').children().remove();
 	},
 	
 	onClose: function() {

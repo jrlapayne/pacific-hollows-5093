@@ -1,9 +1,14 @@
-.comment {
+.commentpanel {
+	position: relative;
+	margin-left: 15px;
+	border-top: 1px solid;
 	
 	.title {
 		
 		&.container {
-			
+			position: relative;
+			width: 100%;
+			height: auto;
 		}
 		
 		&.text {
@@ -11,23 +16,92 @@
 		}
 	}
 	
-	.stats {
+	.vote {
 		
-		.vote {
+		&.container {
+			position: absolute;
+			top: 0;
+			left: -15px;
+			width: 15px;
+			height: 40px;
 			
-			&.container {
+			.vote {
 				
+				&.up {
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+				
+				&.down {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+				}
+				
+				&.count {
+					position: absolute;
+					top: 10px;
+					left: 0;
+				}
 			}
+		}
+	}
+	
+	.stats {
+		position: relative;
+		width: 100%;
+		height: 30px;
+			
+		.picture {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			height: 25px;
+			width: 25px;
+			@include border-radius(3px);
+		}
+
+		.picture-wrapper {
+			overflow: hidden;
+			position: static;
+			width: 100%;
+			height: 100%;
+			@include border-radius(3px);
 		}
 		
 		.reply {
 			
 			&.container {
-				
+				position: absolute;
+				bottom: 0;
+				right: 0;
 			}
 			
 			&.button {
 				
+			}
+		}
+		
+		.text {
+			position: absolute;
+			top: 0;
+			left: 25px;
+			font-size: 10px;
+			
+			.name {
+
+			}
+
+			.rank {
+
+				.label {
+
+				}
+			}
+
+			.date {
+		
 			}
 		}
 	}

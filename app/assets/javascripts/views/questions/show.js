@@ -3,7 +3,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	template: JST['questions/show'],
 	
 	events: {
-		'click .comments' : 'commentsIndex',
+		'click #question_comments' : 'commentsIndex',
 		'click #quedit' : 'queditCreate',
 		'click #question_share' : 'questionShare'
 	},
@@ -26,7 +26,7 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$(this.el).attr('id', this.question.get('id'));
-		$(this.el).addClass('panel question active');
+		$(this.el).addClass('panel question');
 		$(this.el).html(this.template({
 			question: this.question,
 			comments: this.comments,
@@ -65,8 +65,8 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	},
 	
 	commentsIndex: function(event) {
-		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
-			var element = $(event.target).closest('.question');
+		var element = $(event.target).closest('.question');
+		if (!$(element).hasClass('active')) {
 			var view = new Gangnam.Views.CommentsIndex({
 				attr: this.attr,
 				question: this.question,
@@ -74,22 +74,10 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 			});
 			this.subviews.push(view);
 			$(element).addClass('active');
-			$(element).html(view.render().el);
+			$(element).find('#extras').html(view.render().el);
 		} else {
-			if (!this.user.signedInUser()) {
-				var view = new Gangnam.Views.PopupsSignin({
-					attr: this.attr,
-					user: this.user
-				});
-				$('.popup').html(view.render().el);
-			} else {
-				var view = new Gangnam.Views.PopupsNeedPrivilege({
-					attr: this.attr,
-					user: this.user,
-					privilege: this.attr.privileges.where({id: 3})[0]
-				});
-				$('.popup').html(view.render().el);
-			}
+			$(element).removeClass('active');
+			$(element).find('#extras').children().remove();
 		}
 	},
 	

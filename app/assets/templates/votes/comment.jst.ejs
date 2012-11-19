@@ -1,7 +1,3 @@
-<button class = "vote" id = "comment_up">+</button>
-<% if (score > 0) { %>
-	+ <%= score %>
-<% } else { %>
-	<%= score %>
-<% } %>
-<button class = "vote" id = "comment_down">-</button>
+<div class = "vote up"><div class = "really-small-arrow" id = "upvote"></div></div>
+<div class = "vote count"><%= score %></div>
+<div class = "vote down"><div class = "really-small-darrow" id = "downvote"></div></div>

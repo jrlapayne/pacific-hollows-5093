@@ -27,10 +27,24 @@ Gangnam.Collections.Questions = Backbone.Collection.extend({
 						question.set({edit_id: quedit.get('id')});
 						question.save();
 						self.trigger('auto');
+						$('#loading').removeClass('active');
+						$('#loading').addClass('inactive');
 						$('#loading').children().remove();
 						Backbone.history.navigate('question' + question.get('id'), true);
+					},
+					error: function(quedit, response2) {
+						$('#loading').removeClass('active');
+						$('#loading').addClass('inactive');
+						$('#loading').children().remove();
+						alert(response2.responseText);
 					}
 				});
+			},
+			error: function(question, response1) {
+				$('#loading').removeClass('active');
+				$('#loading').addClass('inactive');
+				$('#loading').children().remove();
+				alert(response1.responseText);
 			}
 		});
 	},

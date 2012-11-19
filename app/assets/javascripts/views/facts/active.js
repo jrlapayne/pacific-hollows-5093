@@ -3,7 +3,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	template: JST['facts/active'],
 	
 	events: {
-		'click .fact-comments' : 'commentsIndex',
+		'click #comments' : 'commentsIndex',
 		'click #fedit' : 'feditsCreate',
 		'click #fact_share' : 'factShare'
 	},
@@ -67,33 +67,16 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	},
 	
 	commentsIndex: function(event) {
-		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
-			var element = $(event.target).closest('.fact-comments');
-			if (!$(element).hasClass('active')) {
-				var view = new Gangnam.Views.CommentsIndex({
-					attr: this.attr,
-					question: this.attr.questions.where({id: this.fact.get('question_id')})[0],
-					fact: this.fact
-				});
-				this.subviews.push(view);
-				$(element).addClass('active');
-				$(element).html(view.render().el);
-			}
-		} else {
-			if (!this.user.signedInUser()) {
-				var view = new Gangnam.Views.PopupsSignin({
-					attr: this.attr,
-					user: this.user
-				});
-				$('.popup').html(view.render().el);
-			} else {
-				var view = new Gangnam.Views.PopupsNeedPrivilege({
-					attr: this.attr,
-					user: this.user,
-					privilege: this.attr.privileges.where({id: 3})[0]
-				});
-				$('.popup').html(view.render().el);
-			}
+		var element = $(event.target).closest('.fact-comments');
+		if (!$(element).hasClass('active')) {
+			var view = new Gangnam.Views.CommentsIndex({
+				attr: this.attr,
+				question: this.attr.questions.where({id: this.fact.get('question_id')})[0],
+				fact: this.fact
+			});
+			this.subviews.push(view);
+			$(element).addClass('active');
+			$(element).find('#extras').html(view.render().el);
 		}
 	},
 	

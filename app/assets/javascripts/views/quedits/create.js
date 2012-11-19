@@ -46,6 +46,7 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 			category = 'advance';
 		}
 		
+		this.startLoading();
 		this.attr.quedits.create({
 			issue_id: this.question.get('issue_id'),
 			question_id: this.question.get('id'),
@@ -54,17 +55,21 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 			user_id: this.attr.current_user.get('id')
 		}, { 
 			success: function(model, response) {
+				self.endLoading();
 				self.question.updateFromQuedit(model);
 				self.renderQuestion();
+				self.attr.quedits.achievement(
+					self.attr.users.where({id: self.attr.current_user.get('id')})[0],
+					self.attr.achievements,
+					self.attr.user_achievements,
+					self.attr.issues.where({id: self.question.get('issue_id')})[0]
+				);
+			},
+			error: function(model, response) {
+				self.endLoading();
+				alert(response.responseText);
 			}
 		});
-		
-		this.attr.quedits.achievement(
-			this.attr.users.where({id: this.attr.current_user.get('id')})[0],
-			this.attr.achievements,
-			this.attr.user_achievements,
-			this.attr.issues.where({id: this.question.get('issue_id')})[0]
-		);
 	},
 	
 	queditsIndex: function() {
@@ -79,25 +84,33 @@ Gangnam.Views.QueditsCreate = Backbone.View.extend({
 	},
 	
 	deleteQuestion: function() {
+		var self = this;
 		if (confirm('Are you sure?')) {
-			this.loading();
+			this.startLoading();
 			this.question.destroy({
 				success: function(model, response) {
-					$('#loading').children().remove();
+					self.endLoading();
 					parent.history.back();
 				},
 				error: function(model, response) {
-					$('#loading').children().remove();
-					parent.history.back();
+					self.endLoading();
+					alert(response.responseText);
 				}
 			});
 		}
 	},
 	
-	loading: function() {
+	startLoading: function() {
 		var view = new Gangnam.Views.PagesLoading();
-		this.subviews.push(view);
+		$('#loading').removeClass('inactive');
+		$('#loading').addClass('active');
 		$('#loading').html(view.render().el);
+	},
+	
+	 endLoading: function() {
+		$('#loading').removeClass('active');
+		$('#loading').addClass('inactive');
+		$('#loading').children().remove();
 	},
 	
 	answersCreate: function() {

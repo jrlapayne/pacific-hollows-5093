@@ -103,6 +103,7 @@
 	}
 	
 	&.name {
+		cursor: pointer;
 		color: rgb(70,70,70);
 		position: absolute;
 		bottom: 5px;
@@ -111,6 +112,10 @@
 		font-size: 13px;
 		line-height: 18px;
 		font-weight: bold;
+		
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 
