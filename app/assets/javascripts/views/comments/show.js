@@ -82,11 +82,20 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 	
 	renderReply: function(event) {
 		var element = $(event.target).closest('.commentpanel');
-		var view = new Gangnam.Views.CommentsReply({
-			attr: this.attr
-		});
-		this.subviews.push(view);
-		$(element).find('#new_reply').html(view.render().el);
+		
+		if ($(this.el).attr('id') === $(element).attr('id')) {
+			if (!$(element).hasClass('replying')) {
+				var view = new Gangnam.Views.CommentsReply({
+					attr: this.attr
+				});
+				this.subviews.push(view);
+				$(element).addClass('replying');
+				$(element).children('#new_reply').html(view.render().el);
+			} else {
+				$(element).removeClass('replying');
+				$(element).children('#new_reply').children().remove();
+			}
+		}
 	},
 	
 	appendComment: function(comment) {
@@ -101,6 +110,7 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 		event.preventDefault();	
 		var self = this, content = $(this.el).find('#reply').find('#content').val();
 		
+		this.startLoading();
 		if (!this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
 			if (content && content !== "" && /\S/.test(content)) {
 				this.attr.comments.create({
@@ -112,9 +122,13 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 				}, {
 					success: function(comment, response) {
 						self.appendComment(comment);
+						self.endLoading();
+						$(event.target).closest('.commentpanel').removeClass('replying');
 						$(self.el).find('#new_reply').children().remove();
 					},
 					error: function(comment, response) {
+						self.endLoading();
+						$(event.target).closest('.commentpanel').removeClass('replying');
 						$(self.el).find('#new_reply').children().remove();
 						alert(response.responseText);
 					}
@@ -136,6 +150,19 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 				$('.popup').html(view.render().el);
 			}
 		}
+	},
+	
+	startLoading: function() {
+		var view = new Gangnam.Views.PagesLoading();
+		$('#loading').removeClass('inactive');
+		$('#loading').addClass('active');
+		$('#loading').html(view.render().el);
+	},
+	
+	 endLoading: function() {
+		$('#loading').removeClass('active');
+		$('#loading').addClass('inactive');
+		$('#loading').children().remove();
 	},
 	
 	onClose: function() {
