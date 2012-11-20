@@ -4,8 +4,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			min-height: 80px;
-			height: 50%;
+			height: 80px;
 			width: 5%;
 			background: #fff;
 		}
@@ -63,23 +62,21 @@
 	
 	.sources {	
 		&.container {
-			margin: 10px 25px 65px 50px;
+			margin: 10px 25px 10px 50px;
 			padding-bottom: 8px;	
 		}
 	}
 		
 	.stats {
-		position: absolute;
-		bottom: -5px;
-		left: 50px;
-		height: 50px;
+		position: relative;
+		margin: 10px 0 10px 50px;
+		height: 40px;
 		width: 457px;
-		padding: 9px 1px 9px 1px;
 		border-top: 1px solid lighten($black, 68%);
 		
 		.picture {
 			position: absolute;
-			top: 12px;
+			top: 10px;
 			left: 0;
 			height: 30px;
 			width: 30px;
@@ -97,7 +94,7 @@
 		
 		.text {
 			position: absolute;
-			top: 12px;
+			top: 10px;
 			left: 38px;
 			width: 200px;
 			height: 50%;
@@ -138,7 +135,7 @@
 			line-height: 20px;
 			color: rgb(147,147,147);
 			position: absolute;
-			bottom: 25px;
+			bottom: 2px;
 			left: 325px;
 			width: 170px;
 			height: 20px;
@@ -293,7 +290,7 @@
 	color: rgb(80,80,80);
 }
 .fact-separator-line {
-	margin: 0 0 5px 0;
+	margin: 10px 0 5px 0;
 	width: 100%;
 	border-bottom: 1px solid rgb(200,200,200);
 }

@@ -66,17 +66,26 @@ Gangnam.Views.QuestionsShow = Backbone.View.extend({
 	
 	commentsIndex: function(event) {
 		var element = $(event.target).closest('.question');
-		if (!$(element).hasClass('active')) {
+		var elements = $('#facts').children().get();
+		elements.push($('#question').children());
+		_.each(elements, function(e) {
+			if ($(e).attr('id') !== $(element).attr('id') && $(e).find('#extras').hasClass('commenting')) {
+				$(e).find('#extras').removeClass('commenting');
+				$(e).find('#extras').children().remove();
+			}
+		});
+		
+		if (!$(element).find('#extras').hasClass('commenting')) {
 			var view = new Gangnam.Views.CommentsIndex({
 				attr: this.attr,
 				question: this.question,
 				fact: null
 			});
 			this.subviews.push(view);
-			$(element).addClass('active');
+			$(element).find('#extras').addClass('commenting');
 			$(element).find('#extras').html(view.render().el);
 		} else {
-			$(element).removeClass('active');
+			$(element).find('#extras').removeClass('commenting');
 			$(element).find('#extras').children().remove();
 		}
 	},

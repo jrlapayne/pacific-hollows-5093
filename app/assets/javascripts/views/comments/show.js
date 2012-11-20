@@ -101,7 +101,7 @@ Gangnam.Views.CommentsShow = Backbone.View.extend({
 		event.preventDefault();	
 		var self = this, content = $(this.el).find('#reply').find('#content').val();
 		
-		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
+		if (!this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
 			if (content && content !== "" && /\S/.test(content)) {
 				this.attr.comments.create({
 					content: content,

@@ -3,7 +3,7 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	template: JST['facts/active'],
 	
 	events: {
-		'click #comments' : 'commentsIndex',
+		'click #fact_comments' : 'commentsIndex',
 		'click #fedit' : 'feditsCreate',
 		'click #fact_share' : 'factShare'
 	},
@@ -67,16 +67,28 @@ Gangnam.Views.FactsActive = Backbone.View.extend({
 	},
 	
 	commentsIndex: function(event) {
-		var element = $(event.target).closest('.fact-comments');
-		if (!$(element).hasClass('active')) {
+		var element = $(event.target).closest('.fact');
+		var elements = $('#facts').children().get();
+		elements.push($('#question').children());
+		_.each(elements, function(e) {
+			if ($(e).attr('id') !== $(element).attr('id') && $(e).find('#extras').hasClass('commenting')) {
+				$(e).find('#extras').removeClass('commenting');
+				$(e).find('#extras').children().remove();
+			}
+		});
+		
+		if (!$(element).find('#extras').hasClass('commenting')) {
 			var view = new Gangnam.Views.CommentsIndex({
 				attr: this.attr,
 				question: this.attr.questions.where({id: this.fact.get('question_id')})[0],
 				fact: this.fact
 			});
 			this.subviews.push(view);
-			$(element).addClass('active');
+			$(element).find('#extras').addClass('commenting');
 			$(element).find('#extras').html(view.render().el);
+		} else {
+			$(element).find('#extras').removeClass('commenting');
+			$(element).find('#extras').children().remove();
 		}
 	},
 	
