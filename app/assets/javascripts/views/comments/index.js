@@ -53,7 +53,7 @@ Gangnam.Views.CommentsIndex = Backbone.View.extend({
 		event.preventDefault();
 		var question_id, fact_id, self = this, content = $('#new').find('#content').val();
 		
-		if (!this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
+		if (this.user.userConditions(this.attr.user_privileges, this.attr.privileges.where({id: 3})[0])) {
 			if (this.fact === null) {
 				question_id = this.question.get('id');
 				fact_id = null;

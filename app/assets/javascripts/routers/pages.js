@@ -1,18 +1,21 @@
 Gangnam.Routers.Pages = Backbone.Router.extend({
 	
 	routes: {
-		'' : 'pagesHome',
-		'issues' : 'issuesIndex',
-		'issue:id' : 'issuesCategories',
-		'issue:id/basics' : 'questionsBasics',
+		'' 			: 'pagesHome',
+		'about' 	: 'pagesAbout',
+		'mission' 	: 'pagesMission',
+		
+		'issues' 			: 'issuesIndex',
+		'issue:id' 			: 'issuesCategories',
+		'issue:id/basics' 	: 'questionsBasics',
 		'issue:id/advanced' : 'questionsAdvanced',
-		'question:id' : 'factsIndex',
-		'factory' : 'questionsFactory',
-		'profile' : 'currentUserProfile',
-		'about' : 'pagesAbout',
-		'mission' : 'pagesMission',
-		'quiz:id' : 'quizzesIndex',
-		'users:id' : 'usersProfile'
+		
+		'question:id' 	: 'factsIndex',
+		'factory' 		: 'questionsFactory',
+		'quiz:id' 		: 'quizzesIndex',
+		
+		'profile' 	: 'currentUserProfile',
+		'users:id' 	: 'usersProfile'
 	},
 	
 	initialize: function(options) {

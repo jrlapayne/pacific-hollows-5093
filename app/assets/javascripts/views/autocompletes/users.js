@@ -132,6 +132,13 @@ Gangnam.Views.AutocompletesUsers = Backbone.View.extend({
 	},
 	
 	hoverResult: function(dir) {
+		var length;
+		if (this.matches.length < 10) {
+			length = this.matches.length;
+		} else {
+			length = 10;
+		}
+		
 		if (this.hovered && this.matches) {
 			if (dir === 1 && parseInt($(this.hovered).attr('id')) !== this.matches[0].id) {
 				$(this.hovered).prev().addClass('hovered');
@@ -139,7 +146,7 @@ Gangnam.Views.AutocompletesUsers = Backbone.View.extend({
 				this.hovered = $(this.hovered).prev();
 			}
 			
-			if (dir === -1 && parseInt($(this.hovered).attr('id')) !== this.matches[9].id) {
+			if (dir === -1 && parseInt($(this.hovered).attr('id')) !== this.matches[length - 1].id) {
 				$(this.hovered).next().addClass('hovered');
 				$(this.hovered).removeClass('hovered');
 				this.hovered = $(this.hovered).next();

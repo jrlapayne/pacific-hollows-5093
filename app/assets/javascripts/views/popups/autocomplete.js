@@ -7,7 +7,7 @@ Gangnam.Views.PopupsAutocomplete = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
-		
+
 	},
 	
 	render: function() {
