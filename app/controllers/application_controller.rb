@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :signed_in?, :test_function
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
 
   def signed_in?
     !!current_user
+  end
+  
+  def test_function
+     return "this is a test"
   end
 end

@@ -15,7 +15,9 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 		'quiz:id' 		: 'quizzesIndex',
 		
 		'profile' 	: 'currentUserProfile',
-		'users:id' 	: 'usersProfile'
+		'users:id' 	: 'usersProfile',
+		
+		'test' : 'testPage'
 	},
 	
 	initialize: function(options) {
@@ -310,5 +312,14 @@ Gangnam.Routers.Pages = Backbone.Router.extend({
 	loading: function() {
 		var view = new Gangnam.Views.PagesLoading();
 		$('#loading').html(view.render().el);
+	},
+	
+	testPage: function() {
+		var view = new Gangnam.Views.PagesTest({
+			attr: this.attr
+		});
+		this.prepPage(false, true);
+		this.setCurrentView(view);
+		$('.page').html(view.render().el);
 	}
 });

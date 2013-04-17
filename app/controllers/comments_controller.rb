@@ -10,7 +10,8 @@ class CommentsController < ApplicationController
   end
   
   def create
-    respond_with Comment.create(params[:comment])
+    @comment =  Comment.create(params[:comment])
+    respond_with @comment
   end
   
   def update

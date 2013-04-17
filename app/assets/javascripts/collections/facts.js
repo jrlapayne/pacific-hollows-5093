@@ -3,6 +3,10 @@ Gangnam.Collections.Facts = Backbone.Collection.extend({
 	model: Gangnam.Models.Fact,
 	url: 'facts',
 	
+	initialize: function() {
+		
+	},
+	
 	comparator: function(fact) {
 		return - fact.get('score');
 	},
